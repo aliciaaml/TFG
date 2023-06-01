@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Dentro
-    second: {fileID: 2100000, guid: b88212d250fef83438898f8274eb3f4f, type: 2}
+    second: {fileID: 2100000, guid: a83d3b577b5703d41b1a1ea00e7ac631, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
