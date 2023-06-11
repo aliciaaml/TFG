@@ -3,42 +3,7 @@ guid: 5ea34fba17ac36547abe0179ba843ca2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 3e486b8ba3c83f74697dc3b6af93545f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: blanco
-    second: {fileID: 2100000, guid: 4ddc743b3a018b1468c80b849127f13b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: cuerpo
-    second: {fileID: 2100000, guid: eed3d48954cb9c34d87f0b37d282110f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: negro
-    second: {fileID: 2100000, guid: ac6c22ed888065e4ca90c8c764cc9c13, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: puntos
-    second: {fileID: 2100000, guid: 4972fd9bd5bb6e44ea32c5f0e3fa0cb2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: puntos_verdes
-    second: {fileID: 2100000, guid: 1a8e06c95dbe1994d84d4c610a2bff29, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: rana
-    second: {fileID: 2800000, guid: 39c3b59eab63bf44cb5ca678f23a37f6, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

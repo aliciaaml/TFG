@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 407c2b6690fa22b4f9dc36d61c266d99
+guid: d9875e6e41777df499a73a2a9b971cb0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,28 +7,58 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Cuerpo
-    second: {fileID: 2100000, guid: a83d3b577b5703d41b1a1ea00e7ac631, type: 2}
+      name: boton
+    second: {fileID: 2100000, guid: be118dcb45bde1f44a441ef7ee997cea, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Dentro
-    second: {fileID: 2100000, guid: a83d3b577b5703d41b1a1ea00e7ac631, type: 2}
+      name: botonoscuro
+    second: {fileID: 2100000, guid: 88a25b9f5f4e2bb40a8bfa496b07f41f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: a83d3b577b5703d41b1a1ea00e7ac631, type: 2}
+      name: cejas_boca
+    second: {fileID: 2100000, guid: b3041daa794d707458403414ea50d5b0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Negro
-    second: {fileID: 2100000, guid: 6739f50bbfec5b840803863fd2d82d38, type: 2}
+      name: cinturon
+    second: {fileID: 2100000, guid: 42414211b2492374e96a84a7859c3653, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: blanco
-    second: {fileID: 2100000, guid: 391841dea811604469b48ba7f3a21416, type: 2}
+      name: cuerpo
+    second: {fileID: 2100000, guid: 74f665aa34a4afa4691756d9b0cfdbb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flor
+    second: {fileID: 2100000, guid: 5e1458c6d5f064c4cbf185cd066b58a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: negro
+    second: {fileID: 2100000, guid: 3c89f890e73e3584a830c73d73fd6a66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: negro_mate
+    second: {fileID: 2100000, guid: 513a64bac8b726c4992f4c65ae637902, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pantalon
+    second: {fileID: 2100000, guid: 48c4c5a2730739449b9063daaea367d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pincho
+    second: {fileID: 2100000, guid: c00ff9e8ed555884395e5d1dbc07021f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pincho.001
+    second: {fileID: 2100000, guid: 24d6cd210a0bb4b46a2359e516d31d1f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -58,9 +88,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Idle
-      takeName: Armature|Idle
-      internalID: -8945691123924629249
+      name: Armature|Idle (1)
+      takeName: Armature|Armature.002
+      internalID: -2031007813491923735
       firstFrame: 0
       lastFrame: 80
       wrapMode: 0
@@ -87,9 +117,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Idle.001
-      takeName: Armature|Idle.001
-      internalID: 4106399916549189888
+      name: Armature|Idle
+      takeName: Armature|Idle
+      internalID: -8945691123924629249
       firstFrame: 0
       lastFrame: 80
       wrapMode: 0
@@ -98,7 +128,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -144,35 +174,6 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|Walk.001
-      takeName: Armature|Walk.001
-      internalID: -6544428077046268240
-      firstFrame: 0
-      lastFrame: 40
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -192,7 +193,7 @@ ModelImporter:
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
+    bakeAxisConversion: 1
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4

@@ -1,69 +1,9 @@
 fileFormatVersion: 2
-guid: 0e318ed5da25e0243af8835d62920190
+guid: fa9c2c9a1c4aa7c4fbb75666fcec977f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: AbajoCabeza
-    second: {fileID: 2100000, guid: 56811fc6dca7eba4e93edb3890f6eecd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: AbajoCuerpo
-    second: {fileID: 2100000, guid: 22b7222c89117054e8808812e4bddeac, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cabeza
-    second: {fileID: 2100000, guid: 3834508920a728a4985fc8818cb7614e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Circulos
-    second: {fileID: 2100000, guid: 8477100f3b6904641a0dac140ea957c2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cuello
-    second: {fileID: 2100000, guid: 3fded1a5d1bb5c24580af5e2edbe86be, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Parpado
-    second: {fileID: 2100000, guid: 964f82ae2d4445c4f8f662289ea046bd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Piernas
-    second: {fileID: 2100000, guid: 1a12f63cba4cdb94bb3eba678b5d45a4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: blanco
-    second: {fileID: 2100000, guid: 86909e0a407e5b2489d91bd004cf0413, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: circulos2
-    second: {fileID: 2100000, guid: e9596604974385449b32e7ed41d7ff21, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: cuerpo
-    second: {fileID: 2100000, guid: aa398ca3469f0654897438f2be85707b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: labios
-    second: {fileID: 2100000, guid: b84249cf826c4184c897678d3efc2f9d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: negro
-    second: {fileID: 2100000, guid: 6c002b9ffe357a540beed48b03572ca3, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
