@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class colisionPlayer : MonoBehaviour
 {
+    
 
     public static GameObject casilla_actual;
 
@@ -14,6 +15,7 @@ public class colisionPlayer : MonoBehaviour
     void OnTriggerEnter(Collider other) {
 
         if(other.gameObject.tag == "casillas"){
+            
             casilla_actual = other.gameObject;
 
             if(casilla_actual!=casilla_aux){
@@ -26,23 +28,4 @@ public class colisionPlayer : MonoBehaviour
         
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-     
-        /*
-        if(casilla_actual!=casilla_aux){
-
-            casilla_aux = casilla_actual;
-            actual +=1;
-            //Debug.Log(actual);
-        }
-        */
-    }
 }

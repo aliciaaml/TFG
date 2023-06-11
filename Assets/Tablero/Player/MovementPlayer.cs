@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MovementPlayer : MonoBehaviour
 {
-    int casilla_destino = 16;
+    public static Dictionary<string, int> PosicionActualPlayers= new Dictionary<string,int>();
+
+    int casilla_destino = 3;
     private UnityEngine.AI.NavMeshAgent navMeshAgent;
     private Animator animator;
 
@@ -15,8 +17,18 @@ public class MovementPlayer : MonoBehaviour
 
     int m_CurrentWaypointIndex;
 
-    bool comienza_turno = true;
-    bool Inicio = true;
+    public static bool comienza_turno = true;
+    public static bool Inicio = true;
+    public static bool siguiente = false;
+
+    public static int index = 0;
+
+    bool primeraRonda = true;
+
+    public static List<string> OrdenInicioPlayers = new List<string>(){
+
+        "player1","player2","player3","player4"
+    };
 
     void Start()
     {
@@ -26,8 +38,6 @@ public class MovementPlayer : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("ACTUAL: "  + colisionPlayer.actual );
-        //Debug.Log("DESTINO: " + casilla_destino);
 
         if (comienza_turno)
         {
@@ -41,7 +51,7 @@ public class MovementPlayer : MonoBehaviour
             animator.SetBool("moving", true);
             m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints_recorrer.Count; 
             navMeshAgent.SetDestination(waypoints_recorrer[m_CurrentWaypointIndex].position);
-            //RotateTowards(waypoints_recorrer[m_CurrentWaypointIndex].position);
+
         }   
         if(colisionPlayer.actual == casilla_destino)
         {
@@ -49,6 +59,20 @@ public class MovementPlayer : MonoBehaviour
             Inicio = false;
             comienza_turno = false;
             animator.SetBool("moving", false);
+            siguiente = true;
+            index+=1;
+
+            if(primeraRonda){
+
+                PosicionActualPlayers.Add(OrdenInicioPlayers[0], colisionPlayer.actual);
+                for(int i = 1; i<OrdenInicioPlayers.Count; i++ ){
+
+                    colisionPlayer.actual = 0;
+                    PosicionActualPlayers.Add(OrdenInicioPlayers[i], colisionPlayer.actual);
+                }
+                primeraRonda = false;
+            }
+  
         }
     }
 
@@ -78,15 +102,5 @@ public class MovementPlayer : MonoBehaviour
 
         return recorrer;
     }
-    /*
-    void RotateTowards(Vector3 targetPosition){
-        Vector3 direction = targetPosition - transform.position;
-        direction.y = 0;
-        if(direction!=Vector3.zero){
 
-            Quaternion toRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,toRotation,navMeshAgent.angularSpeed * Time.deltaTime);
-        }
-    }
-    */
 }
