@@ -40,6 +40,7 @@ public class ComunPlayers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("TURNO 1: " + CambiarPlayer.TurnoPlayer1 + "TURNO 2: " + CambiarPlayer.TurnoPlayer2 + "TURNO 3: " + CambiarPlayer.TurnoPlayer3 + "TURNO 4: " + CambiarPlayer.TurnoPlayer4 );;
         if(primeraRonda && siguiente){
 
             PosicionActualPlayers.Add(OrdenInicioPlayers[0], colisionPlayer.actual);

@@ -47,7 +47,7 @@ public class CambiarPlayer : MonoBehaviour
         CameraSwitcher.Register(CameraTodos);
 
         CameraSwitcher.SwitchCamera(CameraTodos); // AQUI SE PONDRA LA CAMARA EN LA QUE SE VE A TODOS LOS PERSONAJES
-        TurnoPlayer1 = true;                        // AQUÍ SE PONDRA EL TURNO DEL JUGADOR QUE EMPIEZA
+        //TurnoPlayer1 = true;                        // AQUÍ SE PONDRA EL TURNO DEL JUGADOR QUE EMPIEZA
     }
 
     private void OnDisable(){
