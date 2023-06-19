@@ -15,6 +15,9 @@ public class ComunPlayers : MonoBehaviour
     [SerializeField] List<Transform> waypoints_todos = new List<Transform>();
     public static List<Transform> waypoints_recorrer = new List<Transform>();
 
+    public static bool IA = false;
+    public static bool PERSONA = false;
+
     public static List<string> OrdenInicioPlayers = new List<string>(){
 
         "player1","player2","player3","player4"     //SE CAMBIA POR EL ORDEN ESTABLECIDO POR LOS DADOS
@@ -40,7 +43,7 @@ public class ComunPlayers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("TURNO 1: " + CambiarPlayer.TurnoPlayer1 + "TURNO 2: " + CambiarPlayer.TurnoPlayer2 + "TURNO 3: " + CambiarPlayer.TurnoPlayer3 + "TURNO 4: " + CambiarPlayer.TurnoPlayer4 );;
+        //Debug.Log("TURNO 1: " + CambiarPlayer.TurnoPlayer1 + "TURNO 2: " + CambiarPlayer.TurnoPlayer2 + "TURNO 3: " + CambiarPlayer.TurnoPlayer3 + "TURNO 4: " + CambiarPlayer.TurnoPlayer4 );;
         if(primeraRonda && siguiente){
 
             PosicionActualPlayers.Add(OrdenInicioPlayers[0], colisionPlayer.actual);
@@ -54,6 +57,8 @@ public class ComunPlayers : MonoBehaviour
             dic_lleno = true;
 
         }
+
+        
         
     }
 

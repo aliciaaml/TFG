@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 754ef5b63980e5247b498b286d70844a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Spicy Style
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 73f95d4995a9b5b44aa1b78b7c0abf5d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
