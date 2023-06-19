@@ -16,21 +16,13 @@ public class SegundaTirada : MonoBehaviour
 
     public GameObject dado_1;
     public GameObject tex_vuelve_tirar;
-
     public GameObject colliderdado1;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
 
         if( gameManager.maquina.estadoActual == MaquinaEstados.Estado.TirarDosVeces){
-
-
             if(!segundaTerminada){
 
                 if (!dado_1.activeSelf){
@@ -58,7 +50,6 @@ public class SegundaTirada : MonoBehaviour
 
                         segundaTerminada = true;
 
-
                         animator.SetBool("numero1",false);   
                         animator.SetBool("numero2",false);
                         animator.SetBool("numero3",false);
@@ -67,12 +58,9 @@ public class SegundaTirada : MonoBehaviour
                         animator.SetBool("numero6",false);
 
                     }
-
                 }
-
             }
         }
-        
     }
 
     void Wait_segundo_dado(){

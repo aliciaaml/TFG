@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Click_cana0 : MonoBehaviour
 {
-
     private Animator animator;
-
 
     void Start(){
 
         animator = GetComponent<Animator>();
     }
-
 
     void OnMouseDown()
     {
@@ -28,9 +25,6 @@ public class Click_cana0 : MonoBehaviour
             animator.SetBool("no_pez",true);
 
         }
-
-
-
     }
 
     void OnMouseUp()
@@ -38,6 +32,4 @@ public class Click_cana0 : MonoBehaviour
         animator.SetBool("pez",false);
         animator.SetBool("no_pez",false);
     }
-
-
 }

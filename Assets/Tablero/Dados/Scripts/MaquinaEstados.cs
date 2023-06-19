@@ -7,14 +7,10 @@ public class MaquinaEstados : MonoBehaviour
 {
     public enum Estado
     {
-
         TirarUnDado,
         TirarDobleDado,
         TirarDosVeces,
         TurnoNuevo
-
-
-
     }
 
     public Estado estadoInicial;
