@@ -14,6 +14,9 @@ public class EscogerJugador : MonoBehaviour
 
         SceneManager.LoadScene("ChoosePlayers");
         one_player = true;
+        two_player = false;
+        three_player = false;
+        four_player = false;
 
     }
 
@@ -21,6 +24,9 @@ public class EscogerJugador : MonoBehaviour
 
         SceneManager.LoadScene("ChoosePlayers");
         two_player = true;
+        one_player = false;
+        three_player = false;
+        four_player = false;
 
     }
 
@@ -28,12 +34,18 @@ public class EscogerJugador : MonoBehaviour
 
         SceneManager.LoadScene("ChoosePlayers");
         three_player = true;
+        two_player = false;
+        one_player = false;
+        four_player = false;
     }
 
     public void FourPlayer(){
 
         SceneManager.LoadScene("Terreno");
         four_player = true;
+        two_player = false;
+        three_player = false;
+        one_player = false;
         EscogerPersonaje.juegoComenzar = true;
 
     }
@@ -42,6 +54,11 @@ public class EscogerJugador : MonoBehaviour
 
         SceneManager.LoadScene("Terreno");
         EscogerPersonaje.juegoComenzar = false;
+
+        one_player = false;
+        two_player = false;
+        three_player = false;
+        four_player = false;
     }
 
 }
