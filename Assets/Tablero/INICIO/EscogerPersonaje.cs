@@ -67,7 +67,7 @@ public class EscogerPersonaje : MonoBehaviour
 
         if(EscogerJugador.one_player && character_choosed.Count>0){
 
-            character_choosed[selectedCharacter] = selectedCharacter+1;
+            character_choosed[selectedCharacter] = contador;
 
             SceneManager.LoadScene("Terreno");
             juegoComenzar = true;               //Este bool se utiliza para quitar el canvas de inicio de la escena del tablero
@@ -79,7 +79,7 @@ public class EscogerPersonaje : MonoBehaviour
 
                 if(contador<2){
 
-                    character_choosed[selectedCharacter] = selectedCharacter+1;
+                    character_choosed[selectedCharacter] = contador;
                     characters[selectedCharacter].SetActive(false);
                     charactersList = new List<GameObject>(characters);
                     charactersList.RemoveAt(selectedCharacter);
@@ -95,7 +95,7 @@ public class EscogerPersonaje : MonoBehaviour
 
                 else if(contador ==2){
 
-                    character_choosed[selectedCharacter] = selectedCharacter+1;
+                    character_choosed[selectedCharacter] = contador;
                     SceneManager.LoadScene("Terreno");
                     juegoComenzar = true;
                 }
@@ -105,7 +105,7 @@ public class EscogerPersonaje : MonoBehaviour
 
                 if(contador<3){
 
-                    character_choosed[selectedCharacter] = selectedCharacter+1;
+                    character_choosed[selectedCharacter] = contador;
                     characters[selectedCharacter].SetActive(false);
                     charactersList = new List<GameObject>(characters);
                     charactersList.RemoveAt(selectedCharacter);
@@ -119,7 +119,7 @@ public class EscogerPersonaje : MonoBehaviour
                 }
 
                 else if(contador ==3){
-                    character_choosed[selectedCharacter] = selectedCharacter+1;
+                    character_choosed[selectedCharacter] = contador;
                     SceneManager.LoadScene("Terreno");
                     juegoComenzar = true;
                 }
