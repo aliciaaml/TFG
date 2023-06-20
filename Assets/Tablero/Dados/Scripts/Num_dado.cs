@@ -20,12 +20,11 @@ public class Num_dado : MonoBehaviour
     public static int numero_dados_total = 0;
     public static bool dado_final = false;
 
-    public GameObject texto;
-    public TextMeshProUGUI numero_total;
-    public GameObject texto2;
-    public TextMeshProUGUI numero_total2;
+    public GameObject texto_numero_total1;
+    public TextMeshProUGUI numero_total1;
+    public GameObject texto_numero_total2_veces;
+    public TextMeshProUGUI numero_total2_veces;
     public GameObject colliderDado1;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -177,24 +176,26 @@ public class Num_dado : MonoBehaviour
             
             if(wait_t2 == false){
 
-                
                 gameObject.SetActive(false);
 
-                colliderDado1.SetActive(false);
+                //Dado1.SetActive(false);
 
                 if(gameManager.maquina.estadoActual == MaquinaEstados.Estado.TirarUnDado){
 
-                    numero_total.text = range.ToString();  
+                    numero_total1.text = range.ToString();  
                 
-                    texto.SetActive(true);
+                    texto_numero_total1.SetActive(true);
+
+                    ElegirPosiciones.turno_terminado = true;
+
+                    Debug.Log("que cojones pasa");
 
                 }
-                
-               
 
                 dado_final = true;
 
-        
+                wait_t2 = true;
+                aux2 = 0;
 
             }         
             
@@ -210,32 +211,32 @@ public class Num_dado : MonoBehaviour
 
                 Wait_trough2();
             
-                if(wait_t2 == false){
+                if(wait_t2 == false ){
 
                     gameObject.SetActive(false);
 
-                    colliderDado1.SetActive(false);
+                    //colliderDado1.SetActive(false);
 
 
                     //PRIMER DADO
                     if(Trough_dice.num < 2 ){
 
-                        numero_total.text = range.ToString();
-                        texto.SetActive(true);
+                        numero_total1.text = range.ToString();
+                        texto_numero_total1.SetActive(true);
                         
                     }   
                         
                     //SEGUNDO DADO
                     else if(Trough_dice.num >= 2 ){
 
-                        numero_total2.text = range.ToString();
-                        texto2.SetActive(true);
+                        numero_total2_veces.text = range.ToString();
+                        texto_numero_total2_veces.SetActive(true);
 
                         dado_final = true;
                     }
                         
                     
-                    
+                    Debug.Log("que cojones pasa2");
 
 
                 }

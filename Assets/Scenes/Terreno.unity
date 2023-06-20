@@ -1894,10 +1894,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1318817304}
-  texto: {fileID: 1566733463}
-  numero_total: {fileID: 366950516}
-  texto2: {fileID: 195475524}
-  numero_total2: {fileID: 210758627}
+  texto_numero_total1: {fileID: 1566733463}
+  numero_total1: {fileID: 1566733465}
+  texto_numero_total2_veces: {fileID: 195475524}
+  numero_total2_veces: {fileID: 195475526}
   colliderDado1: {fileID: 2028130263}
 --- !u!95 &173804140
 Animator:
@@ -14436,6 +14436,7 @@ GameObject:
   - component: {fileID: 1133806875}
   - component: {fileID: 1133806874}
   - component: {fileID: 1133806876}
+  - component: {fileID: 1133806877}
   - component: {fileID: 1133806873}
   - component: {fileID: 1133806872}
   - component: {fileID: 1133806871}
@@ -14577,6 +14578,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21a7837b7960cb4d9764161ed2b9d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1133806877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133806869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3848c22e60bc5394c98cfa0ecb3f2ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flechaSeta: {fileID: 494004929}
+  flechaRana: {fileID: 1182624283}
+  flechaQueso: {fileID: 948641909}
+  flechaCactus: {fileID: 654060031}
+  numeroDado: 
+  dado1: {fileID: 173804137}
+  texto_dado1: {fileID: 1566733463}
+  flechas_characters:
+  - {fileID: 494004929}
+  - {fileID: 1182624283}
+  - {fileID: 948641909}
+  - {fileID: 654060031}
+  trough: {fileID: 2028130263}
+  colliderDado: {fileID: 2028130263}
 --- !u!114 &1139348531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16631,7 +16658,6 @@ GameObject:
   - component: {fileID: 1318817305}
   - component: {fileID: 1318817304}
   - component: {fileID: 1318817303}
-  - component: {fileID: 1318817302}
   - component: {fileID: 1318817306}
   - component: {fileID: 1318817307}
   - component: {fileID: 1318817310}
@@ -16648,26 +16674,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1318817302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318817300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad0f369688350374b8d13b523ce1e9f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 1318817304}
-  texto: {fileID: 1566733463}
-  texto2: {fileID: 195475524}
-  colliderDado1: {fileID: 2028130263}
-  colliderDobleDado: {fileID: 2029236274}
-  dado1: {fileID: 173804137}
-  dado2: {fileID: 1301913866}
-  colliderCasilla: {fileID: 1715524700}
 --- !u!114 &1318817303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17478,7 +17484,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389892284}
-  m_LocalRotation: {x: -0.09853223, y: 0.8937679, z: -0.36507872, w: -0.24122177}
+  m_LocalRotation: {x: -0.098532215, y: 0.8937679, z: -0.36507872, w: -0.24122173}
   m_LocalPosition: {x: 44.716003, y: 163.13985, z: 660.5915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19697,7 +19703,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560454711}
-  m_LocalRotation: {x: -0.14218739, y: 0.85780996, z: -0.35039157, w: -0.34809563}
+  m_LocalRotation: {x: -0.14218743, y: 0.85780996, z: -0.35039157, w: -0.34809563}
   m_LocalPosition: {x: 52.850952, y: 163.18985, z: 653.7005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19965,7 +19971,7 @@ RectTransform:
   m_GameObject: {fileID: 1566733463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -13.00947}
-  m_LocalScale: {x: 2.6176, y: 2.6176, z: 2.6176}
+  m_LocalScale: {x: 3.7404342, y: 3.7404342, z: 3.7404342}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1772526668}
@@ -19973,7 +19979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -140.67535, y: -413.17706}
+  m_AnchoredPosition: {x: -28, y: 135}
   m_SizeDelta: {x: 19.2346, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1566733465
@@ -20059,7 +20065,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 12.916911}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -25596,7 +25602,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.89001083, y: -0.53993225}
+  m_Offset: {x: 4.9808197, y: 4.3420105}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -25607,7 +25613,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 142.4241, y: 141.05618}
+  m_Size: {x: 265.3723, y: 385.7649}
   m_EdgeRadius: 0
 --- !u!114 &2028130269
 MonoBehaviour:
@@ -25622,6 +25628,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1318817304}
+  animator: {fileID: 173804140}
+  animator2: {fileID: 1301913870}
 --- !u!50 &2028130270
 Rigidbody2D:
   serializedVersion: 4
@@ -25790,7 +25798,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167febaa59b1fc548bc8adb94bcad1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1318817304}
+  gameManager: {fileID: 0}
+  animator: {fileID: 0}
+  animator2: {fileID: 0}
 --- !u!50 &2029236281
 Rigidbody2D:
   serializedVersion: 4

@@ -19,24 +19,6 @@ public class CambiarPlayer : MonoBehaviour
     public static bool TurnoPlayer4 = false;
 
 
-/*
-    public Transform player;
-
-    public List<Transform> players;
-
-    public static int currentPlayerIndex;
-
-*/
-    // Start is called before the first frame update
-    void Start()
-    {
-        /*
-        if(player == null && players.Count >= 1 ){          //EMPIEZA EN EL PLAYER 1
-
-            player = players[0];
-        }
-        */
-    }
 
     private void OnEnable(){
 
@@ -46,7 +28,7 @@ public class CambiarPlayer : MonoBehaviour
         CameraSwitcher.Register(player4Camera);
         CameraSwitcher.Register(CameraTodos);
 
-        CameraSwitcher.SwitchCamera(CameraTodos); // AQUI SE PONDRA LA CAMARA EN LA QUE SE VE A TODOS LOS PERSONAJES
+        CameraSwitcher.SwitchCamera(CameraTodos); 
         //TurnoPlayer1 = true;                        // AQUÍ SE PONDRA EL TURNO DEL JUGADOR QUE EMPIEZA
     }
 
@@ -69,7 +51,7 @@ public class CambiarPlayer : MonoBehaviour
             player = ComunPlayers.OrdenInicioPlayers[ComunPlayers.index];
 
             colisionPlayer.actual = ComunPlayers.PosicionActualPlayers[player];
-            Debug.Log("ACTUAL DEL PLAYER: " + colisionPlayer.actual);
+            //Debug.Log("ACTUAL DEL PLAYER: " + colisionPlayer.actual);
             if(colisionPlayer.actual==0){
                 ComunPlayers.Inicio = true;
             }
@@ -174,43 +156,6 @@ public class CambiarPlayer : MonoBehaviour
 
             ComunPlayers.siguiente = false;
             ComunPlayers.comienza_turno = true;
-        }
-        /*
-        if(Player.tirada_terminada)
-        {
-            if(currentPlayerIndex != 3)
-                currentPlayerIndex++;
-
-            else if(currentPlayerIndex == 3)
-                currentPlayerIndex = 0;
-
-            Swap();
-
-            gameManager.ActivarEstado(MaquinaEstados.Estado.TurnoNuevo);
-        }
-        */
+        }   
     }
-
-/*
-    public void Swap()
-    {
-    
-        player = players[currentPlayerIndex];
-
-        player.GetComponent<Player>().enabled = true;
-        player.GetComponent<NavMeshController>().enabled = true;
-
-        for(int i = 0; i< players.Count; i++) 
-        {
-            if(players[i]!= player){
-
-                players[i].GetComponent<Player>().enabled = false;
-
-                players[i].GetComponent<NavMeshController>().enabled = false;
-            }
-        }
-
-    }
-
-    */
 }

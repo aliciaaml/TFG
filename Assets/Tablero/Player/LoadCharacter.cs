@@ -9,7 +9,10 @@ public class LoadCharacter : MonoBehaviour
     public GameObject canvas_dado;
     public GameObject canvas_inicio;
 
-     private DontDestroy dontDestroy;
+    private DontDestroy dontDestroy;
+
+    public static bool IA;
+    public static bool PERSONA;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,7 @@ public class LoadCharacter : MonoBehaviour
 
             for(int i= 0; i<EscogerPersonaje.character_choosed.Count; i++ ){
 
-                Debug.Log("LISTA: " + EscogerPersonaje.character_choosed[i]);
+                //Debug.Log("LISTA: " + EscogerPersonaje.character_choosed[i]);
             }
             una_vez = true;
         }
@@ -35,6 +38,8 @@ public class LoadCharacter : MonoBehaviour
             canvas_dado.SetActive(true);
             canvas_inicio.SetActive(false);   
         }
+
+
 
         
     }
