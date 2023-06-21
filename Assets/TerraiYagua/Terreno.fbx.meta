@@ -1,39 +1,9 @@
 fileFormatVersion: 2
-guid: d73d1a863ebb64c48a813ae47eb5d6fb
+guid: 5600f9382a6538d46909657168823362
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Default OBJ
-    second: {fileID: 2100000, guid: 0f1c5241f68d0ec458cdb10d54a16432, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "arriba_monta\xF1as"
-    second: {fileID: 2100000, guid: 2bea7eb015c90d3468708c9598ed6a08, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: camino
-    second: {fileID: 2100000, guid: 60e7257fd7908f247b5f82f3de7b4e5b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "monta\xF1as"
-    second: {fileID: 2100000, guid: 1470dec48dc1ef74ea77656fae3e5332, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: paso
-    second: {fileID: 2100000, guid: af8ac3f17d28e2247b30eca434cd66ea, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: piedra
-    second: {fileID: 2100000, guid: bc6cec945940f564f949c78d323b6358, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
