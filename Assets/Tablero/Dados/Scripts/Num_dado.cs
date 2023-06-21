@@ -185,10 +185,9 @@ public class Num_dado : MonoBehaviour
                     numero_total1.text = range.ToString();  
                 
                     texto_numero_total1.SetActive(true);
+                    ElegirPosiciones.numeroDado.Add(new List<int> { range, ElegirPosiciones.f });
 
                     ElegirPosiciones.turno_terminado = true;
-
-                    Debug.Log("que cojones pasa");
 
                 }
 
@@ -224,6 +223,7 @@ public class Num_dado : MonoBehaviour
                         numero_total1.text = range.ToString();
                         texto_numero_total1.SetActive(true);
                         
+                        
                     }   
                         
                     //SEGUNDO DADO
@@ -234,10 +234,6 @@ public class Num_dado : MonoBehaviour
 
                         dado_final = true;
                     }
-                        
-                    
-                    Debug.Log("que cojones pasa2");
-
 
                 }
 

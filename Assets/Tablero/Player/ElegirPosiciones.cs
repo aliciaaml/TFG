@@ -11,9 +11,7 @@ public class ElegirPosiciones : MonoBehaviour
     public GameObject flechaQueso;
     public GameObject flechaCactus;
 
-    //public List<int> numeroDado = new List<int>();
-
-    public List<List<int>> numeroDado = new List<List<int>>();
+    public static List<List<int>> numeroDado = new List<List<int>>();
 
     public static bool turno_terminado = false;
 
@@ -25,7 +23,7 @@ public class ElegirPosiciones : MonoBehaviour
 
     public GameObject[] flechas_characters;
     public GameObject[] num_pos_salida;
-    int f = 0;
+    public static int f = 0;
     int aux_f = 0;
 
     public static bool unica = true;
@@ -39,6 +37,7 @@ public class ElegirPosiciones : MonoBehaviour
     public GameObject turno;
 
     bool una_por_jugador= true;
+    public static bool agregar = false;
 
     public void Wait_ver_num(){
 
@@ -51,7 +50,7 @@ public class ElegirPosiciones : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("F: " +f);
+
         if(DialogControler.dialog_terminado){
 
             if(!EscogerJugador.four_player){
@@ -60,13 +59,7 @@ public class ElegirPosiciones : MonoBehaviour
 
                     if(EscogerPersonaje.character_choosed[f] == 0 && unica){        //IA
                         trough.GetComponent<Trough_dice>().IADown();
-                        if(una_por_jugador){
 
-                            numeroDado.Add(new List<int> { Num_dado.range, f });
-                            una_por_jugador = false;
-                            Debug.Log("HOLAAA");
-                        }
-                       
                         colliderDado.SetActive(false);
                         if(f==0){
                             turno_jugador.text = "Mushroom";
@@ -91,17 +84,7 @@ public class ElegirPosiciones : MonoBehaviour
 
                         turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[f].ToString();
                         turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[f].ToString();
-                        
-                        if(Trough_dice.mouse && unica){
-                            if(una_por_jugador){
-
-                                numeroDado.Add(new List<int> { Num_dado.range, f });
-                                una_por_jugador = false;
-                                Debug.Log("HOLAAA");
-                            }
-            
-                            
-                        }
+   
                     } 
 
                         
@@ -127,7 +110,7 @@ public class ElegirPosiciones : MonoBehaviour
                                 
                         }
                     }
-                    else{
+                    else{           //CACTUS
 
                         flechas_characters[f].SetActive(false);
 
@@ -139,6 +122,12 @@ public class ElegirPosiciones : MonoBehaviour
                             turno_terminado = false;
                             wait_v = true;
                             aux_v = 0;
+
+
+                            for(int i = 0; i<num_pos_salida.Length;i++){
+
+                                num_pos_salida[i].SetActive(true);
+                            }
                         }
 
                         // Ordena la lista de mayor a menor
@@ -149,33 +138,17 @@ public class ElegirPosiciones : MonoBehaviour
                             int f_personaje = numeroDado[i][1];
                             TextMeshProUGUI texto_posSalida = num_pos_salida[f_personaje].GetComponent<TextMeshProUGUI>();
                             texto_posSalida.text = (i+1).ToString();
+
                         }
 
-                        for(int i = 0; i<num_pos_salida.Length;i++){
 
-                             num_pos_salida[i].SetActive(true);
-                        }
 
-    
-
-                        
-
-                        Debug.Log("YA TENEMOS LOS TURNOS");
+                        //Debug.Log("YA TENEMOS LOS TURNOS");
                     }                 
                 }
                     
             }
-            else{
-
-                if(Trough_dice.mouse && unica){
-
-                    if(una_por_jugador){
-
-                        numeroDado.Add(new List<int> { Num_dado.range, f });
-                        una_por_jugador = false;
-                        Debug.Log("HOLAAA");
-                    }
-                }
+            else{              //CUATRO JUGADORES //
 
                 if(turno_terminado){
                     if(f<3){
@@ -201,7 +174,7 @@ public class ElegirPosiciones : MonoBehaviour
                                 
                         }
                     }
-                    else{
+                    else{           
 
                         flechas_characters[f].SetActive(false);
 
@@ -213,6 +186,11 @@ public class ElegirPosiciones : MonoBehaviour
                             turno_terminado = false;
                             wait_v = true;
                             aux_v = 0;
+
+                            for(int i = 0; i<num_pos_salida.Length;i++){
+
+                                num_pos_salida[i].SetActive(true);
+                            }
                         }
 
                         // Ordena la lista de mayor a menor
@@ -225,10 +203,7 @@ public class ElegirPosiciones : MonoBehaviour
                             texto_posSalida.text = (i+1).ToString();
                         }
 
-                        for(int i = 0; i<num_pos_salida.Length;i++){
-
-                             num_pos_salida[i].SetActive(true);
-                        }
+                        
 
                         Debug.Log("YA TENEMOS LOS TURNOS");
                     }                 
