@@ -18,10 +18,7 @@ public class ComunPlayers : MonoBehaviour
     public static bool IA = false;
     public static bool PERSONA = false;
 
-    public static List<string> OrdenInicioPlayers = new List<string>(){
-
-        "player1","player2","player3","player4"     //SE CAMBIA POR EL ORDEN ESTABLECIDO POR LOS DADOS
-    };
+    public static List<string> OrdenInicioPlayers = new List<string>();
 
     
     public static bool comienza_turno = true;
@@ -33,12 +30,6 @@ public class ComunPlayers : MonoBehaviour
     public static bool primeraRonda = true;
 
     public static bool dic_lleno = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

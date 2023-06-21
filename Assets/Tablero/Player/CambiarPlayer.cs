@@ -28,8 +28,9 @@ public class CambiarPlayer : MonoBehaviour
         CameraSwitcher.Register(player4Camera);
         CameraSwitcher.Register(CameraTodos);
 
-        CameraSwitcher.SwitchCamera(CameraTodos); 
-        //TurnoPlayer1 = true;                        // AQUÍ SE PONDRA EL TURNO DEL JUGADOR QUE EMPIEZA
+        CameraSwitcher.SwitchCamera(CameraTodos);
+
+
     }
 
     private void OnDisable(){
@@ -45,7 +46,7 @@ public class CambiarPlayer : MonoBehaviour
     void Update()
     {
 
-        if(ComunPlayers.siguiente && ComunPlayers.dic_lleno){
+        if(ComunPlayers.siguiente && ComunPlayers.dic_lleno  && ElegirPosiciones.ElegirTurnoTerminado){
 
 
             player = ComunPlayers.OrdenInicioPlayers[ComunPlayers.index];

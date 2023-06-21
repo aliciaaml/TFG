@@ -39,6 +39,8 @@ public class ElegirPosiciones : MonoBehaviour
     bool una_por_jugador= true;
     public static bool agregar = false;
 
+    public static bool ElegirTurnoTerminado = false;
+
     public void Wait_ver_num(){
 
         aux_v += 1*Time.deltaTime;
@@ -137,13 +139,29 @@ public class ElegirPosiciones : MonoBehaviour
                         {
                             int f_personaje = numeroDado[i][1];
                             TextMeshProUGUI texto_posSalida = num_pos_salida[f_personaje].GetComponent<TextMeshProUGUI>();
-                            texto_posSalida.text = (i+1).ToString();
+                            texto_posSalida.text = (i+1).ToString() + "º";
+                            if(f_personaje == 0){
+                                ComunPlayers.OrdenInicioPlayers.Add("player1");
+                            }
+                            else if (f_personaje == 1){
+                                ComunPlayers.OrdenInicioPlayers.Add("player2");
+                            }
+                            else if (f_personaje == 2){
+                                ComunPlayers.OrdenInicioPlayers.Add("player3");
+                            }
+                            else if (f_personaje == 3){
+                                ComunPlayers.OrdenInicioPlayers.Add("player4");
+                            }
+                            
 
                         }
 
 
 
-                        //Debug.Log("YA TENEMOS LOS TURNOS");
+                        Wait_ver_num();
+                        if(wait_v == false){
+                            ElegirTurnoTerminado = true;
+                        }
                     }                 
                 }
                     
@@ -200,12 +218,15 @@ public class ElegirPosiciones : MonoBehaviour
                         {
                             int f_personaje = numeroDado[i][1];
                             TextMeshProUGUI texto_posSalida = num_pos_salida[f_personaje].GetComponent<TextMeshProUGUI>();
-                            texto_posSalida.text = (i+1).ToString();
+                            texto_posSalida.text = (i+1).ToString() + "º" ;
                         }
 
                         
 
-                        Debug.Log("YA TENEMOS LOS TURNOS");
+                        Wait_ver_num();
+                        if(wait_v == false){
+                            ElegirTurnoTerminado = true;
+                        }
                     }                 
                 }
             }
