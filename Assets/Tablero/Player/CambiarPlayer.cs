@@ -67,13 +67,19 @@ public class CambiarPlayer : MonoBehaviour
                 CameraSwitcher.SwitchCamera(player4Camera);
             }
         }
+        //Debug.Log("ENTRANDOOO: " + ComunPlayers.PosicionActualPlayers.Count );
+        if(ComunPlayers.siguiente && ComunPlayers.dic_lleno && ComunPlayers.PosicionActualPlayers.Count == 4){
 
-        if(ComunPlayers.siguiente && ComunPlayers.dic_lleno){
-
-        
+            
             player = ComunPlayers.OrdenInicioPlayers[ComunPlayers.index];
 
-            colisionPlayer.actual = ComunPlayers.PosicionActualPlayers[player];
+            for(int i = 0; i<4; i++ ){
+
+                Debug.Log("LISTA PLAYERS: " +  ComunPlayers.PosicionActualPlayers[i][1].numero);
+
+            }
+
+            colisionPlayer.actual = ComunPlayers.PosicionActualPlayers[ComunPlayers.index][1].numero;
             //Debug.Log("ACTUAL DEL PLAYER: " + colisionPlayer.actual);
             if(colisionPlayer.actual==0){
                 ComunPlayers.Inicio = true;

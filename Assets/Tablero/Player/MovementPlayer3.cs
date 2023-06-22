@@ -36,7 +36,7 @@ public class MovementPlayer3 : MonoBehaviour
             
             if(ElegirPosiciones.turno_terminado == false){
 
-                if(EscogerPersonaje.character_choosed[2] == 0  && MovementPlayer1.una_vez){    //IA
+                if(EscogerPersonaje.character_choosed[2] == 0  && MovementPlayer1.una_vez && !EscogerJugador.four_player){    //IA
 
                     Dado1.SetActive(true);
                     trough.GetComponent<Trough_dice>().IADown();
@@ -46,6 +46,7 @@ public class MovementPlayer3 : MonoBehaviour
                     turno_jugador_b.text = "Cheese";
 
                     Nombre_Player.SetActive(true);
+                    MovementPlayer1.detectar_casilla = false;
                     
                 }
                 if(EscogerPersonaje.character_choosed[2] != 0){           //JUGADOR
@@ -55,6 +56,15 @@ public class MovementPlayer3 : MonoBehaviour
                     ElegirPosiciones.colliderDado=true;
                     turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[2].ToString();
                     turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[2].ToString();
+                    MovementPlayer1.detectar_casilla = false;
+                }
+                if(EscogerJugador.four_player){
+                    Dado1.SetActive(true);
+                    Nombre_Player.SetActive(true);                    
+                    ElegirPosiciones.colliderDado= true;
+                    turno_jugador.text = "Player 3";
+                    turno_jugador_b.text = "Player 3";
+                     MovementPlayer1.detectar_casilla = false;
                 }
 
             }
@@ -78,8 +88,9 @@ public class MovementPlayer3 : MonoBehaviour
                     navMeshAgent3.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex3].position);
 
                 }
-                if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index<3)
+                if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index<3 && MovementPlayer1.detectar_casilla == false)
                 {
+                    Debug.Log("VECESSS");
                     ComunPlayers.Inicio = false;
                     ComunPlayers.comienza_turno = false;
                     animator3.SetBool("moving", false);
@@ -88,11 +99,12 @@ public class MovementPlayer3 : MonoBehaviour
                     ComunPlayers.casilla_destino = 0;
                     MovementPlayer1.una_vez = true;
                     Num_dado.resultado_dado_obtenido = false;
+                    MovementPlayer1.detectar_casilla = true;
 
         
                 }
 
-                if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index ==3){
+                if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index ==3 && MovementPlayer1.detectar_casilla == false){
 
                     ComunPlayers.Inicio = false;
                     ComunPlayers.comienza_turno = false;
@@ -103,6 +115,7 @@ public class MovementPlayer3 : MonoBehaviour
                     ComunPlayers.casilla_destino = 0;
                     MovementPlayer1.una_vez = true;
                     Num_dado.resultado_dado_obtenido = false;
+                    MovementPlayer1.detectar_casilla = true;
                 }   
 
             }

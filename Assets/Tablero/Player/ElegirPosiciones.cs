@@ -172,6 +172,7 @@ public class ElegirPosiciones : MonoBehaviour
 
                             //ELEGIR TURNO TERMINADO//
                             MovementPlayer1.una_vez = true;
+                            ComunPlayers.primeraRonda = true;
                             Wait_comenzar_juego();
                             if(wait_j == false){
                                 ElegirTurnoTerminado = true;
@@ -192,14 +193,14 @@ public class ElegirPosiciones : MonoBehaviour
                         
                 }
                 else{              //CUATRO JUGADORES //
-
+                    colliderDado=true;
                     if(turno_terminado){
                         if(f<3){
                             Wait_ver_num();
                             if(wait_v == false){
                                 
                                 dado1.SetActive(true);
-                                colliderDado=true;
+                                
                                 texto_dado1.SetActive(false);
 
                                 flechas_characters[f].SetActive(false);
@@ -262,11 +263,13 @@ public class ElegirPosiciones : MonoBehaviour
 
                             //ELEGIR TURNO TERMINADO//
 
+                            MovementPlayer1.una_vez = true;
+                            ComunPlayers.primeraRonda = true;
                             Wait_comenzar_juego();
                             if(wait_j == false){
                                 ElegirTurnoTerminado = true;
                                 
-                                Debug.Log("ElegirTurnoTerminado: " + ElegirTurnoTerminado);
+                                //Debug.Log("ElegirTurnoTerminado: " + ElegirTurnoTerminado);
 
                                 for(int i = 0; i<num_pos_salida.Length;i++){
 
@@ -274,6 +277,7 @@ public class ElegirPosiciones : MonoBehaviour
                                 }
                                 comenzar.SetActive(false);
                                 turno_terminado = false;
+                                
                                 
                             }
                         }                 

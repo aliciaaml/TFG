@@ -8,7 +8,21 @@ public class ComunPlayers : MonoBehaviour
 {
     public static int casilla_destino;
     
-    public static Dictionary<string, int> PosicionActualPlayers= new Dictionary<string,int>();
+    //public static Dictionary<string, int> PosicionActualPlayers= new Dictionary<string,int>();
+
+    public struct ElementoLista
+    {
+        public string texto;
+        public int numero;
+
+        public ElementoLista(string texto, int numero)
+        {
+            this.texto = texto;
+            this.numero = numero;
+        }
+    }
+
+    public static List<List<ElementoLista>> PosicionActualPlayers = new List<List<ElementoLista>>();
 
     public static float tolerance = 1.0f;
 
@@ -27,26 +41,42 @@ public class ComunPlayers : MonoBehaviour
 
     public static int index = 0;
 
-    public static bool primeraRonda = true;
+    public static bool primeraRonda = false;
 
     public static bool dic_lleno = false;
 
     // Update is called once per frame
     void Update()
     {
-        if(primeraRonda && siguiente){
+        //Debug.Log("primeraRonda: " + primeraRonda);
+        //Debug.Log("index: " + index );
 
-            Debug.Log("PORQUEEE");
-            PosicionActualPlayers.Add(OrdenInicioPlayers[0], colisionPlayer.actual);
-            for(int i = 1; i<OrdenInicioPlayers.Count; i++ ){
+        if(primeraRonda && siguiente){
+            
+            primeraRonda=false;
+            
+            List<ElementoLista> sublista1 = new List<ElementoLista>();
+            sublista1.Add(new ElementoLista(OrdenInicioPlayers[0], colisionPlayer.actual));
+            PosicionActualPlayers.Add(sublista1);
+            //Debug.Log("LISTA PLAYERS: " + PosicionActualPlayers[0][0].texto);
+
+            for(int i = 1; i<4; i++ ){
 
                 colisionPlayer.actual = 0;
-                PosicionActualPlayers.Add(OrdenInicioPlayers[i], colisionPlayer.actual);
-            }
-            primeraRonda = false;
 
+                List<ElementoLista> sublista2 = new List<ElementoLista>();
+                // Agregar elementos a la sublista
+                sublista2.Add(new ElementoLista(OrdenInicioPlayers[i], colisionPlayer.actual));
+                PosicionActualPlayers.Add(sublista2);
+
+                //Debug.Log("LISTA PLAYERS: " +  PosicionActualPlayers[i][0].texto);
+                
+            }
+
+            Debug.Log("CHE: " + ComunPlayers.PosicionActualPlayers.Count );
             dic_lleno = true;
 
+            Debug.Log("dic_lleno: " + dic_lleno);
         }
         
     }
