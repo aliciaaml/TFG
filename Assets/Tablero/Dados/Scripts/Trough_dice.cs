@@ -34,10 +34,9 @@ public class Trough_dice : MonoBehaviour
             animator.SetBool("lanzado",false);
 
             mouse = false;
-            animator.SetBool("lanzado",false);
             dados_tirados = false;
 
-            animator.SetBool("repetir",true);
+            animator.SetBool("repetir",false);
         }
 
     }
@@ -45,6 +44,8 @@ public class Trough_dice : MonoBehaviour
 
     public void OnMouseDown()
     {
+        if(ElegirPosiciones.colliderDado){
+
             mouse = true;
             animator.SetBool("lanzado",true);
             dados_tirados = true;
@@ -61,19 +62,23 @@ public class Trough_dice : MonoBehaviour
                 Num_dado.num_sacado = false;   
 
             }
+
+        }
+            
     
 
     }
 
     public void IADown(){
-
         Wait();
 
         if(wait_t == false){
 
             ElegirPosiciones.unica = false;
+            MovementPlayer1.una_vez = false;
             wait_t = true;
             aux = 0;
+            
             animator.SetBool("lanzado",true);
             dados_tirados = true;
 

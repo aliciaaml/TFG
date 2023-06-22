@@ -26,6 +26,8 @@ public class Num_dado : MonoBehaviour
     public TextMeshProUGUI numero_total2_veces;
     public GameObject colliderDado1;
 
+    public static bool resultado_dado_obtenido = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,7 @@ public class Num_dado : MonoBehaviour
 
                 animator.SetBool("lanzado",false);
 
-                range = Random.Range(1,6);
+                range = Random.Range(1,7);
 
                 numero_dados_total += range;
 
@@ -182,7 +184,14 @@ public class Num_dado : MonoBehaviour
 
                 if(gameManager.maquina.estadoActual == MaquinaEstados.Estado.TirarUnDado){
 
-                    numero_total1.text = range.ToString();  
+                    numero_total1.text = range.ToString();
+
+                    if(ElegirPosiciones.ElegirTurnoTerminado){
+
+                        ComunPlayers.casilla_destino = range;
+                        resultado_dado_obtenido = true;
+                        
+                    } 
                 
                     texto_numero_total1.SetActive(true);
                     ElegirPosiciones.numeroDado.Add(new List<int> { range, ElegirPosiciones.f });

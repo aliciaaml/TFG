@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class MovementPlayer2 : MonoBehaviour
 {
@@ -15,6 +17,14 @@ public class MovementPlayer2 : MonoBehaviour
 
     public ComunPlayers comunPlayers;
 
+    public GameObject Dado1;
+
+    public GameObject trough;
+
+    public GameObject Nombre_Player;
+    public TextMeshProUGUI turno_jugador;
+    public TextMeshProUGUI turno_jugador_b;
+
 
 
     void Start()
@@ -25,43 +35,84 @@ public class MovementPlayer2 : MonoBehaviour
 
     void Update()
     {
-        if(CambiarPlayer.TurnoPlayer2){
+        if(CambiarPlayer.TurnoPlayer2 ){
 
-            if (ComunPlayers.comienza_turno)
-            {
-                ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
-                navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
-                ComunPlayers.comienza_turno = false;
+            if(ElegirPosiciones.turno_terminado == false){
+
+                if(EscogerPersonaje.character_choosed[1] == 0  && MovementPlayer1.una_vez){    //IA
+
+                    Dado1.SetActive(true);
+                    trough.GetComponent<Trough_dice>().IADown();
+                    ElegirPosiciones.colliderDado=false;
+
+                    turno_jugador.text = "Frog";
+                    turno_jugador_b.text = "Frog";
+
+                    Nombre_Player.SetActive(true);
+                    
+                }
+                if(EscogerPersonaje.character_choosed[1] != 0){           //JUGADOR
+
+                    Dado1.SetActive(true);
+                    Nombre_Player.SetActive(true);                    
+                    ElegirPosiciones.colliderDado=true;
+                    turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[1].ToString();
+                    turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[1].ToString();
+                }
+
             }
+            
 
-            if (navMeshAgent2.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino)
-            {
-                animator2.SetBool("moving", true);
-                m_CurrentWaypointIndex2 = (m_CurrentWaypointIndex2 + 1) % ComunPlayers.waypoints_recorrer.Count; 
-                navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2].position);
-
-            }   
-            if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index<3)
-            {
-
-                ComunPlayers.Inicio = false;
-                ComunPlayers.comienza_turno = false;
-                animator2.SetBool("moving", false);
-                ComunPlayers.siguiente = true;
-                ComunPlayers.index+=1;
-
-    
-            }
-
-            if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index ==3){
-
-                ComunPlayers.Inicio = false;
-                ComunPlayers.comienza_turno = false;
-                animator2.SetBool("moving", false);
-                ComunPlayers.siguiente = true;
+            else{
                 
-                ComunPlayers.index = 0;
+                Dado1.SetActive(false);
+
+                if (ComunPlayers.comienza_turno)
+                {
+                    ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
+                    navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
+                    ComunPlayers.comienza_turno = false;
+                }
+
+                if (navMeshAgent2.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino)
+                {
+                    animator2.SetBool("moving", true);
+                    m_CurrentWaypointIndex2 = (m_CurrentWaypointIndex2 + 1) % ComunPlayers.waypoints_recorrer.Count; 
+                    navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2].position);
+
+                }
+                if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index<3)
+                {
+
+                    ComunPlayers.Inicio = false;
+                    ComunPlayers.comienza_turno = false;
+                    animator2.SetBool("moving", false);
+                    ComunPlayers.siguiente = true;
+                    ComunPlayers.index+=1;
+                    ComunPlayers.casilla_destino = 0;
+                    MovementPlayer1.una_vez = true;
+                    Num_dado.resultado_dado_obtenido = false;
+
+        
+                }
+
+                if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index ==3){
+
+                    ComunPlayers.Inicio = false;
+                    ComunPlayers.comienza_turno = false;
+                    animator2.SetBool("moving", false);
+                    ComunPlayers.siguiente = true;
+                    
+                    ComunPlayers.index = 0;
+                    ComunPlayers.casilla_destino = 0;
+                    MovementPlayer1.una_vez = true;
+                    Num_dado.resultado_dado_obtenido = false;
+                }
+
             }
+
+              
+            
         }
 
     }

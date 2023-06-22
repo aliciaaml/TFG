@@ -45,10 +45,32 @@ public class CambiarPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // PRIMER JUGADOR EN SALIR //
 
-        if(ComunPlayers.siguiente && ComunPlayers.dic_lleno  && ElegirPosiciones.ElegirTurnoTerminado){
+        if(ElegirPosiciones.ElegirTurnoTerminado){
 
+            if(ComunPlayers.OrdenInicioPlayers[0] == "player1"){
 
+                TurnoPlayer1 = true;
+                CameraSwitcher.SwitchCamera(player1Camera);
+            }
+            else if(ComunPlayers.OrdenInicioPlayers[0] == "player2"){
+                TurnoPlayer2 = true;
+                CameraSwitcher.SwitchCamera(player2Camera);
+            }
+            else if(ComunPlayers.OrdenInicioPlayers[0] == "player3"){
+                TurnoPlayer3 = true;
+                CameraSwitcher.SwitchCamera(player3Camera);
+            }
+            else{
+                TurnoPlayer4 = true;
+                CameraSwitcher.SwitchCamera(player4Camera);
+            }
+        }
+
+        if(ComunPlayers.siguiente && ComunPlayers.dic_lleno){
+
+        
             player = ComunPlayers.OrdenInicioPlayers[ComunPlayers.index];
 
             colisionPlayer.actual = ComunPlayers.PosicionActualPlayers[player];
