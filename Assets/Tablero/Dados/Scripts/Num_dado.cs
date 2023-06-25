@@ -28,6 +28,8 @@ public class Num_dado : MonoBehaviour
 
     public static bool resultado_dado_obtenido = false;
 
+    public static bool ListaNumDado = false;
+
     
 
     // Start is called before the first frame update
@@ -196,7 +198,12 @@ public class Num_dado : MonoBehaviour
                     } 
                 
                     texto_numero_total1.SetActive(true);
-                    ElegirPosiciones.numeroDado.Add(new List<int> { range, ElegirPosiciones.f });
+                    if(!ElegirPosiciones.ElegirTurnoTerminado && !ElegirPosiciones.terminadoCactus){
+
+                        ElegirPosiciones.numeroDado.Add(new List<int> { range, ElegirPosiciones.f });
+                        ListaNumDado = true;
+                    }
+                    
 
                     ElegirPosiciones.turno_terminado = true;
 

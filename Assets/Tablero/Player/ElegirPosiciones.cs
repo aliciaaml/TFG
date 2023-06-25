@@ -11,9 +11,10 @@ public class ElegirPosiciones : MonoBehaviour
     public GameObject flechaQueso;
     public GameObject flechaCactus;
 
-    public static List<List<int>> numeroDado = new List<List<int>>();
+    public static  List<List<int>> numeroDado = new List<List<int>>();
 
     public static bool turno_terminado = false;
+    public static bool terminadoCactus = false;
 
     public GameObject dado1;
     public GameObject texto_dado1;
@@ -45,6 +46,8 @@ public class ElegirPosiciones : MonoBehaviour
     public static bool ElegirTurnoTerminado = false;
 
     public GameObject comenzar;
+
+    bool solo_una = true;
 
     public void Wait_ver_num(){
 
@@ -128,6 +131,8 @@ public class ElegirPosiciones : MonoBehaviour
                         }
                         else{           //CACTUS
 
+                            terminadoCactus = true;
+
                             flechas_characters[f].SetActive(false);
 
                             Wait_ver_num();
@@ -147,47 +152,57 @@ public class ElegirPosiciones : MonoBehaviour
                                 comenzar.SetActive(true);
                             }
 
-                            // Ordena la lista de mayor a menor
-                            numeroDado.Sort((a, b) => b[0].CompareTo(a[0]));;
+                            if(solo_una){
+                                solo_una = false;
 
-                            for (int i = 0; i < numeroDado.Count; i++)
-                            {
-                                int f_personaje = numeroDado[i][1];
-                                TextMeshProUGUI texto_posSalida = num_pos_salida[f_personaje].GetComponent<TextMeshProUGUI>();
-                                texto_posSalida.text = (i+1).ToString() + "º";
+                                 // Ordena la lista de mayor a menor
+                                numeroDado.Sort((a, b) => b[0].CompareTo(a[0]));;
 
-                                if(f_personaje == 0){
-                                    ComunPlayers.OrdenInicioPlayers.Add("player1");
+                                for (int a = 0; a < numeroDado.Count; a++)
+                                {
+
+                                    //Debug.Log("Lista Dados: " + numeroDado.Count);
+                                    int f_personaje = numeroDado[a][1];
+                                    TextMeshProUGUI texto_posSalida = num_pos_salida[f_personaje].GetComponent<TextMeshProUGUI>();
+                                    texto_posSalida.text = (a+1).ToString() + "º";
+
+                                    if(f_personaje == 0){
+                                        ComunPlayers.OrdenInicioPlayers.Add("player1");
+                                    }
+                                    else if (f_personaje == 1){
+                                        ComunPlayers.OrdenInicioPlayers.Add("player2");
+                                    }
+                                    else if (f_personaje == 2){
+                                        ComunPlayers.OrdenInicioPlayers.Add("player3");
+                                    }
+                                    else if (f_personaje == 3){
+                                        ComunPlayers.OrdenInicioPlayers.Add("player4");
+                                    }
+                                    Debug.Log("Lista ordenPlayers: " +ComunPlayers.OrdenInicioPlayers.Count);
                                 }
-                                else if (f_personaje == 1){
-                                    ComunPlayers.OrdenInicioPlayers.Add("player2");
-                                }
-                                else if (f_personaje == 2){
-                                    ComunPlayers.OrdenInicioPlayers.Add("player3");
-                                }
-                                else if (f_personaje == 3){
-                                    ComunPlayers.OrdenInicioPlayers.Add("player4");
-                                }
+
+                                
                             }
 
                             //ELEGIR TURNO TERMINADO//
-                            MovementPlayer1.una_vez = true;
-                            ComunPlayers.primeraRonda = true;
-                            Wait_comenzar_juego();
-                            if(wait_j == false){
-                                ElegirTurnoTerminado = true;
-                                
-                                //Debug.Log("ElegirTurnoTerminado: " + ElegirTurnoTerminado);
+                                MovementPlayer1.una_vez = true;
+                                ComunPlayers.primeraRonda = true;
+                                Wait_comenzar_juego();
+                                if(wait_j == false){
+                                    ElegirTurnoTerminado = true;
+                                    
+                                    //Debug.Log("ElegirTurnoTerminado: " + ElegirTurnoTerminado);
 
-                                for(int i = 0; i<num_pos_salida.Length;i++){
+                                    for(int i = 0; i<num_pos_salida.Length;i++){
 
-                                    num_pos_salida[i].SetActive(false);
+                                        num_pos_salida[i].SetActive(false);
+                                    }
+                                    comenzar.SetActive(false);
+                                    turno_terminado = false;
+                                    
+                                    
                                 }
-                                comenzar.SetActive(false);
-                                turno_terminado = false;
-                                
-                                
-                            }
+                           
                         }                 
                     }
                         
@@ -238,29 +253,32 @@ public class ElegirPosiciones : MonoBehaviour
                                 comenzar.SetActive(true);
                             }
 
-                            // Ordena la lista de mayor a menor
-                            numeroDado.Sort((a, b) => b[0].CompareTo(a[0]));
+                            if(solo_una){
+                                solo_una = false;
+                                // Ordena la lista de mayor a menor
+                                numeroDado.Sort((a, b) => b[0].CompareTo(a[0]));
 
-                            for (int i = 0; i < numeroDado.Count; i++)
-                            {
-                                int f_personaje = numeroDado[i][1];
-                                TextMeshProUGUI texto_posSalida = num_pos_salida[f_personaje].GetComponent<TextMeshProUGUI>();
-                                texto_posSalida.text = (i+1).ToString() + "º" ;
 
-                                if(f_personaje == 0){
-                                    ComunPlayers.OrdenInicioPlayers.Add("player1");
-                                }
-                                else if (f_personaje == 1){
-                                    ComunPlayers.OrdenInicioPlayers.Add("player2");
-                                }
-                                else if (f_personaje == 2){
-                                    ComunPlayers.OrdenInicioPlayers.Add("player3");
-                                }
-                                else if (f_personaje == 3){
-                                    ComunPlayers.OrdenInicioPlayers.Add("player4");
+                                for (int i = 0; i < numeroDado.Count; i++)
+                                {
+                                    int f_personaje = numeroDado[i][1];
+                                    TextMeshProUGUI texto_posSalida = num_pos_salida[f_personaje].GetComponent<TextMeshProUGUI>();
+                                    texto_posSalida.text = (i+1).ToString() + "º" ;
+
+                                    if(f_personaje == 0){
+                                        ComunPlayers.OrdenInicioPlayers.Add("player1");
+                                    }
+                                    else if (f_personaje == 1){
+                                        ComunPlayers.OrdenInicioPlayers.Add("player2");
+                                    }
+                                    else if (f_personaje == 2){
+                                        ComunPlayers.OrdenInicioPlayers.Add("player3");
+                                    }
+                                    else if (f_personaje == 3){
+                                        ComunPlayers.OrdenInicioPlayers.Add("player4");
+                                    }
                                 }
                             }
-
                             //ELEGIR TURNO TERMINADO//
 
                             MovementPlayer1.una_vez = true;

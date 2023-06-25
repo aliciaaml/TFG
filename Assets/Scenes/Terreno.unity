@@ -6272,8 +6272,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448968407}
-  m_LocalRotation: {x: -0.11291051, y: 0.8530502, z: -0.2068821, w: -0.46557117}
-  m_LocalPosition: {x: 62.59424, y: 159.08002, z: 646.29065}
+  m_LocalRotation: {x: -0.11290915, y: 0.85305333, z: -0.20688291, w: -0.46556535}
+  m_LocalPosition: {x: 62.594116, y: 159.08002, z: 646.29083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12516,7 +12516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: -0.4906997, y: 8.33016, z: -16.156576}
+  m_FollowOffset: {x: -0.49045563, y: 8.33016, z: -16.156576}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -15133,7 +15133,6 @@ GameObject:
   - component: {fileID: 1133806875}
   - component: {fileID: 1133806874}
   - component: {fileID: 1133806876}
-  - component: {fileID: 1133806877}
   - component: {fileID: 1133806873}
   - component: {fileID: 1133806872}
   - component: {fileID: 1133806871}
@@ -15276,39 +15275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21a7837b7960cb4d9764161ed2b9d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1133806877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133806869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3848c22e60bc5394c98cfa0ecb3f2ddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flechaSeta: {fileID: 494004929}
-  flechaRana: {fileID: 1182624283}
-  flechaQueso: {fileID: 948641909}
-  flechaCactus: {fileID: 654060031}
-  dado1: {fileID: 173804137}
-  texto_dado1: {fileID: 1566733463}
-  flechas_characters:
-  - {fileID: 494004929}
-  - {fileID: 1182624283}
-  - {fileID: 948641909}
-  - {fileID: 654060031}
-  num_pos_salida:
-  - {fileID: 996215929}
-  - {fileID: 2073518685}
-  - {fileID: 1952026669}
-  - {fileID: 515976772}
-  trough: {fileID: 2028130263}
-  turno_jugador: {fileID: 121536353}
-  turno_jugador_b: {fileID: 361478351}
-  turno: {fileID: 1044776}
-  comenzar: {fileID: 91137089}
 --- !u!114 &1133806878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17553,6 +17519,7 @@ GameObject:
   - component: {fileID: 1318817309}
   - component: {fileID: 1318817314}
   - component: {fileID: 1318817312}
+  - component: {fileID: 1318817317}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -17755,6 +17722,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggle2: {fileID: 145497904}
+--- !u!114 &1318817317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318817300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3848c22e60bc5394c98cfa0ecb3f2ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flechaSeta: {fileID: 494004929}
+  flechaRana: {fileID: 1182624283}
+  flechaQueso: {fileID: 948641909}
+  flechaCactus: {fileID: 654060031}
+  dado1: {fileID: 173804137}
+  texto_dado1: {fileID: 1566733463}
+  flechas_characters:
+  - {fileID: 494004929}
+  - {fileID: 1182624283}
+  - {fileID: 948641909}
+  - {fileID: 654060031}
+  num_pos_salida:
+  - {fileID: 996215929}
+  - {fileID: 2073518685}
+  - {fileID: 1952026669}
+  - {fileID: 515976772}
+  trough: {fileID: 2028130263}
+  turno_jugador: {fileID: 121536353}
+  turno_jugador_b: {fileID: 361478351}
+  turno: {fileID: 1044776}
+  comenzar: {fileID: 91137089}
 --- !u!1 &1341925347
 GameObject:
   m_ObjectHideFlags: 0
@@ -20795,7 +20795,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560454711}
-  m_LocalRotation: {x: -0.0975812, y: 0.88495845, z: -0.21520898, w: -0.4012626}
+  m_LocalRotation: {x: -0.0975812, y: 0.88495845, z: -0.21520898, w: -0.40126255}
   m_LocalPosition: {x: 57.080017, y: 159.75, z: 656.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25252,6 +25252,7 @@ MonoBehaviour:
   Nombre_Player: {fileID: 1167788993}
   turno_jugador: {fileID: 893386080}
   turno_jugador_b: {fileID: 501529157}
+  textoDado: {fileID: 1566733463}
 --- !u!95 &1910107530
 Animator:
   serializedVersion: 5
@@ -29135,6 +29136,7 @@ MonoBehaviour:
   Nombre_Player: {fileID: 1167788993}
   turno_jugador: {fileID: 893386080}
   turno_jugador_b: {fileID: 501529157}
+  textoDado: {fileID: 1566733463}
 --- !u!1 &919132148179284294
 GameObject:
   m_ObjectHideFlags: 0
@@ -29175,6 +29177,7 @@ MonoBehaviour:
   Nombre_Player: {fileID: 1167788993}
   turno_jugador: {fileID: 893386080}
   turno_jugador_b: {fileID: 501529157}
+  textoDado: {fileID: 1566733463}
 --- !u!1 &919132148656620156
 GameObject:
   m_ObjectHideFlags: 0
@@ -29255,6 +29258,7 @@ MonoBehaviour:
   Nombre_Player: {fileID: 1167788993}
   turno_jugador: {fileID: 893386080}
   turno_jugador_b: {fileID: 501529157}
+  textoDado: {fileID: 1566733463}
 --- !u!23 &1711813856077404308
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -27,7 +27,8 @@ public class MovementPlayer1 : MonoBehaviour
     
     public static bool una_vez = true;
     public static bool detectar_casilla = false;
-
+    
+    public GameObject textoDado;
 
     void Start()
     {
@@ -42,6 +43,8 @@ public class MovementPlayer1 : MonoBehaviour
         if(CambiarPlayer.TurnoPlayer1){
 
             if(ElegirPosiciones.turno_terminado == false){
+                
+                textoDado.SetActive(false);
 
                 if(EscogerPersonaje.character_choosed[0] == 0  && una_vez && !EscogerJugador.four_player){    //IA
 
@@ -65,7 +68,7 @@ public class MovementPlayer1 : MonoBehaviour
                     turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[0].ToString();
                     detectar_casilla = false;
                 }
-                if(EscogerJugador.four_player){
+                if(EscogerJugador.four_player){                         //4 JUGADORES
                     Dado1.SetActive(true);
                     Nombre_Player.SetActive(true);                    
                     ElegirPosiciones.colliderDado= true;
@@ -109,6 +112,7 @@ public class MovementPlayer1 : MonoBehaviour
                     una_vez = true;
                     Num_dado.resultado_dado_obtenido = false;
                     detectar_casilla = true;
+                    ElegirPosiciones.turno_terminado = false;
 
         
                 }
@@ -124,6 +128,7 @@ public class MovementPlayer1 : MonoBehaviour
                     una_vez = true;
                     Num_dado.resultado_dado_obtenido = false;
                     detectar_casilla = true;
+                    ElegirPosiciones.turno_terminado = false;
                 }
                 
             }

@@ -25,6 +25,7 @@ public class MovementPlayer2 : MonoBehaviour
     public TextMeshProUGUI turno_jugador;
     public TextMeshProUGUI turno_jugador_b;
 
+    public GameObject textoDado;
 
 
     void Start()
@@ -38,6 +39,7 @@ public class MovementPlayer2 : MonoBehaviour
         if(CambiarPlayer.TurnoPlayer2 ){
 
             if(ElegirPosiciones.turno_terminado == false){
+                textoDado.SetActive(false);
 
                 if(EscogerPersonaje.character_choosed[1] == 0  && MovementPlayer1.una_vez && !EscogerJugador.four_player){    //IA
 
@@ -103,6 +105,7 @@ public class MovementPlayer2 : MonoBehaviour
                     MovementPlayer1.una_vez = true;
                     Num_dado.resultado_dado_obtenido = false;
                     MovementPlayer1.detectar_casilla = true;
+                    ElegirPosiciones.turno_terminado = false;
 
         
                 }
@@ -119,6 +122,7 @@ public class MovementPlayer2 : MonoBehaviour
                     MovementPlayer1.una_vez = true;
                     Num_dado.resultado_dado_obtenido = false;
                     MovementPlayer1.detectar_casilla = true;
+                    ElegirPosiciones.turno_terminado = false;
                 }
 
             }

@@ -49,7 +49,7 @@ public class ComunPlayers : MonoBehaviour
     void Update()
     {
         //Debug.Log("primeraRonda: " + primeraRonda);
-        //Debug.Log("index: " + index );
+        
 
         if(primeraRonda && siguiente){
             
@@ -60,7 +60,7 @@ public class ComunPlayers : MonoBehaviour
             PosicionActualPlayers.Add(sublista1);
             //Debug.Log("LISTA PLAYERS: " + PosicionActualPlayers[0][0].texto);
 
-            for(int i = 1; i<4; i++ ){
+            for(int i = 1; i<OrdenInicioPlayers.Count; i++ ){
 
                 colisionPlayer.actual = 0;
 
@@ -69,14 +69,14 @@ public class ComunPlayers : MonoBehaviour
                 sublista2.Add(new ElementoLista(OrdenInicioPlayers[i], colisionPlayer.actual));
                 PosicionActualPlayers.Add(sublista2);
 
-                //Debug.Log("LISTA PLAYERS: " +  PosicionActualPlayers[i][0].texto);
+                //Debug.Log("LISTA PLAYERS1: " +  PosicionActualPlayers[i][0].numero);
                 
             }
 
-            Debug.Log("CHE: " + ComunPlayers.PosicionActualPlayers.Count );
+            //Debug.Log("CHE: " + ComunPlayers.PosicionActualPlayers.Count );
             dic_lleno = true;
 
-            Debug.Log("dic_lleno: " + dic_lleno);
+            //Debug.Log("dic_lleno: " + dic_lleno);
         }
         
     }
@@ -100,6 +100,7 @@ public class ComunPlayers : MonoBehaviour
                 for (int i = colisionPlayer.actual-1; i < casilla_destino; i++)
                 {
                     recorrer.Add(waypoints_todos[i]);
+                    Debug.Log(waypoints_todos[i]);
                 }
 
             }

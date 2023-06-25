@@ -18,6 +18,7 @@ public class CambiarPlayer : MonoBehaviour
     public static bool TurnoPlayer3 = false;
     public static bool TurnoPlayer4 = false;
 
+    bool uno = true;
 
 
     private void OnEnable(){
@@ -47,7 +48,8 @@ public class CambiarPlayer : MonoBehaviour
     {
         // PRIMER JUGADOR EN SALIR //
 
-        if(ElegirPosiciones.ElegirTurnoTerminado){
+        if(ElegirPosiciones.ElegirTurnoTerminado && uno){
+            uno = false;
 
             if(ComunPlayers.OrdenInicioPlayers[0] == "player1"){
 
@@ -70,16 +72,22 @@ public class CambiarPlayer : MonoBehaviour
         //Debug.Log("ENTRANDOOO: " + ComunPlayers.PosicionActualPlayers.Count );
         if(ComunPlayers.siguiente && ComunPlayers.dic_lleno && ComunPlayers.PosicionActualPlayers.Count == 4){
 
-            
+            Debug.Log("index: " + ComunPlayers.index );
+            //Debug.Log("adfs:" + ComunPlayers.PosicionActualPlayers[0][0].numero);
+
             player = ComunPlayers.OrdenInicioPlayers[ComunPlayers.index];
 
+            
             for(int i = 0; i<4; i++ ){
 
-                Debug.Log("LISTA PLAYERS: " +  ComunPlayers.PosicionActualPlayers[i][1].numero);
+                Debug.Log("LISTA PLAYERS: " +  ComunPlayers.PosicionActualPlayers[i][0].numero);
 
             }
+            
+            
+            colisionPlayer.actual = ComunPlayers.PosicionActualPlayers[ComunPlayers.index][0].numero;
 
-            colisionPlayer.actual = ComunPlayers.PosicionActualPlayers[ComunPlayers.index][1].numero;
+            Debug.Log("actual: " + colisionPlayer.actual );
             //Debug.Log("ACTUAL DEL PLAYER: " + colisionPlayer.actual);
             if(colisionPlayer.actual==0){
                 ComunPlayers.Inicio = true;
