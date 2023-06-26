@@ -76,26 +76,37 @@ public class MovementPlayer4 : MonoBehaviour
             
 
             else{
-                
                 Dado1.SetActive(false);
+                Debug.Log("verdad o no: " + (navMeshAgent4.remainingDistance < ComunPlayers.tolerance));
+                Debug.Log("blabla: " + (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar));
+                
 
                 if (ComunPlayers.comienza_turno )
                 {
                     ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
                     navMeshAgent4.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
+                    Debug.Log("ESTA ENTRANDO: " + ComunPlayers.waypoints_recorrer[0]);
                     ComunPlayers.comienza_turno = false;
+
+                    navMeshAgent4.speed = 25f;
+                    navMeshAgent4.angularSpeed = 120f;
+                    navMeshAgent4.acceleration = 8f;
                 }
 
-                if (navMeshAgent4.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino)
+                if (navMeshAgent4.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar)
                 {
+                    Debug.Log("ESTA ENTRANDO2");
                     animator4.SetBool("moving", true);
                     m_CurrentWaypointIndex4 = (m_CurrentWaypointIndex4 + 1) % ComunPlayers.waypoints_recorrer.Count; 
                     navMeshAgent4.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex4].position);
+                    
+
 
                 } 
-                if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index<3 && MovementPlayer1.detectar_casilla == false)
+                if(colisionPlayer.actual == ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar && ComunPlayers.index<3 && MovementPlayer1.detectar_casilla == false)
                 {
-                    Debug.Log("VECESSS");
+                    ComunPlayers.ActualizarPosicionPlayer();
+                    Debug.Log("ESTA ENTRANDO3");
                     ComunPlayers.Inicio = false;
                     ComunPlayers.comienza_turno = false;
                     animator4.SetBool("moving", false);
@@ -107,10 +118,18 @@ public class MovementPlayer4 : MonoBehaviour
                     MovementPlayer1.detectar_casilla = true;
                     ElegirPosiciones.turno_terminado = false;
 
+
+                    navMeshAgent4.speed = 0f;
+                    navMeshAgent4.angularSpeed = 0f;
+                    navMeshAgent4.acceleration = 0f;
+
         
                 }
 
                 if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index ==3 && MovementPlayer1.detectar_casilla == false){
+
+                    ComunPlayers.ActualizarPosicionPlayer();
+
                     ComunPlayers.Inicio = false;
                     ComunPlayers.comienza_turno = false;
                     animator4.SetBool("moving", false);
@@ -122,6 +141,10 @@ public class MovementPlayer4 : MonoBehaviour
                     Num_dado.resultado_dado_obtenido = false;
                     MovementPlayer1.detectar_casilla = true;
                     ElegirPosiciones.turno_terminado = false;
+                    
+                    navMeshAgent4.speed = 0f;
+                    navMeshAgent4.angularSpeed = 0f;
+                    navMeshAgent4.acceleration = 0f;
                 }
 
             }
@@ -131,7 +154,6 @@ public class MovementPlayer4 : MonoBehaviour
         }
 
     }
-        
 
 
 }

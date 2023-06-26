@@ -6,11 +6,13 @@ TagManager:
   tags:
   - casillas
   - estadoUI
+  - camara
+  - players
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Players
   - Water
   - UI
   - 

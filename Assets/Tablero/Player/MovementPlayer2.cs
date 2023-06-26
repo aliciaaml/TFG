@@ -78,24 +78,37 @@ public class MovementPlayer2 : MonoBehaviour
             else{
                 
                 Dado1.SetActive(false);
-
+                Debug.Log("verdad o no: " + (navMeshAgent2.remainingDistance < ComunPlayers.tolerance));
+                Debug.Log("blabla: " + (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar));
                 if (ComunPlayers.comienza_turno)
                 {
                     ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
                     navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
+                    Debug.Log("ESTA ENTRANDO: " + ComunPlayers.waypoints_recorrer[0]);
                     ComunPlayers.comienza_turno = false;
+
+                    navMeshAgent2.speed = 25f;
+                    navMeshAgent2.angularSpeed = 120f;
+                    navMeshAgent2.acceleration = 8f;
+
+                    gameObject.layer = LayerMask.NameToLayer("Players");
                 }
 
-                if (navMeshAgent2.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino)
+                if (navMeshAgent2.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar)
                 {
+                    Debug.Log("ESTA ENTRANDO2");
                     animator2.SetBool("moving", true);
                     m_CurrentWaypointIndex2 = (m_CurrentWaypointIndex2 + 1) % ComunPlayers.waypoints_recorrer.Count; 
                     navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2].position);
 
+                    
+
+
                 }
-                if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index<3 && MovementPlayer1.detectar_casilla == false)
+                if(colisionPlayer.actual == ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar && ComunPlayers.index<3 && MovementPlayer1.detectar_casilla == false)
                 {
-                    Debug.Log("VECESSS");
+                    ComunPlayers.ActualizarPosicionPlayer();
+                    Debug.Log("ESTA ENTRANDO3");
                     ComunPlayers.Inicio = false;
                     ComunPlayers.comienza_turno = false;
                     animator2.SetBool("moving", false);
@@ -107,10 +120,17 @@ public class MovementPlayer2 : MonoBehaviour
                     MovementPlayer1.detectar_casilla = true;
                     ElegirPosiciones.turno_terminado = false;
 
+                    gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+                    navMeshAgent2.speed = 0f;
+                    navMeshAgent2.angularSpeed = 0f;
+                    navMeshAgent2.acceleration = 0f;
+
         
                 }
 
                 if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index ==3 && MovementPlayer1.detectar_casilla == false){
+
+                    ComunPlayers.ActualizarPosicionPlayer();
 
                     ComunPlayers.Inicio = false;
                     ComunPlayers.comienza_turno = false;
@@ -123,16 +143,18 @@ public class MovementPlayer2 : MonoBehaviour
                     Num_dado.resultado_dado_obtenido = false;
                     MovementPlayer1.detectar_casilla = true;
                     ElegirPosiciones.turno_terminado = false;
+
+                    gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+                    navMeshAgent2.speed = 0f;
+                    navMeshAgent2.angularSpeed = 0f;
+                    navMeshAgent2.acceleration = 0f;
                 }
 
             }
-
-              
             
         }
 
     }
-        
 
 
 }

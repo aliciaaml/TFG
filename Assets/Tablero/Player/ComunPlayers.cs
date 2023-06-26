@@ -8,6 +8,8 @@ public class ComunPlayers : MonoBehaviour
 {
     public static int casilla_destino;
     
+    public static int casilla_antes_tirar = 0;
+
     //public static Dictionary<string, int> PosicionActualPlayers= new Dictionary<string,int>();
 
     public struct ElementoLista
@@ -20,11 +22,16 @@ public class ComunPlayers : MonoBehaviour
             this.texto = texto;
             this.numero = numero;
         }
+
+        public ElementoLista Copy()
+        {
+            return new ElementoLista(texto, numero);
+        }
     }
 
     public static List<List<ElementoLista>> PosicionActualPlayers = new List<List<ElementoLista>>();
 
-    public static float tolerance = 1.0f;
+    public static float tolerance = 0.5f;
 
     [SerializeField] List<Transform> waypoints_todos = new List<Transform>();
     public static List<Transform> waypoints_recorrer = new List<Transform>();
@@ -48,9 +55,7 @@ public class ComunPlayers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("primeraRonda: " + primeraRonda);
         
-
         if(primeraRonda && siguiente){
             
             primeraRonda=false;
@@ -86,21 +91,29 @@ public class ComunPlayers : MonoBehaviour
     {
         List<Transform> recorrer = new List<Transform>();
 
-        if (casilla_destino > 0 && casilla_destino < waypoints_todos.Count)
+        if (casilla_destino > 0 && casilla_destino < waypoints_todos.Count && Num_dado.resultado_dado_obtenido)
         {
-            if(Inicio){
+            //Debug.Log("casilla_destino: " + casilla_destino);
 
+            
+
+            if(Inicio){
+               //Debug.Log("colisionPlayer.actual: " + colisionPlayer.actual);
+                casilla_antes_tirar = colisionPlayer.actual;
                 for (int i = 0; i < casilla_destino; i++)
                 {
                     recorrer.Add(waypoints_todos[i]);
                 }
             }
             else{
-
-                for (int i = colisionPlayer.actual-1; i < casilla_destino; i++)
+                //Debug.Log("colisionPlayer.actual: " + colisionPlayer.actual);
+                casilla_antes_tirar = colisionPlayer.actual;
+                for (int i = colisionPlayer.actual; i < colisionPlayer.actual +  casilla_destino; i++)
                 {
                     recorrer.Add(waypoints_todos[i]);
-                    Debug.Log(waypoints_todos[i]);
+                    Debug.Log("waypoints: " + waypoints_todos[i]);
+                    
+
                 }
 
             }
@@ -108,5 +121,38 @@ public class ComunPlayers : MonoBehaviour
         }
 
         return recorrer;
+    }
+
+    public static void ActualizarPosicionPlayer(){
+
+        
+        if(PosicionActualPlayers.Count==4){
+
+            //PosicionActualPlayers[index][1].numero = colisionPlayer.actual;
+            ElementoLista elemento = PosicionActualPlayers[index][0].Copy();
+
+            // Modificar la propiedad deseada en la copia
+            elemento.numero = colisionPlayer.actual;
+
+            // Asignar la copia modificada de nuevo a la lista interna
+            PosicionActualPlayers[index][0] = elemento;
+
+            //Debug.Log("indice: " + index + "hola: " + PosicionActualPlayers[index][0].texto + "," + PosicionActualPlayers[index][0].numero);
+
+            for(int s = 0; s<4; s++){
+
+                //Debug.Log("LISTA COMPLETA: " + PosicionActualPlayers[s][0].texto + "," + PosicionActualPlayers[s][0].numero);
+
+            }
+
+        }
+        
+
+            
+
+        
+
+        
+
     }
 }
