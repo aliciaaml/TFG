@@ -8,6 +8,13 @@ TagManager:
   - estadoUI
   - camara
   - players
+  - coco
+  - Tiburon
+  - fin
+  - player1
+  - player2
+  - player3
+  - player4
   layers:
   - Default
   - TransparentFX

@@ -9,12 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Terreno.unity
     guid: 2ffc1da499e11934e9aa364003c9cd95
   - enabled: 1
-    path: Assets/Scenes/Minijuego_pesca.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/ChooseAmountPlayers.unity
     guid: b50fb64cd6b7c99438b16b6a71a9aa0b
   - enabled: 1
     path: Assets/Scenes/ChoosePlayers.unity
     guid: 6e6d33021677a9f4daf7793bd5313dec
+  - enabled: 1
+    path: Assets/Scenes/Minijuego_pesca.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Cocos.unity
+    guid: d84b07d39e77cf24e986d5f2412e23f2
+  - enabled: 1
+    path: Assets/Scenes/tiburones.unity
+    guid: afa92871d3a1b624ebdada6c6f6cf2bd
   m_configObjects: {}
