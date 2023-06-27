@@ -11,7 +11,7 @@ public class PlayerTiburones : MonoBehaviour
     public GameObject lose;
     public static int contador_tiburones = 0;
     public GameObject tiburones;
-    public GameObject explicacion;
+    public GameObject fondo_corazones;
 
     bool tiburones_pegado = false;
 
@@ -39,7 +39,7 @@ public class PlayerTiburones : MonoBehaviour
         if(contador_tiburones>=5){
 
             lose.SetActive(true);
-            explicacion.SetActive(false);
+            fondo_corazones.SetActive(false);
             tiburones.SetActive(false);
             PlayerWin.mover = false;
         }

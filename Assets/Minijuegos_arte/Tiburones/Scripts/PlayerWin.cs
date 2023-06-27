@@ -6,9 +6,9 @@ public class PlayerWin : MonoBehaviour
 {
     public GameObject tiburones;
 
-    public static bool mover = true;
+    public static bool mover = false;
 
-    public GameObject explicacion;
+    public GameObject fondo_corazones;
     public GameObject win;
 
     void Start()
@@ -29,7 +29,7 @@ public class PlayerWin : MonoBehaviour
 
             tiburones.SetActive(false);
             mover =false;
-            explicacion.SetActive(false);
+            fondo_corazones.SetActive(false);
             win.SetActive(true);
 
         }

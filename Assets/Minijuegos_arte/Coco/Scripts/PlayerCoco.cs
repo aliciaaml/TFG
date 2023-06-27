@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlayerCoco : MonoBehaviour
 {
     public float velocidad = 5f;
-    public static bool golpeado = false;
+    public static bool golpeado = true;
     public static int contador=0;
 
     public GameObject lose;
-    public GameObject explicacion;
+    public GameObject corazon;
     public GameObject generadorCocos;
     public GameObject generadorCocos2;
+
+    float aux_coco = 0f;
 
     void Update()
     {
@@ -29,8 +31,8 @@ public class PlayerCoco : MonoBehaviour
 
             TimerCoco.enMarcha = false;
             
+            corazon.SetActive(false);
             lose.SetActive(true);
-            explicacion.SetActive(false);
             generadorCocos.SetActive(false);
             generadorCocos2.SetActive(false);
         }
@@ -40,9 +42,17 @@ public class PlayerCoco : MonoBehaviour
         if(other.CompareTag("coco") && !golpeado){
             Debug.Log("Te ha golpeado un coco!");
 
-            contador +=1; 
+            Destroy(other.gameObject);
+            Wait_coco();
 
-            Destroy(other);
+            
         }
+    }
+
+    void Wait_coco(){
+
+        aux_coco+= 1*Time.deltaTime;
+
+        if(aux_coco >= 0.02f) contador +=1; 
     }
 }

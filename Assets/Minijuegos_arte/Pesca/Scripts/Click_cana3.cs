@@ -14,8 +14,7 @@ public class Click_cana3 : MonoBehaviour
     public GameObject win;
     public GameObject lose;
     public GameObject canas;
-    public GameObject explicacion;
-    public GameObject explicacion2;
+    public GameObject tries;
 
     void Start(){
 
@@ -30,8 +29,7 @@ public class Click_cana3 : MonoBehaviour
 
             if(Click_cana0.wait_pesca == false){
                 Debug.Log("YOU WIN !!!");
-                explicacion.SetActive(false);
-                explicacion2.SetActive(false);
+                tries.SetActive(false);
                 canas.SetActive(false);
                 win.SetActive(true);
                 
@@ -44,8 +42,7 @@ public class Click_cana3 : MonoBehaviour
             if(Click_cana0.wait_pesca == false){
                 
                 Debug.Log("YOU LOST");
-                explicacion.SetActive(false);
-                explicacion2.SetActive(false);
+                tries.SetActive(false);
                 canas.SetActive(false);
                 lose.SetActive(true);
                 
@@ -79,14 +76,15 @@ public class Click_cana3 : MonoBehaviour
             gana = true;
             
         }
-        else if(Click_cana0.contador<2){
+        else if(Click_cana0.contador>1){
 
             animator.SetBool("pez",false);
             animator.SetBool("no_pez",true);
-            Click_cana0.contador+=1;
+            Click_cana0.contador-=1;
         }
         else{
 
+            Click_cana0.contador = 0;
             pierde = true;
             animator.SetBool("pez",false);
             animator.SetBool("no_pez",true);

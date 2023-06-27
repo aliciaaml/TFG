@@ -5,7 +5,7 @@ using UnityEngine;
 public class Click_cana0 : MonoBehaviour
 {
     private Animator animator;
-    public static int contador = 0;
+    public static int contador = 3;
 
     public static float aux_pesca = 0f;
     public static bool wait_pesca = true;
@@ -21,8 +21,7 @@ public class Click_cana0 : MonoBehaviour
     public GameObject win;
     public GameObject lose;
     public GameObject canas;
-    public GameObject explicacion;
-    public GameObject explicacion2;
+    public GameObject tries;
 
     void Start(){
 
@@ -37,8 +36,7 @@ public class Click_cana0 : MonoBehaviour
 
             if(wait_pesca == false){
                 Debug.Log("YOU WIN !!!");
-                explicacion.SetActive(false);
-                explicacion2.SetActive(false);
+                tries.SetActive(false);
                 canas.SetActive(false);
                 win.SetActive(true);
 
@@ -54,8 +52,7 @@ public class Click_cana0 : MonoBehaviour
                 Debug.Log("YOU LOST");
                 canas.SetActive(false);
                 lose.SetActive(true);
-                explicacion.SetActive(false);
-                explicacion2.SetActive(false);
+                tries.SetActive(false);
                 
             }
             
@@ -86,15 +83,16 @@ public class Click_cana0 : MonoBehaviour
             gana = true;
             
         }
-        else if(contador<2){
+        else if(contador>1){
 
             animator.SetBool("pez",false);
             animator.SetBool("no_pez",true);
-            contador+=1;
+            contador-=1;
         }
         else{
 
             pierde = true;
+            contador = 0;
             animator.SetBool("pez",false);
             animator.SetBool("no_pez",true);
             
@@ -112,7 +110,7 @@ public class Click_cana0 : MonoBehaviour
 
         aux_pesca += 1*Time.deltaTime;
 
-        if(aux_pesca >= 2f) wait_pesca = false;
+        if(aux_pesca >= 1.3f) wait_pesca = false;
         
     }
 
@@ -120,7 +118,7 @@ public class Click_cana0 : MonoBehaviour
         
         aux_pesca2 += 1*Time.deltaTime;
 
-        if(aux_pesca2 >= 0.4f) wait_pesca2 = false;
+        if(aux_pesca2 >= 0.2f) wait_pesca2 = false;
         
     }
 }

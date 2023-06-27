@@ -13,44 +13,20 @@ public class TimerCoco : MonoBehaviour
     public static bool enMarcha;
 
     public GameObject win;
-    public GameObject explicacion;
     public GameObject generadorCocos;
     public GameObject generadorCocos2;
 
     public SpriteRenderer spriteRenderer;
     Sprite nuevoSprite;
 
-    void Awake(){
+    void Start(){
 
-    
-        if(CasillaColision.player == "player1"){
+        if(Click_start_coco.start){
 
-            Debug.Log(CasillaColision.player);
-            nuevoSprite = Resources.Load<Sprite>("Minijuegos_arte/fichas/seta");
-
-            spriteRenderer.sprite = nuevoSprite;
+            restante = (min*60)+seg;
+            enMarcha = true;
         }
-        if(CasillaColision.player == "player2"){
-            Debug.Log(CasillaColision.player);
-            nuevoSprite = Resources.Load<Sprite>("Minijuegos_arte/fichas/rana");
-
-            spriteRenderer.sprite = nuevoSprite;
-        }
-        if(CasillaColision.player == "player3"){
-            Debug.Log(CasillaColision.player);
-            nuevoSprite = Resources.Load<Sprite>("Minijuegos_arte/fichas/queso");
-
-            spriteRenderer.sprite = nuevoSprite;
-        }
-        if(CasillaColision.player == "player4"){
-            Debug.Log(CasillaColision.player);
-            nuevoSprite = Resources.Load<Sprite>("Minijuegos_arte/fichas/cactus");
-
-            spriteRenderer.sprite = nuevoSprite;
-        }
-
-        restante = (min*60)+seg;
-        enMarcha = true;
+            
     }
 
     // Update is called once per frame
@@ -63,7 +39,6 @@ public class TimerCoco : MonoBehaviour
 
                 enMarcha = false;
                 win.SetActive(true);
-                explicacion.SetActive(false);
                 generadorCocos.SetActive(false);
                 generadorCocos2.SetActive(false);
                 PlayerCoco.golpeado = true;
