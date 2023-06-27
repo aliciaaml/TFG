@@ -15,6 +15,9 @@ TagManager:
   - player2
   - player3
   - player4
+  - juego_pesca
+  - juego_cocos
+  - juego_tiburones
   layers:
   - Default
   - TransparentFX

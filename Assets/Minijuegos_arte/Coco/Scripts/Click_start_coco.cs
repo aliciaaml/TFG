@@ -33,18 +33,18 @@ public class Click_start_coco : MonoBehaviour
         generadorCocos2.SetActive(true);
         gameObject.SetActive(false);
 
-        if(CasillaColision.player == "player1"){
+        if(CasillaMinCoco.player == "player1"){
 
             player[0].SetActive(true);
         }
-        else if(CasillaColision.player == "player2"){
+        else if(CasillaMinCoco.player == "player2"){
             player[1].SetActive(true);
         }
-        else if(CasillaColision.player == "player3"){
+        else if(CasillaMinCoco.player == "player3"){
 
             player[2].SetActive(true);
         }
-        else if(CasillaColision.player == "player4"){
+        else if(CasillaMinCoco.player == "player4"){
             
             player[3].SetActive(true);
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class MovementPlayer1 : MonoBehaviour
 {
     //int casilla_destino = 3; //HAY QUE CAMBIARLA POR EL VALOR DEL DADO
@@ -22,11 +23,19 @@ public class MovementPlayer1 : MonoBehaviour
     public GameObject Nombre_Player;
     public TextMeshProUGUI turno_jugador;
     public TextMeshProUGUI turno_jugador_b;
+
+    public TextMeshProUGUI nombreMinijuego;
+    public TextMeshProUGUI nombreMinijuego2;
     
     public static bool una_vez = true;
     public static bool detectar_casilla = false;
     
     public GameObject textoDado;
+
+    public GameObject LetreroMinijuego;
+    public GameObject botonMinijuego;
+    public GameObject LetreroNoMinijuego;
+    public GameObject botonPlayerSig;
 
     void Start()
     {
@@ -107,46 +116,48 @@ public class MovementPlayer1 : MonoBehaviour
 
                 } 
 
-                if(colisionPlayer.actual == ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar && ComunPlayers.index<3 && detectar_casilla == false)
+                if(colisionPlayer.actual == ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar && detectar_casilla == false)
                 {
-                    Debug.Log("ESTA ENTRANDO3");
-                    ComunPlayers.ActualizarPosicionPlayer();
-                    ComunPlayers.Inicio = false;
-                    ComunPlayers.comienza_turno = false;
+                    textoDado.SetActive(false);
                     animator1.SetBool("moving", false);
-                    ComunPlayers.siguiente = true;
-                    ComunPlayers.index+=1;
-                    ComunPlayers.casilla_destino = 0;
-                    una_vez = true;
-                    Num_dado.resultado_dado_obtenido = false;
-                    detectar_casilla = true;
-                    ElegirPosiciones.turno_terminado = false;
-
                     navMeshAgent1.speed = 0f;
                     navMeshAgent1.angularSpeed = 0f;
                     navMeshAgent1.acceleration = 0f;
+
+                    if(CasillaMinCoco.casilla_minijuego == ""){
+                        
+                        LetreroNoMinijuego.SetActive(true);
+                        botonPlayerSig.SetActive(true);
+
+                    }
+                    else{
+
+                        if(CasillaMinCoco.casilla_minijuego == "juego_pesca"){
+
+                            nombreMinijuego.text = "Fishing minigame" ;
+                            nombreMinijuego2.text = "Fishing minigame" ;
+                        }
+                        if(CasillaMinCoco.casilla_minijuego == "juego_cocos"){
+
+                            nombreMinijuego.text = "Coconuts minigame";
+                            nombreMinijuego2.text = "Coconuts minigame";
+                        }
+                        if(CasillaMinCoco.casilla_minijuego == "juego_tiburones"){
+                            nombreMinijuego.text = "Sharks minigame";
+                            nombreMinijuego2.text = "Sharks minigame";
+                            
+                        }
+
+                        LetreroMinijuego.SetActive(true);
+                        botonMinijuego.SetActive(true);
+
+                    }
+                    
+                    
 
         
                 }
-                if(colisionPlayer.actual == ComunPlayers.casilla_destino && ComunPlayers.index ==3  && detectar_casilla == false){
-                    
-                    ComunPlayers.ActualizarPosicionPlayer();
-                    ComunPlayers.Inicio = false;
-                    ComunPlayers.comienza_turno = false;
-                    animator1.SetBool("moving", false);
-                    ComunPlayers.siguiente = true;
-                    
-                    ComunPlayers.index = 0;
-                    ComunPlayers.casilla_destino = 0;
-                    una_vez = true;
-                    Num_dado.resultado_dado_obtenido = false;
-                    detectar_casilla = true;
-                    ElegirPosiciones.turno_terminado = false;
-
-                    navMeshAgent1.speed = 0f;
-                    navMeshAgent1.angularSpeed = 0f;
-                    navMeshAgent1.acceleration = 0f;
-                }
+                
                 
             }
               
