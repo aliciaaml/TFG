@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Click_cana1 : MonoBehaviour
+public class ClickCana3 : MonoBehaviour
 {
 
     private Animator animator;
 
     bool mouse_fuera = true;
-
     bool gana = false;
     bool pierde = false;
 
@@ -26,9 +25,9 @@ public class Click_cana1 : MonoBehaviour
 
         if(gana){
 
-            Click_cana0.Wait_pesca();
+            ClickCana0.Wait_pesca();
 
-            if(Click_cana0.wait_pesca == false){
+            if(ClickCana0.wait_pesca == false){
                 Debug.Log("YOU WIN !!!");
                 tries.SetActive(false);
                 canas.SetActive(false);
@@ -38,9 +37,9 @@ public class Click_cana1 : MonoBehaviour
         }
         else if(pierde){
 
-            Click_cana0.Wait_pesca();
+            ClickCana0.Wait_pesca();
 
-            if(Click_cana0.wait_pesca == false){
+            if(ClickCana0.wait_pesca == false){
                 
                 Debug.Log("YOU LOST");
                 tries.SetActive(false);
@@ -53,14 +52,14 @@ public class Click_cana1 : MonoBehaviour
 
         if(mouse_fuera){
 
-            Click_cana0.Wait_pesca2();
+            ClickCana0.Wait_pesca2();
 
-            if(Click_cana0.wait_pesca2 == false){
+            if(ClickCana0.wait_pesca2 == false){
 
                 animator.SetBool("pez",false);
                 animator.SetBool("no_pez",false);
-                Click_cana0.wait_pesca2 = true;
-                Click_cana0.aux_pesca2 = 0f;
+                ClickCana0.wait_pesca2 = true;
+                ClickCana0.aux_pesca2 = 0f;
             }
 
         }
@@ -71,26 +70,28 @@ public class Click_cana1 : MonoBehaviour
     void OnMouseDown()
     {
         mouse_fuera = false;
-        if(Elegir_quien_pez.range == 1){
+        if(ElegirQuienPez.range == 3){
 
             animator.SetBool("pez",true);
             gana = true;
             
         }
-        else if(Click_cana0.contador>1){
+        else if(ClickCana0.contador>1){
 
             animator.SetBool("pez",false);
             animator.SetBool("no_pez",true);
-            Click_cana0.contador-=1;
+            ClickCana0.contador-=1;
         }
         else{
 
-            Click_cana0.contador = 0;
+            ClickCana0.contador = 0;
             pierde = true;
             animator.SetBool("pez",false);
             animator.SetBool("no_pez",true);
 
+            
         }
+
 
 
     }
@@ -98,7 +99,7 @@ public class Click_cana1 : MonoBehaviour
     void OnMouseUp()
     {
         mouse_fuera = true;
-        
     }
+
 
 }

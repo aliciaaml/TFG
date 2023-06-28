@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movimiento_aleatorio_cana : MonoBehaviour
+public class MovimientoAleatorioCana : MonoBehaviour
 {
     float currentTime = 0f;
     float startingTime = 0f;

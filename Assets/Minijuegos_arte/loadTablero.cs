@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class loadTablero : MonoBehaviour
+public class LoadTablero : MonoBehaviour
 {
     public void Back(){
 

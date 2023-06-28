@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lives_tiburones : MonoBehaviour
+public class LivesTiburones : MonoBehaviour
 {
     public GameObject heart1,heart2,heart3,heart4,heart5;
 

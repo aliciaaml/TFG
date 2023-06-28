@@ -91,7 +91,7 @@ public class ComunPlayers : MonoBehaviour
     {
         List<Transform> recorrer = new List<Transform>();
 
-        if (casilla_destino > 0 && casilla_destino < waypoints_todos.Count && Num_dado.resultado_dado_obtenido)
+        if (casilla_destino > 0 && casilla_destino < waypoints_todos.Count && NumDado.resultado_dado_obtenido)
         {
             //Debug.Log("casilla_destino: " + casilla_destino);
 

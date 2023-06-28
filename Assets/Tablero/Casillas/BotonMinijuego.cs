@@ -18,13 +18,13 @@ public class BotonMinijuego : MonoBehaviour
 
         if(CasillaMinCoco.casilla_minijuego == "juego_pesca"){
 
-            SceneManager.LoadScene("Minijuego_pesca");
+            SceneManager.LoadScene("Pesca");
         }
         if(CasillaMinCoco.casilla_minijuego == "juego_cocos"){
             SceneManager.LoadScene("Cocos");
         }
         if(CasillaMinCoco.casilla_minijuego == "juego_tiburones"){
-            SceneManager.LoadScene("tiburones");
+            SceneManager.LoadScene("Tiburones");
         }
 
     }

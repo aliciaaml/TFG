@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Elegir_quien_pez : MonoBehaviour
+public class ElegirQuienPez : MonoBehaviour
 {
     public static int range;
     // Start is called before the first frame update

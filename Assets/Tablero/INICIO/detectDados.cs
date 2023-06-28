@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class detectDados : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
+public class DetectDados : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
 {
     public Animator animator; // Referencia al componente Animator
     public Animator animator2;

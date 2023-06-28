@@ -21,7 +21,7 @@ public class TimerCoco : MonoBehaviour
 
     void Start(){
 
-        if(Click_start_coco.start){
+        if(ClickStartCoco.start){
 
             restante = (min*60)+seg;
             enMarcha = true;

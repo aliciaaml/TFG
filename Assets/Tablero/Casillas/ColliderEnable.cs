@@ -15,7 +15,7 @@ public class ColliderEnable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Num_dado.dado_final){
+        if(NumDado.dado_final){
             
             GetComponent<Collider>().enabled = true;
             collider_casilla = true;

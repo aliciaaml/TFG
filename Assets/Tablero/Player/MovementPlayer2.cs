@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class MovementPlayer2 : MonoBehaviour
 {
-    
-
-    //int casilla_destino = 4; //HAY QUE CAMBIARLA POR EL VALOR DEL DADO
     private UnityEngine.AI.NavMeshAgent navMeshAgent2;
     private Animator animator2;
-
 
     int m_CurrentWaypointIndex2;
 
@@ -35,6 +30,9 @@ public class MovementPlayer2 : MonoBehaviour
     public TextMeshProUGUI nombreMinijuego;
     public TextMeshProUGUI nombreMinijuego2;
 
+    public CinemachineVirtualCamera virtualCamera;
+    private bool gira_una = true;
+    public MovementPlayer1 rotacion;
 
     void Start()
     {
@@ -52,7 +50,7 @@ public class MovementPlayer2 : MonoBehaviour
                 if(EscogerPersonaje.character_choosed[1] == 0  && MovementPlayer1.una_vez && !EscogerJugador.four_player){    //IA
 
                     Dado1.SetActive(true);
-                    trough.GetComponent<Trough_dice>().IADown();
+                    trough.GetComponent<TroughDice>().IADown();
                     ElegirPosiciones.colliderDado=false;
 
                     turno_jugador.text = "Frog";
@@ -90,9 +88,11 @@ public class MovementPlayer2 : MonoBehaviour
                 Debug.Log("blabla: " + (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar));
                 if (ComunPlayers.comienza_turno)
                 {
+                    virtualCamera.Follow = transform;
+                    virtualCamera.LookAt = transform;
+                    gira_una = true;
                     ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
                     navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
-                    Debug.Log("ESTA ENTRANDO: " + ComunPlayers.waypoints_recorrer[0]);
                     ComunPlayers.comienza_turno = false;
 
                     navMeshAgent2.speed = 25f;
@@ -104,17 +104,21 @@ public class MovementPlayer2 : MonoBehaviour
 
                 if (navMeshAgent2.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar)
                 {
-                    Debug.Log("ESTA ENTRANDO2");
                     animator2.SetBool("moving", true);
                     m_CurrentWaypointIndex2 = (m_CurrentWaypointIndex2 + 1) % ComunPlayers.waypoints_recorrer.Count; 
-                    navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2].position);
-
-                    
-
+                    navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2].position); 
 
                 }
                 if(colisionPlayer.actual == ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar && MovementPlayer1.detectar_casilla == false)
                 {
+                   
+                    virtualCamera.Follow = null;
+                    virtualCamera.LookAt = null;
+                    if (gira_una)
+                    {
+                        RotarInterpolado();
+                        //gira_una = false;
+                    }
                     textoDado.SetActive(false);
                     animator2.SetBool("moving", false);
                     navMeshAgent2.speed = 0f;
@@ -157,6 +161,20 @@ public class MovementPlayer2 : MonoBehaviour
             
         }
 
+    }
+
+    void RotarInterpolado()
+    {
+        // Calcular la rotación deseada sumando la rotación actual con un giro de 90 grados
+        MovementPlayer1.rotacionDeseada = transform.rotation * Quaternion.Euler(0f, 180f, 0f);
+        Debug.Log("ahaha:   " + MovementPlayer1.rotacionDeseada);
+        // Aplicar una interpolación suave para rotar el jugador gradualmente
+        transform.rotation = Quaternion.Lerp(transform.rotation, MovementPlayer1.rotacionDeseada, MovementPlayer1.suavidadRotacion * Time.deltaTime);
+
+        if (Quaternion.Angle(transform.rotation, MovementPlayer1.rotacionDeseada) < MovementPlayer1.toleranciaRotacion)
+        {
+            gira_una = false;
+        }
     }
 
 

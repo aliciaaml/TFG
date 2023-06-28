@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Click_start_pesca : MonoBehaviour
+public class ClickStartCoco : MonoBehaviour
 {
     public GameObject canvas_juego;
+    public GameObject generadorCocos;
+    public GameObject generadorCocos2;
+
     public GameObject[] player;
-    public GameObject canas;
+
+    public static bool start = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +24,13 @@ public class Click_start_pesca : MonoBehaviour
         
     }
 
-    public void f_Click_Start_pesca(){
+    public void clickStartCoco(){
 
-        canas.SetActive(true);
+        PlayerCoco.golpeado = false;
+        start = true;
         canvas_juego.SetActive(true);
+        generadorCocos.SetActive(true);
+        generadorCocos2.SetActive(true);
         gameObject.SetActive(false);
 
         if(CasillaMinCoco.player == "player1"){
@@ -41,6 +48,6 @@ public class Click_start_pesca : MonoBehaviour
             
             player[3].SetActive(true);
         }
-
+        
     }
 }

@@ -23,7 +23,7 @@ public class BotonSiguiente : MonoBehaviour
             ComunPlayers.index+=1;
             ComunPlayers.casilla_destino = 0;
             MovementPlayer1.una_vez = true;
-            Num_dado.resultado_dado_obtenido = false;
+            NumDado.resultado_dado_obtenido = false;
             MovementPlayer1.detectar_casilla = true;
             ElegirPosiciones.turno_terminado = false;
 
@@ -39,7 +39,7 @@ public class BotonSiguiente : MonoBehaviour
             ComunPlayers.index = 0;
             ComunPlayers.casilla_destino = 0;
             MovementPlayer1.una_vez = true;
-            Num_dado.resultado_dado_obtenido = false;
+            NumDado.resultado_dado_obtenido = false;
             MovementPlayer1.detectar_casilla = true;
             ElegirPosiciones.turno_terminado = false;
 

@@ -40,7 +40,6 @@ public class ElegirPosiciones : MonoBehaviour
     public TextMeshProUGUI turno_jugador_b;
     public GameObject turno;
 
-    bool una_por_jugador= true;
     public static bool agregar = false;
 
     public static bool ElegirTurnoTerminado = false;
@@ -76,7 +75,7 @@ public class ElegirPosiciones : MonoBehaviour
                     if(flechas_characters[f] && turno_terminado== false){
 
                         if(EscogerPersonaje.character_choosed[f] == 0 && unica){        //IA
-                            trough.GetComponent<Trough_dice>().IADown();
+                            trough.GetComponent<TroughDice>().IADown();
 
                             colliderDado = false;
                             if(f==0){
@@ -118,10 +117,8 @@ public class ElegirPosiciones : MonoBehaviour
                                 texto_dado1.SetActive(false);
 
                                 flechas_characters[f].SetActive(false);
-                                f++;
-                                una_por_jugador = true;
+                                f++;                          
                                 flechas_characters[f].SetActive(true);
-
                                 turno_terminado = false;
                                 wait_v = true;
                                 aux_v = 0;
@@ -220,7 +217,7 @@ public class ElegirPosiciones : MonoBehaviour
 
                                 flechas_characters[f].SetActive(false);
                                 f++;
-                                una_por_jugador = true;
+                                
                                 flechas_characters[f].SetActive(true);
                                 aux_f = f+1;
                                 turno_jugador.text = "Player " + aux_f.ToString();

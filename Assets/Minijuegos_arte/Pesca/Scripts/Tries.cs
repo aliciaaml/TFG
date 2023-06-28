@@ -17,6 +17,6 @@ public class Tries : MonoBehaviour
     void Update()
     {
         
-        tries.text = "Tries: " + Click_cana0.contador;
+        tries.text = "Tries: " + ClickCana0.contador;
     }
 }

@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using Cinemachine;
 
 
 public class MovementPlayer4 : MonoBehaviour
 {
-    
-
-    //int casilla_destino = 6; //HAY QUE CAMBIARLA POR EL VALOR DEL DADO
     private UnityEngine.AI.NavMeshAgent navMeshAgent4;
     private Animator animator4;
 
@@ -36,6 +32,9 @@ public class MovementPlayer4 : MonoBehaviour
     public TextMeshProUGUI nombreMinijuego;
     public TextMeshProUGUI nombreMinijuego2;
 
+    public CinemachineVirtualCamera virtualCamera;
+    private bool gira_una = true;
+    public MovementPlayer1 rotacion;
     void Start()
     {
         navMeshAgent4 = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -52,7 +51,7 @@ public class MovementPlayer4 : MonoBehaviour
                 if(EscogerPersonaje.character_choosed[3] == 0  && MovementPlayer1.una_vez && !EscogerJugador.four_player){    //IA
 
                     Dado1.SetActive(true);
-                    trough.GetComponent<Trough_dice>().IADown();
+                    trough.GetComponent<TroughDice>().IADown();
                     ElegirPosiciones.colliderDado = false;
 
                     turno_jugador.text = "Cactus";
@@ -91,9 +90,12 @@ public class MovementPlayer4 : MonoBehaviour
 
                 if (ComunPlayers.comienza_turno )
                 {
+                    virtualCamera.Follow = transform;
+                    virtualCamera.LookAt = transform;
+                    gira_una = true;
+
                     ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
                     navMeshAgent4.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
-                    Debug.Log("ESTA ENTRANDO: " + ComunPlayers.waypoints_recorrer[0]);
                     ComunPlayers.comienza_turno = false;
 
                     navMeshAgent4.speed = 25f;
@@ -102,8 +104,7 @@ public class MovementPlayer4 : MonoBehaviour
                 }
 
                 if (navMeshAgent4.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar)
-                {
-                    Debug.Log("ESTA ENTRANDO2");
+                { 
                     animator4.SetBool("moving", true);
                     m_CurrentWaypointIndex4 = (m_CurrentWaypointIndex4 + 1) % ComunPlayers.waypoints_recorrer.Count; 
                     navMeshAgent4.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex4].position);
@@ -113,6 +114,14 @@ public class MovementPlayer4 : MonoBehaviour
                 } 
                 if(colisionPlayer.actual == ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar && MovementPlayer1.detectar_casilla == false)
                 {
+                    virtualCamera.Follow = null;
+                    virtualCamera.LookAt = null;
+                    if (gira_una)
+                    {
+                        RotarInterpolado();
+                        //gira_una = false;
+                    }
+
                     textoDado.SetActive(false);
                     animator4.SetBool("moving", false);
                     navMeshAgent4.speed = 0f;
@@ -157,6 +166,20 @@ public class MovementPlayer4 : MonoBehaviour
             
         }
 
+    }
+
+    void RotarInterpolado()
+    {
+        // Calcular la rotación deseada sumando la rotación actual con un giro de 90 grados
+        MovementPlayer1.rotacionDeseada = transform.rotation * Quaternion.Euler(0f, 180f, 0f);
+        Debug.Log("ahaha:   " + MovementPlayer1.rotacionDeseada);
+        // Aplicar una interpolación suave para rotar el jugador gradualmente
+        transform.rotation = Quaternion.Lerp(transform.rotation, MovementPlayer1.rotacionDeseada, MovementPlayer1.suavidadRotacion * Time.deltaTime);
+
+        if (Quaternion.Angle(transform.rotation, MovementPlayer1.rotacionDeseada) < MovementPlayer1.toleranciaRotacion)
+        {
+            gira_una = false;
+        }
     }
 
 

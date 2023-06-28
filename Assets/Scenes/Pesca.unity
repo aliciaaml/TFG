@@ -2626,10 +2626,10 @@ RectTransform:
   m_Father: {fileID: 1925762276}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 12}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.45721298, y: 0.42046914}
+  m_AnchorMax: {x: 0.54457414, y: 0.6208274}
+  m_AnchoredPosition: {x: -1, y: -1}
+  m_SizeDelta: {x: 2, y: -26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1522104286
 MonoBehaviour:
@@ -3103,8 +3103,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2063278327}
-        m_TargetAssemblyTypeName: Click_start_pesca, Assembly-CSharp
-        m_MethodName: f_Click_Start_pesca
+        m_TargetAssemblyTypeName: ClickStartPesca, Assembly-CSharp
+        m_MethodName: clickStartPesca
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
