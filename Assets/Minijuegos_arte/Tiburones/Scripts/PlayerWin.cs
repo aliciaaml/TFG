@@ -11,18 +11,6 @@ public class PlayerWin : MonoBehaviour
     public GameObject fondo_corazones;
     public GameObject win;
 
-    void Start()
-    {
-        //rb = GetComponent<Rigidbody>();
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnCollisionEnter2D(Collision2D colision){
 
         if(colision.gameObject.tag == "Player"){

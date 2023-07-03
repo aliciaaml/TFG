@@ -48,8 +48,6 @@ public class MovementPlayer1 : MonoBehaviour
     {
         navMeshAgent1 = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator1 = GetComponent<Animator>();
-
-
     }
 
     void Update()
@@ -167,14 +165,10 @@ public class MovementPlayer1 : MonoBehaviour
 
                         LetreroMinijuego.SetActive(true);
                         botonMinijuego.SetActive(true);
-
                     }
 
                 }
-
-
             }
-
 
         }
 
@@ -183,12 +177,12 @@ public class MovementPlayer1 : MonoBehaviour
     void RotarInterpolado()
     {
         
-        // Calcular la rotación deseada sumando la rotación actual con un giro de 90 grados
+        // Calcular la rotaciï¿½n deseada sumando la rotaciï¿½n actual con un giro de 90 grados
         rotacionDeseada = transform.rotation* Quaternion.Euler(0f, 180f, 0f);
 
         Debug.Log("ahaha:   "+ rotacionDeseada);
 
-        // Aplicar una interpolación suave para rotar el jugador gradualmente
+        // Aplicar una interpolaciï¿½n suave para rotar el jugador gradualmente
         transform.rotation = Quaternion.Lerp(transform.rotation, rotacionDeseada, suavidadRotacion* Time.deltaTime);
 
         if (Quaternion.Angle(transform.rotation, rotacionDeseada) < toleranciaRotacion)

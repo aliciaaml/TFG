@@ -952,7 +952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: -510}
+  m_AnchoredPosition: {x: -88, y: -510}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &220672597
@@ -1281,7 +1281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &474048405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2034,8 +2034,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255361
-  m_fontColor: {r: 0.003386259, g: 1, b: 0, a: 1}
+    rgba: 4278193919
+  m_fontColor: {r: 1, g: 0.054463744, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3767,7 +3767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3, y: -285}
+  m_AnchoredPosition: {x: -70, y: -285}
   m_SizeDelta: {x: 286.4542, y: 71.0158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1800492449

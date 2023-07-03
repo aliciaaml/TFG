@@ -10,56 +10,38 @@ public class ElegirPosiciones : MonoBehaviour
     public GameObject flechaRana;
     public GameObject flechaQueso;
     public GameObject flechaCactus;
-
     public static  List<List<int>> numeroDado = new List<List<int>>();
-
     public static bool turno_terminado = false;
     public static bool terminadoCactus = false;
-
     public GameObject dado1;
     public GameObject texto_dado1;
-
     float aux_v = 0f;
     bool wait_v = true;
-    
     float aux_j = 0f;
     bool wait_j = true;
-
     public GameObject[] flechas_characters;
     public GameObject[] num_pos_salida;
     public static int f = 0;
     int aux_f = 0;
-
     public static bool unica = true;
-
     public GameObject trough;
-
     public static bool colliderDado;
-
     public TextMeshProUGUI turno_jugador;
     public TextMeshProUGUI turno_jugador_b;
     public GameObject turno;
-
     public static bool agregar = false;
-
     public static bool ElegirTurnoTerminado = false;
-
     public GameObject comenzar;
-
     bool solo_una = true;
 
     public void Wait_ver_num(){
-
         aux_v += 1*Time.deltaTime;
-
         if(aux_v >= 2f) wait_v = false;
         
     }
 
     public void Wait_comenzar_juego(){
-
         aux_j += 1*Time.deltaTime;
-
         if(aux_j >= 4f) wait_j = false;
     }
 
@@ -67,16 +49,11 @@ public class ElegirPosiciones : MonoBehaviour
     void Update()
     {
         if(!ElegirTurnoTerminado){
-
             if(DialogControler.dialog_terminado){
-
                 if(!EscogerJugador.four_player){
-
                     if(flechas_characters[f] && turno_terminado== false){
-
                         if(EscogerPersonaje.character_choosed[f] == 0 && unica){        //IA
                             trough.GetComponent<TroughDice>().IADown();
-
                             colliderDado = false;
                             if(f==0){
                                 turno_jugador.text = "Mushroom";
@@ -93,57 +70,40 @@ public class ElegirPosiciones : MonoBehaviour
                             else if (f==3){
                                 turno_jugador.text = "Cactus";
                                 turno_jugador_b.text = "Cactus";
-                            }
-                            
-
+                            }                       
                         }
-                        if(EscogerPersonaje.character_choosed[f] != 0){
-                            
+                        if(EscogerPersonaje.character_choosed[f] != 0){                            
                             colliderDado = true;
                             turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[f].ToString();
-                            turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[f].ToString();
-    
-                        } 
-
-                            
+                            turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[f].ToString();   
+                        }                             
                     }
                     if(turno_terminado){
                         if(f<3){
                             Wait_ver_num();
-                            if(wait_v == false){
-                                
+                            if(wait_v == false){                                
                                 dado1.SetActive(true);
                                 colliderDado=true;
                                 texto_dado1.SetActive(false);
-
                                 flechas_characters[f].SetActive(false);
                                 f++;                          
                                 flechas_characters[f].SetActive(true);
                                 turno_terminado = false;
                                 wait_v = true;
                                 aux_v = 0;
-                                unica = true;
-                                    
+                                unica = true;                               
                             }
                         }
                         else{           //CACTUS
-
                             terminadoCactus = true;
-
                             flechas_characters[f].SetActive(false);
-
                             Wait_ver_num();
                             if(wait_v == false){
-
                                 texto_dado1.SetActive(false);
                                 turno.SetActive(false);
-
                                 wait_v = true;
                                 aux_v = 0;
-
-
                                 for(int i = 0; i<num_pos_salida.Length;i++){
-
                                     num_pos_salida[i].SetActive(true);
                                 }
                                 comenzar.SetActive(true);
@@ -151,18 +111,12 @@ public class ElegirPosiciones : MonoBehaviour
 
                             if(solo_una){
                                 solo_una = false;
-
                                  // Ordena la lista de mayor a menor
                                 numeroDado.Sort((a, b) => b[0].CompareTo(a[0]));;
-
-                                for (int a = 0; a < numeroDado.Count; a++)
-                                {
-
-                                    //Debug.Log("Lista Dados: " + numeroDado.Count);
+                                for (int a = 0; a < numeroDado.Count; a++){
                                     int f_personaje = numeroDado[a][1];
                                     TextMeshProUGUI texto_posSalida = num_pos_salida[f_personaje].GetComponent<TextMeshProUGUI>();
                                     texto_posSalida.text = (a+1).ToString() + "º";
-
                                     if(f_personaje == 0){
                                         ComunPlayers.OrdenInicioPlayers.Add("player1");
                                     }
@@ -177,7 +131,6 @@ public class ElegirPosiciones : MonoBehaviour
                                     }
                                     Debug.Log("Lista ordenPlayers: " +ComunPlayers.OrdenInicioPlayers.Count);
                                 }
-
                                 
                             }
 
@@ -187,20 +140,13 @@ public class ElegirPosiciones : MonoBehaviour
                                 Wait_comenzar_juego();
                                 if(wait_j == false){
                                     ElegirTurnoTerminado = true;
-                                    
-                                    //Debug.Log("ElegirTurnoTerminado: " + ElegirTurnoTerminado);
-
                                     for(int i = 0; i<num_pos_salida.Length;i++){
-
                                         num_pos_salida[i].SetActive(false);
                                     }
                                     comenzar.SetActive(false);
-                                    turno_terminado = false;
-                                    
-                                    
+                                    turno_terminado = false; 
                                 }
-                           
-                        }                 
+                        }                
                     }
                         
                 }
@@ -210,41 +156,29 @@ public class ElegirPosiciones : MonoBehaviour
                         if(f<3){
                             Wait_ver_num();
                             if(wait_v == false){
-                                
-                                dado1.SetActive(true);
-                                
+                                dado1.SetActive(true);                              
                                 texto_dado1.SetActive(false);
-
                                 flechas_characters[f].SetActive(false);
-                                f++;
-                                
+                                f++;                               
                                 flechas_characters[f].SetActive(true);
                                 aux_f = f+1;
                                 turno_jugador.text = "Player " + aux_f.ToString();
                                 turno_jugador_b.text = "Player " + aux_f.ToString();
-
                                 turno_terminado = false;
                                 wait_v = true;
                                 aux_v = 0;
-                                unica = true;
-                                    
+                                unica = true;                                   
                             }
                         }
                         else{           
-
                             flechas_characters[f].SetActive(false);
-
                             Wait_ver_num();
                             if(wait_v == false){
-
                                 texto_dado1.SetActive(false);
                                 turno.SetActive(false);
-
                                 wait_v = true;
                                 aux_v = 0;
-
                                 for(int i = 0; i<num_pos_salida.Length;i++){
-
                                     num_pos_salida[i].SetActive(true);
                                 }
                                 comenzar.SetActive(true);
@@ -254,8 +188,6 @@ public class ElegirPosiciones : MonoBehaviour
                                 solo_una = false;
                                 // Ordena la lista de mayor a menor
                                 numeroDado.Sort((a, b) => b[0].CompareTo(a[0]));
-
-
                                 for (int i = 0; i < numeroDado.Count; i++)
                                 {
                                     int f_personaje = numeroDado[i][1];
@@ -282,18 +214,12 @@ public class ElegirPosiciones : MonoBehaviour
                             ComunPlayers.primeraRonda = true;
                             Wait_comenzar_juego();
                             if(wait_j == false){
-                                ElegirTurnoTerminado = true;
-                                
-                                //Debug.Log("ElegirTurnoTerminado: " + ElegirTurnoTerminado);
-
+                                ElegirTurnoTerminado = true;                               
                                 for(int i = 0; i<num_pos_salida.Length;i++){
-
                                     num_pos_salida[i].SetActive(false);
                                 }
                                 comenzar.SetActive(false);
-                                turno_terminado = false;
-                                
-                                
+                                turno_terminado = false;                     
                             }
                         }                 
                     }
@@ -302,7 +228,6 @@ public class ElegirPosiciones : MonoBehaviour
             }
 
         }
-
-                
+         
     }
 }

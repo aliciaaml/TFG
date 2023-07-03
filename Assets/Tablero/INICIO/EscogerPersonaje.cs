@@ -46,9 +46,6 @@ public class EscogerPersonaje : MonoBehaviour
         characters[selectedCharacter].SetActive(false);
         selectedCharacter = (selectedCharacter + 1) % characters.Length;
         characters[selectedCharacter].SetActive(true);
-
-
-
     }
     
     public void PreviousCharacter(){
@@ -56,7 +53,6 @@ public class EscogerPersonaje : MonoBehaviour
         characters[selectedCharacter].SetActive(false);
         selectedCharacter--;
         if(selectedCharacter<0){
-
             selectedCharacter += characters.Length;
         }
         characters[selectedCharacter].SetActive(true);
@@ -67,18 +63,15 @@ public class EscogerPersonaje : MonoBehaviour
 
         if(EscogerJugador.one_player && character_choosed.Count>0){
 
-            character_choosed[selectedCharacter] = contador;
-
+            character_choosed[selectedCharacter] = contador;                    //Esta lista pone en la posicion del personaje el numero del jugador, por ejemplo si el jugador 1 coge el cactus en la posicion 4  pone un 1.
             SceneManager.LoadScene("Terreno");
             juegoComenzar = true;               //Este bool se utiliza para quitar el canvas de inicio de la escena del tablero
             
         }
         else{
-
             if(EscogerJugador.two_player && character_choosed.Count>0 ){
 
                 if(contador<2){
-
                     character_choosed[selectedCharacter] = contador;
                     characters[selectedCharacter].SetActive(false);
                     charactersList = new List<GameObject>(characters);
@@ -104,7 +97,6 @@ public class EscogerPersonaje : MonoBehaviour
             if(EscogerJugador.three_player && character_choosed.Count>0){
 
                 if(contador<3){
-
                     character_choosed[selectedCharacter] = contador;
                     characters[selectedCharacter].SetActive(false);
                     charactersList = new List<GameObject>(characters);

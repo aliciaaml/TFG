@@ -28,7 +28,7 @@ public class LoadCharacter : MonoBehaviour
 
             for(int i= 0; i<EscogerPersonaje.character_choosed.Count; i++ ){
 
-                //Debug.Log("LISTA: " + EscogerPersonaje.character_choosed[i]);
+                Debug.Log("LISTA: " + EscogerPersonaje.character_choosed[i]);
             }
             una_vez = true;
         }

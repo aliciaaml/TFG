@@ -13137,8 +13137,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -38.859924, y: -13.853821}
-  m_SizeDelta: {x: 1225.2397, y: 898.9688}
+  m_AnchoredPosition: {x: -21.053797, y: -13.853821}
+  m_SizeDelta: {x: 1106.5327, y: 898.9688}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078594968
 MonoBehaviour:
@@ -17908,8 +17908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c0b892a74c5a5648beb126119085dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 806248615}
-  animator2: {fileID: 1411384278}
+  animator: {fileID: 0}
+  animator2: {fileID: 0}
 --- !u!65 &1411384282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25528,7 +25528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167febaa59b1fc548bc8adb94bcad1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1318817304}
   animator: {fileID: 173804140}
 --- !u!50 &2028130270
 Rigidbody2D:
