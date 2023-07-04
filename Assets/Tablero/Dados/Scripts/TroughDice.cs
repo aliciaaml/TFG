@@ -11,7 +11,12 @@ public class TroughDice : MonoBehaviour
     public static float aux = 0;
     public static bool wait_t = true;
 
+    //public SoundClick sound;
+
+    SoundClick sound;
+
     void Start(){
+        sound = FindObjectOfType<SoundClick>();
         animator = transform.parent.GetComponent<Animator>();
     }
     void Update (){
@@ -25,6 +30,7 @@ public class TroughDice : MonoBehaviour
 
     public void OnMouseDown(){
         if(ElegirPosiciones.colliderDado){
+            sound.Click();
             mouse = true;
             animator.SetBool("lanzado",true);
             dados_tirados = true;

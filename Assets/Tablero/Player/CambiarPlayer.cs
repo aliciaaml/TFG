@@ -18,7 +18,7 @@ public class CambiarPlayer : MonoBehaviour
     public static bool TurnoPlayer3 = false;
     public static bool TurnoPlayer4 = false;
 
-    bool uno = true;
+    public static bool uno = true;
 
 
     private void OnEnable(){

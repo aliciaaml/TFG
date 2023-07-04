@@ -36,7 +36,7 @@ public class MovementPlayer1 : MonoBehaviour
     public GameObject botonPlayerSig;
 
     public CinemachineVirtualCamera virtualCamera;
-    private bool gira_una = true;
+    public static bool gira_una1 = true;
 
     public static float guardarPosPlayer1;
 
@@ -97,7 +97,7 @@ public class MovementPlayer1 : MonoBehaviour
                 {
                     virtualCamera.Follow = transform;
                     virtualCamera.LookAt = transform;
-                    gira_una = true;
+                    gira_una1 = true;
 
                     ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
                     navMeshAgent1.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
@@ -123,9 +123,9 @@ public class MovementPlayer1 : MonoBehaviour
                     virtualCamera.Follow = null;
                     virtualCamera.LookAt = null;
 
-                    if(gira_una){
+                    if(gira_una1){
                         StartCoroutine(InterpolarRotacion());
-                        gira_una = false;
+                        gira_una1 = false;
                     }
                     
                     

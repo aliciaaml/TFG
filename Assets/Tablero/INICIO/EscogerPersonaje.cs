@@ -6,8 +6,8 @@ using TMPro;
 
 public class EscogerPersonaje : MonoBehaviour
 {
-    int contador = 1;
-    public static bool juegoComenzar;
+    public static int contador = 1;
+    public static bool juegoComenzar = false;
 
     public GameObject confirm;
 
@@ -20,12 +20,13 @@ public class EscogerPersonaje : MonoBehaviour
 
     List<GameObject> charactersList;
 
-    public int selectedCharacter = 0;
+    public static int selectedCharacter = 0;
 
     public static List<int> character_choosed = new List<int>(new int[4]);
 
     void Update(){
 
+        Replay.replay = false;
         if(characters[selectedCharacter] == characters_deselection[selectedCharacter]){
 
             confirm.SetActive(false);

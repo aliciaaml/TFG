@@ -33,10 +33,11 @@ public class LoadCharacter : MonoBehaviour
             una_vez = true;
         }
 
-        if(EscogerPersonaje.juegoComenzar){
+        if(EscogerPersonaje.juegoComenzar && !Replay.replay){
 
             canvas_dado.SetActive(true);
-            canvas_inicio.SetActive(false);   
+            canvas_inicio.SetActive(false);
+             
         }
 
 

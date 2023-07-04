@@ -15,14 +15,14 @@ public class ElegirPosiciones : MonoBehaviour
     public static bool terminadoCactus = false;
     public GameObject dado1;
     public GameObject texto_dado1;
-    float aux_v = 0f;
-    bool wait_v = true;
-    float aux_j = 0f;
-    bool wait_j = true;
+    public static float aux_v = 0f;
+    public static bool wait_v = true;
+    public static float aux_j = 0f;
+    public static bool wait_j = true;
     public GameObject[] flechas_characters;
     public GameObject[] num_pos_salida;
     public static int f = 0;
-    int aux_f = 0;
+    public static int aux_f = 0;
     public static bool unica = true;
     public GameObject trough;
     public static bool colliderDado;
@@ -32,7 +32,7 @@ public class ElegirPosiciones : MonoBehaviour
     public static bool agregar = false;
     public static bool ElegirTurnoTerminado = false;
     public GameObject comenzar;
-    bool solo_una = true;
+    public static bool solo_una = true;
 
     public void Wait_ver_num(){
         aux_v += 1*Time.deltaTime;

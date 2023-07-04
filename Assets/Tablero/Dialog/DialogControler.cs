@@ -10,7 +10,7 @@ public class DialogControler : MonoBehaviour
 
     public TextMeshProUGUI dialog_text;
 
-    int i = 0;
+    public static int i = 0;
 
     public GameObject DialgosFuera;
     public GameObject dado;
@@ -26,7 +26,7 @@ public class DialogControler : MonoBehaviour
 
     public void ChangeDialog(){
 
-        if(i<dialogs.Count){
+        if(i<6){
 
             dialog_text.text = dialogs[i];
 

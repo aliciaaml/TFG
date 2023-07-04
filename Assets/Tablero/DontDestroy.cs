@@ -11,6 +11,8 @@ public class DontDestroy : MonoBehaviour
     private AudioSource audioSource;
     private static DontDestroy instance;
 
+    public static bool una = true;
+
     private void Awake()
     {
         if (instance == null)
@@ -34,8 +36,16 @@ public class DontDestroy : MonoBehaviour
 
     private void Update()
     {
-        if (EscogerPersonaje.juegoComenzar && audioSource.clip != Game_music)
+        if(Replay.replay && una){
+            Debug.Log("LALA");
+            una = false;
+            audioSource.Stop();
+            audioSource.clip = Start_music;
+            audioSource.Play();
+        }
+        else if (EscogerPersonaje.juegoComenzar && audioSource.clip != Game_music)
         {
+            Debug.Log("LELE");
             audioSource.Stop();
             audioSource.clip = Game_music;
             audioSource.Play();

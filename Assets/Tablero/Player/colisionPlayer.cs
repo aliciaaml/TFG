@@ -11,7 +11,7 @@ public class colisionPlayer : MonoBehaviour
     public static int actual = 0;
 
     GameObject casilla_aux;
-    int contadorDado = 0;
+    public static int contadorDado = 0;
 
     void OnTriggerEnter(Collider other) {
 

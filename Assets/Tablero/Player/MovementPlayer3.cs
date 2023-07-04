@@ -30,7 +30,7 @@ public class MovementPlayer3 : MonoBehaviour
     public TextMeshProUGUI nombreMinijuego2;
 
     public CinemachineVirtualCamera virtualCamera;
-    private bool gira_una = true;
+    public static bool gira_una3 = true;
     public MovementPlayer1 rotacion;
 
     public static float guardarPosPlayer3;
@@ -93,7 +93,7 @@ public class MovementPlayer3 : MonoBehaviour
                 {
                     virtualCamera.Follow = transform;
                     virtualCamera.LookAt = transform;
-                    gira_una = true;
+                    gira_una3 = true;
                     ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
                     navMeshAgent3.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
                     ComunPlayers.comienza_turno = false;
@@ -119,9 +119,9 @@ public class MovementPlayer3 : MonoBehaviour
                     virtualCamera.Follow = null;
                     virtualCamera.LookAt = null;
 
-                    if(gira_una){
+                    if(gira_una3){
                         StartCoroutine(InterpolarRotacion3());
-                        gira_una = false;
+                        gira_una3 = false;
                     }
 
                     textoDado.SetActive(false);
