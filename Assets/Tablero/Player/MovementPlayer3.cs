@@ -33,10 +33,14 @@ public class MovementPlayer3 : MonoBehaviour
     private bool gira_una = true;
     public MovementPlayer1 rotacion;
 
+    public static float guardarPosPlayer3;
+
     void Start()
     {
         navMeshAgent3 = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator3 = GetComponent<Animator>();
+
+        //StartCoroutine(InterpolarRotacion());
     }
 
     void Update()
@@ -114,12 +118,12 @@ public class MovementPlayer3 : MonoBehaviour
                 {
                     virtualCamera.Follow = null;
                     virtualCamera.LookAt = null;
-                    if (gira_una)
-                    {
-                        RotarInterpolado();
-                        //gira_una = false;
+
+                    if(gira_una){
+                        StartCoroutine(InterpolarRotacion3());
+                        gira_una = false;
                     }
-   
+
                     textoDado.SetActive(false);
                     animator3.SetBool("moving", false);
                     navMeshAgent3.speed = 0f;
@@ -154,7 +158,6 @@ public class MovementPlayer3 : MonoBehaviour
                         botonMinijuego.SetActive(true);
 
                     }
-
                     
                 }   
 
@@ -164,18 +167,31 @@ public class MovementPlayer3 : MonoBehaviour
 
     }
 
-    void RotarInterpolado()
-    {
-        // Calcular la rotación deseada sumando la rotación actual con un giro de 90 grados
-        MovementPlayer1.rotacionDeseada = transform.rotation * Quaternion.Euler(0f, 180f, 0f);
-        Debug.Log("ahaha:   " + MovementPlayer1.rotacionDeseada);
-        // Aplicar una interpolación suave para rotar el jugador gradualmente
-        transform.rotation = Quaternion.Lerp(transform.rotation, MovementPlayer1.rotacionDeseada, MovementPlayer1.suavidadRotacion * Time.deltaTime);
 
-        if (Quaternion.Angle(transform.rotation, MovementPlayer1.rotacionDeseada) < MovementPlayer1.toleranciaRotacion)
-        {
-            gira_una = false;
+    IEnumerator InterpolarRotacion3(){
+        float _tiempotrans = 0f;
+        float animTime = 2f;
+
+        guardarPosPlayer3 = transform.position.y;
+        Quaternion rotacionDeseada = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + 180f, transform.eulerAngles.z);
+  
+        float _ratio = 0;
+
+        while(_tiempotrans < animTime){
+
+            Debug.Log("AHORAAA");  
+            _tiempotrans += Time.deltaTime;
+            _ratio = _tiempotrans / animTime;
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotacionDeseada,_ratio);
+
+            yield return new WaitForSeconds(1f / 60f);
+
+            _tiempotrans +=1f/60f;
         }
+
+        
+        yield return null;
     }
 
 

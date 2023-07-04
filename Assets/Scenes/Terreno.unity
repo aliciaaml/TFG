@@ -3908,6 +3908,10 @@ MonoBehaviour:
   ScriptBotonSiguiente: {fileID: 835333026}
   LetreroMinijuego: {fileID: 1337814109}
   botonMinijuego: {fileID: 306881557}
+  player1: {fileID: 919132148656620156}
+  player2: {fileID: 919132148179284294}
+  player3: {fileID: 919132149139760652}
+  player4: {fileID: 919132147607795558}
 --- !u!114 &306881560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9172,6 +9176,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LetreroNoMinijuego: {fileID: 1912077158}
   botonPlayerSig: {fileID: 835333024}
+  player1: {fileID: 919132148656620156}
+  player2: {fileID: 919132148179284294}
+  player3: {fileID: 919132149139760652}
+  player4: {fileID: 919132147607795558}
 --- !u!114 &835333027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24224,6 +24232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1948600357}
   - component: {fileID: 1948600359}
+  - component: {fileID: 1948600360}
   m_Layer: 0
   m_Name: tiburon (1)
   m_TagString: Untagged
@@ -24298,6 +24307,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1948600360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948600356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa84cdb5596d819498dde225c4396925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1948959164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27704,8 +27725,8 @@ GameObject:
   - component: {fileID: 543450651992896434}
   - component: {fileID: 3469287838123736087}
   - component: {fileID: 1711813855134501085}
-  - component: {fileID: 3469287838123736088}
   - component: {fileID: 1715524700}
+  - component: {fileID: 3469287838123736088}
   m_Layer: 0
   m_Name: casillas1
   m_TagString: casillas
@@ -27966,8 +27987,8 @@ GameObject:
   - component: {fileID: 543450652441867328}
   - component: {fileID: 3469287838507301861}
   - component: {fileID: 1711813854782000943}
-  - component: {fileID: 3469287838507301862}
   - component: {fileID: 1300042670}
+  - component: {fileID: 3469287838507301862}
   m_Layer: 0
   m_Name: casillas2
   m_TagString: casillas
@@ -28108,8 +28129,8 @@ GameObject:
   - component: {fileID: 543450652213159441}
   - component: {fileID: 3469287838142540212}
   - component: {fileID: 1711813854415117694}
-  - component: {fileID: 3469287838142540213}
   - component: {fileID: 1487127037}
+  - component: {fileID: 3469287838142540213}
   m_Layer: 0
   m_Name: casillas6
   m_TagString: casillas

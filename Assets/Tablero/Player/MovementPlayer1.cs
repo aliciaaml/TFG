@@ -38,10 +38,7 @@ public class MovementPlayer1 : MonoBehaviour
     public CinemachineVirtualCamera virtualCamera;
     private bool gira_una = true;
 
-    public static Quaternion rotacionDeseada;
-    public static float suavidadRotacion = 5f;
-    public static float toleranciaRotacion = 0.001f;
-
+    public static float guardarPosPlayer1;
 
 
     void Start()
@@ -126,11 +123,12 @@ public class MovementPlayer1 : MonoBehaviour
                     virtualCamera.Follow = null;
                     virtualCamera.LookAt = null;
 
-                    if (gira_una)
-                    {
-                        RotarInterpolado();
-                        
+                    if(gira_una){
+                        StartCoroutine(InterpolarRotacion());
+                        gira_una = false;
                     }
+                    
+                    
 
                     textoDado.SetActive(false);
                     animator1.SetBool("moving", false);
@@ -172,22 +170,29 @@ public class MovementPlayer1 : MonoBehaviour
         }
 
     }
+    IEnumerator InterpolarRotacion(){
+        float _tiempotrans = 0f;
+        float animTime = 2f;
+        guardarPosPlayer1 = transform.position.y;
 
-    void RotarInterpolado()
-    {
+        Quaternion rotacionDeseada = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + 180f, transform.eulerAngles.z);
         
-        // Calcular la rotacion deseada sumando la rotacion actual con un giro de 90 grados
-        rotacionDeseada = transform.rotation* Quaternion.Euler(0f, 180f, 0f);
+        float _ratio = 0;
 
-        Debug.Log("ahaha:   "+ rotacionDeseada);
+        while(_tiempotrans < animTime){
 
-        // Aplicar una interpolacion suave para rotar el jugador gradualmente
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotacionDeseada, suavidadRotacion* Time.deltaTime);
+            Debug.Log("AHORAAA");
+            _tiempotrans += Time.deltaTime;
+            _ratio = _tiempotrans / animTime;
 
-        if (Quaternion.Angle(transform.rotation, rotacionDeseada) < toleranciaRotacion)
-        {
-            gira_una = false;
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotacionDeseada,_ratio);
+
+            yield return new WaitForSeconds(1f / 60f);
+
+            _tiempotrans +=1f/60f;
         }
+
+        yield return null;
     }
 
 }
