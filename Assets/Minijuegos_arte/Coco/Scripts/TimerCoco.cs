@@ -8,27 +8,22 @@ public class TimerCoco : MonoBehaviour
 {
     [SerializeField] int min,seg;
     [SerializeField] TextMeshProUGUI tiempo;
-
     private float restante;
     public static bool enMarcha;
-
     public GameObject win;
     public GameObject generadorCocos;
     public GameObject generadorCocos2;
-
     public SpriteRenderer spriteRenderer;
     Sprite nuevoSprite;
 
     void Start(){
 
         if(ClickStartCoco.start){
-
             restante = (min*60)+seg;
             enMarcha = true;
-        }
-            
+        }         
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -36,7 +31,6 @@ public class TimerCoco : MonoBehaviour
             restante -= Time.deltaTime;
 
             if(restante< 1){
-
                 enMarcha = false;
                 win.SetActive(true);
                 generadorCocos.SetActive(false);

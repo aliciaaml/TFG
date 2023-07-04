@@ -18,9 +18,7 @@ public class PlayerCoco : MonoBehaviour
     void Update()
     {
         if(contador>=3){
-
             golpeado = true;
-
         }
 
         if(!golpeado){//contador<3 para tener 3 oportunidades
@@ -28,9 +26,7 @@ public class PlayerCoco : MonoBehaviour
             transform.Translate(Vector2.right * movimientoHorizontal * velocidad * Time.deltaTime);
         }
         else if(contador>=3){
-
             TimerCoco.enMarcha = false;
-            
             corazon.SetActive(false);
             lose.SetActive(true);
             generadorCocos.SetActive(false);
@@ -40,19 +36,13 @@ public class PlayerCoco : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("coco") && !golpeado){
-            Debug.Log("Te ha golpeado un coco!");
-
             Destroy(other.gameObject);
             Wait_coco();
-
-            
         }
     }
 
     void Wait_coco(){
-
         aux_coco+= 1*Time.deltaTime;
-
         if(aux_coco >= 0.02f) contador +=1; 
     }
 }

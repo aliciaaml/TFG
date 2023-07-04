@@ -5,11 +5,9 @@ using UnityEngine;
 public class FondoAgua : MonoBehaviour
 {
     [SerializeField] private Vector2 velocidadMovimiento;
-
     private Vector2 offset;
-
     private Material material;
-
+    
     private void Awake()
     {
         material = GetComponent<SpriteRenderer>().material;
@@ -18,6 +16,5 @@ public class FondoAgua : MonoBehaviour
     {
         offset = velocidadMovimiento*Time.deltaTime;
         material.mainTextureOffset += offset;
-    }
-    
+    }   
 }
