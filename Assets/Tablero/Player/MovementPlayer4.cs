@@ -148,22 +148,14 @@ public class MovementPlayer4 : MonoBehaviour
                         }
                         if(CasillaMinCoco.casilla_minijuego == "juego_tiburones"){
                             nombreMinijuego.text = "Sharks minigame";
-                            nombreMinijuego2.text = "Sharks minigame";
-                            
+                            nombreMinijuego2.text = "Sharks minigame";   
                         }
-
                         LetreroMinijuego.SetActive(true);
                         botonMinijuego.SetActive(true);
 
-                    }
-                    
-                    
+                    }  
                 }
-
-            }
-
-              
-            
+            }  
         }
 
     }
@@ -175,10 +167,16 @@ public class MovementPlayer4 : MonoBehaviour
         Debug.Log("ahaha:   " + MovementPlayer1.rotacionDeseada);
         // Aplicar una interpolación suave para rotar el jugador gradualmente
         transform.rotation = Quaternion.Lerp(transform.rotation, MovementPlayer1.rotacionDeseada, MovementPlayer1.suavidadRotacion * Time.deltaTime);
+        Debug.Log("AHORA:   " + MovementPlayer1.rotacionDeseada);
 
-        if (Quaternion.Angle(transform.rotation, MovementPlayer1.rotacionDeseada) < MovementPlayer1.toleranciaRotacion)
+        float angleDifference = Quaternion.Angle(transform.rotation, MovementPlayer1.rotacionDeseada);
+
+        // Verificar si el ángulo de diferencia es aproximadamente igual a 180 grados
+        float targetAngle = 180f; // Ángulo objetivo de 180 grados
+        if (Mathf.Approximately(angleDifference, targetAngle))
         {
             gira_una = false;
+            Debug.Log("AHORA:   " + MovementPlayer1.rotacionDeseada);
         }
     }
 

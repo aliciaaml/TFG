@@ -21,7 +21,7 @@ public class MovementPlayer1 : MonoBehaviour
     public GameObject Nombre_Player;
     public TextMeshProUGUI turno_jugador;
     public TextMeshProUGUI turno_jugador_b;
-
+    
     public TextMeshProUGUI nombreMinijuego;
     public TextMeshProUGUI nombreMinijuego2;
 
@@ -40,7 +40,7 @@ public class MovementPlayer1 : MonoBehaviour
 
     public static Quaternion rotacionDeseada;
     public static float suavidadRotacion = 5f;
-    public static float toleranciaRotacion = 0.001f;
+    public static float toleranciaRotacion = 0.1f;
 
 
 
@@ -48,8 +48,6 @@ public class MovementPlayer1 : MonoBehaviour
     {
         navMeshAgent1 = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator1 = GetComponent<Animator>();
-
-
     }
 
     void Update()
@@ -130,8 +128,7 @@ public class MovementPlayer1 : MonoBehaviour
 
                     if (gira_una)
                     {
-                        RotarInterpolado();
-                        
+                        RotarInterpolado();       
                     }
 
 
@@ -186,15 +183,18 @@ public class MovementPlayer1 : MonoBehaviour
         // Calcular la rotación deseada sumando la rotación actual con un giro de 90 grados
         rotacionDeseada = transform.rotation* Quaternion.Euler(0f, 180f, 0f);
 
-        Debug.Log("ahaha:   "+ rotacionDeseada);
+        Debug.Log("AHORA:   "+ rotacionDeseada);
 
-        // Aplicar una interpolación suave para rotar el jugador gradualmente
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotacionDeseada, suavidadRotacion* Time.deltaTime);
+        float angleDifference = Quaternion.Angle(transform.rotation, rotacionDeseada);
 
-        if (Quaternion.Angle(transform.rotation, rotacionDeseada) < toleranciaRotacion)
+        // Verificar si el ángulo de diferencia es aproximadamente igual a 180 grados
+        float targetAngle = 180f; // Ángulo objetivo de 180 grados
+        if (Mathf.Approximately(angleDifference, targetAngle))
         {
             gira_una = false;
+            Debug.Log("AHORA:   " + rotacionDeseada);
         }
     }
-
 }
+
+
