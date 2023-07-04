@@ -37,7 +37,6 @@ public class MovementPlayer3 : MonoBehaviour
     {
         navMeshAgent3 = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator3 = GetComponent<Animator>();
-        StartCoroutine(InterpolarRotacion());
     }
 
     void Update()
@@ -167,52 +166,17 @@ public class MovementPlayer3 : MonoBehaviour
 
     void RotarInterpolado()
     {
-        /*// Calcular la rotación deseada sumando la rotación actual con un giro de 90 grados
-        //MovementPlayer1.rotacionDeseada = transform.rotation * Quaternion.Euler(0f, 40f, 0f);
-        MovementPlayer1.rotacionDeseada = new Quaternion(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z, transform.rotation.w);
-
-       // _tiempotrans += Time.deltaTime;
-       // float _ratio = _tiempotrans / animTime;
+        // Calcular la rotación deseada sumando la rotación actual con un giro de 90 grados
+        MovementPlayer1.rotacionDeseada = transform.rotation * Quaternion.Euler(0f, 180f, 0f);
+        Debug.Log("ahaha:   " + MovementPlayer1.rotacionDeseada);
         // Aplicar una interpolación suave para rotar el jugador gradualmente
-        transform.rotation = Quaternion.Lerp(transform.rotation, MovementPlayer1.rotacionDeseada, _ratio);
-        Debug.Log("AHORA:   " + MovementPlayer1.rotacionDeseada);
+        transform.rotation = Quaternion.Lerp(transform.rotation, MovementPlayer1.rotacionDeseada, MovementPlayer1.suavidadRotacion * Time.deltaTime);
 
-        //float angleDifference = Quaternion.Angle(transform.rotation, MovementPlayer1.rotacionDeseada);
-
-        // Verificar si el ángulo de diferencia es aproximadamente igual a 180 grados
-        float targetAngle = 180f; // Ángulo objetivo de 180 grados
-        if (_ratio > 1)
+        if (Quaternion.Angle(transform.rotation, MovementPlayer1.rotacionDeseada) < MovementPlayer1.toleranciaRotacion)
         {
             gira_una = false;
-            Debug.Log("AHORA:   " + MovementPlayer1.rotacionDeseada);
-        }*/
-    }
-
-    IEnumerator InterpolarRotacion()
-    {
-        float _tiempotrans = 0f;
-
-        float animTime = 2f;
-        yield return new WaitForSeconds(2f);
-        MovementPlayer1.rotacionDeseada = new Quaternion(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z, transform.rotation.w);
-
-        _tiempotrans += Time.deltaTime;
-        float _ratio = 0;
-
-
-        while(_tiempotrans < animTime)
-        {
-            _ratio = _tiempotrans / animTime;
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, MovementPlayer1.rotacionDeseada, _ratio);
-            yield return new WaitForSeconds(1f / 60f);
-
-            _tiempotrans += 1f/60f;
         }
-
-        gira_una = false;
-
-
-        yield return null;
     }
+
+
 }

@@ -152,31 +152,30 @@ public class MovementPlayer2 : MonoBehaviour
                         LetreroMinijuego.SetActive(true);
                         botonMinijuego.SetActive(true);
 
-                    }  
+                    }
+                    
+                    
                 }
-            } 
+
+            }
+            
         }
+
     }
 
     void RotarInterpolado()
     {
         // Calcular la rotación deseada sumando la rotación actual con un giro de 90 grados
         MovementPlayer1.rotacionDeseada = transform.rotation * Quaternion.Euler(0f, 180f, 0f);
+        Debug.Log("ahaha:   " + MovementPlayer1.rotacionDeseada);
         // Aplicar una interpolación suave para rotar el jugador gradualmente
         transform.rotation = Quaternion.Lerp(transform.rotation, MovementPlayer1.rotacionDeseada, MovementPlayer1.suavidadRotacion * Time.deltaTime);
-        Debug.Log("AHORA:   " + MovementPlayer1.rotacionDeseada);
 
-        float angleDifference = Quaternion.Angle(transform.rotation, MovementPlayer1.rotacionDeseada);
-
-        // Verificar si el ángulo de diferencia es aproximadamente igual a 180 grados
-        float targetAngle = 180f; // Ángulo objetivo de 180 grados
-        if (Mathf.Approximately(angleDifference, targetAngle))
+        if (Quaternion.Angle(transform.rotation, MovementPlayer1.rotacionDeseada) < MovementPlayer1.toleranciaRotacion)
         {
             gira_una = false;
-            Debug.Log("AHORA:   " + MovementPlayer1.rotacionDeseada);
         }
     }
+
+
 }
-
-
-
