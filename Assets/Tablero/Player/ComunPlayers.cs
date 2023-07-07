@@ -35,6 +35,9 @@ public class ComunPlayers : MonoBehaviour
     public static bool primeraRonda = false;
     public static bool dic_lleno = false;
 
+    public GameObject dialogo;
+    public static bool no_detect_casilla_minijuego = false;
+
     // Update is called once per frame
     void Update()
     {        
@@ -54,6 +57,13 @@ public class ComunPlayers : MonoBehaviour
             dic_lleno = true;
         }
 
+        if(LoadTablero.minijuego){
+            dialogo.SetActive(false);
+            LoadTablero.minijuego = false;
+        }
+        Debug.Log("INDEX" + index);
+        Debug.Log("Lista pos actual length: " + PosicionActualPlayers.Count);
+        Debug.Log("Pos actual:  " + colisionPlayer.actual);
     }
 
     public List<Transform> GetWaypointsRecorrer()
@@ -67,6 +77,7 @@ public class ComunPlayers : MonoBehaviour
                 for (int i = 0; i < casilla_destino; i++)
                 {
                     recorrer.Add(waypoints_todos[i]);
+                    Debug.Log("waypoints_inicio: " + waypoints_todos[i]);
                 }
             }
             else{
@@ -74,7 +85,7 @@ public class ComunPlayers : MonoBehaviour
                 for (int i = colisionPlayer.actual; i < colisionPlayer.actual +  casilla_destino; i++)
                 {
                     recorrer.Add(waypoints_todos[i]);
-                    Debug.Log("waypoints: " + waypoints_todos[i]);
+                    Debug.Log("waypoints_despues_inicio: " + waypoints_todos[i]);
                 }
             }
         }
@@ -82,6 +93,7 @@ public class ComunPlayers : MonoBehaviour
     }
 
     public static void ActualizarPosicionPlayer(){
+        Debug.Log("AAAAA");
         if(PosicionActualPlayers.Count==4){
             //PosicionActualPlayers[index][1].numero = colisionPlayer.actual;
             ElementoLista elemento = PosicionActualPlayers[index][0].Copy();
@@ -89,6 +101,7 @@ public class ComunPlayers : MonoBehaviour
             elemento.numero = colisionPlayer.actual;
             // Asignar la copia modificada de nuevo a la lista interna
             PosicionActualPlayers[index][0] = elemento;
+            Debug.Log("Posicion actual players: " + PosicionActualPlayers[index][0]);
         }
     }
 }

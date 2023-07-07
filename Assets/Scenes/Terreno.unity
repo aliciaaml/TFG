@@ -4720,7 +4720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.351, y: 0.0971121}
   m_AnchorMax: {x: 0.641875, y: 0.7265518}
-  m_AnchoredPosition: {x: 35.553833, y: -1.0000038}
+  m_AnchoredPosition: {x: 35.553833, y: -1}
   m_SizeDelta: {x: -165.9231, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &386102875
@@ -11107,7 +11107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.351, y: 0.0971121}
   m_AnchorMax: {x: 0.641875, y: 0.7265518}
-  m_AnchoredPosition: {x: 19, y: -1.0000038}
+  m_AnchoredPosition: {x: 19, y: -1}
   m_SizeDelta: {x: -255.6806, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &957751651
@@ -12056,6 +12056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62853c7fa0464d468cdc648dcba3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogo: {fileID: 1249559785}
   CanvasInicio: {fileID: 541929049}
 --- !u!222 &989039100
 CanvasRenderer:
@@ -16867,6 +16868,7 @@ MonoBehaviour:
   - {fileID: 543450652015173323}
   - {fileID: 543450652992421759}
   - {fileID: 543450653392371920}
+  dialogo: {fileID: 1249559785}
 --- !u!114 &1318817307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16881,6 +16883,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas_dado: {fileID: 1133806869}
   canvas_inicio: {fileID: 541929049}
+  player1: {fileID: 919132148656620156}
+  player2: {fileID: 919132148179284294}
+  player3: {fileID: 919132149139760652}
+  player4: {fileID: 919132147607795558}
 --- !u!114 &1318817308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23474,6 +23480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62853c7fa0464d468cdc648dcba3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogo: {fileID: 1249559785}
   CanvasInicio: {fileID: 541929049}
 --- !u!222 &1832634609
 CanvasRenderer:
@@ -26215,6 +26222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62853c7fa0464d468cdc648dcba3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogo: {fileID: 1249559785}
   CanvasInicio: {fileID: 541929049}
 --- !u!222 &1979233595
 CanvasRenderer:

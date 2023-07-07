@@ -49,6 +49,8 @@ public class MovementPlayer3 : MonoBehaviour
             
             if(ElegirPosiciones.turno_terminado == false){
                 textoDado.SetActive(false);
+                virtualCamera.Follow = transform;
+                virtualCamera.LookAt = transform;
 
                 if(EscogerPersonaje.character_choosed[2] == 0  && MovementPlayer1.una_vez && !EscogerJugador.four_player){    //IA
 
@@ -87,12 +89,10 @@ public class MovementPlayer3 : MonoBehaviour
             else{
                 
                 Dado1.SetActive(false);
-                Debug.Log("verdad o no: " + (navMeshAgent3.remainingDistance < ComunPlayers.tolerance));
-                Debug.Log("blabla: " + (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar));
+                //Debug.Log("verdad o no: " + (navMeshAgent3.remainingDistance < ComunPlayers.tolerance));
+                //Debug.Log("blabla: " + (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar));
                 if (ComunPlayers.comienza_turno)
                 {
-                    virtualCamera.Follow = transform;
-                    virtualCamera.LookAt = transform;
                     gira_una3 = true;
                     ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
                     navMeshAgent3.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
@@ -101,6 +101,7 @@ public class MovementPlayer3 : MonoBehaviour
                     navMeshAgent3.speed = 25f;
                     navMeshAgent3.angularSpeed = 120f;
                     navMeshAgent3.acceleration = 8f;
+                    Debug.Log("xd: " + ComunPlayers.waypoints_recorrer[0] );
                 }
 
                 if (navMeshAgent3.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar)
@@ -108,10 +109,7 @@ public class MovementPlayer3 : MonoBehaviour
                     animator3.SetBool("moving", true);
                     m_CurrentWaypointIndex3 = (m_CurrentWaypointIndex3 + 1) % ComunPlayers.waypoints_recorrer.Count; 
                     navMeshAgent3.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex3].position);
-
-                    
-
-
+                    Debug.Log("m_current: " + ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex3]);
                 }
 
                 if(colisionPlayer.actual == ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar && MovementPlayer1.detectar_casilla == false)

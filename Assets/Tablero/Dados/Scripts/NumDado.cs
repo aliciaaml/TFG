@@ -158,6 +158,7 @@ public class NumDado : MonoBehaviour
                 if(gameManager.maquina.estadoActual == MaquinaEstados.Estado.TirarUnDado){
 
                     numero_total1.text = range.ToString();
+                    ComunPlayers.no_detect_casilla_minijuego = false;
 
                     if(ElegirPosiciones.ElegirTurnoTerminado){
 

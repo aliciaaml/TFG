@@ -47,6 +47,7 @@ public class TroughDice : MonoBehaviour
             animator.SetBool("lanzado",true);
             dados_tirados = true;
             animator.SetBool("repetir",false);
+            
         }
     }
     public static void Wait(){

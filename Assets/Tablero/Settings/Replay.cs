@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Replay : MonoBehaviour
 {
-
+    public GameObject dialogo;
     public GameObject CanvasInicio;
     public static bool replay = false;
 
@@ -85,6 +85,11 @@ public class Replay : MonoBehaviour
         EscogerPersonaje.juegoComenzar = false;
 
         DontDestroy.una = true;
+        DontDestroy.guardarPosPlayer1 = LoadCharacter.posInitPlayer1;
+        DontDestroy.guardarPosPlayer2 = LoadCharacter.posInitPlayer2;
+        DontDestroy.guardarPosPlayer3 = LoadCharacter.posInitPlayer3;
+        DontDestroy.guardarPosPlayer4 = LoadCharacter.posInitPlayer4;
+
         replay = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         

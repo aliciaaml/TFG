@@ -53,6 +53,8 @@ public class MovementPlayer1 : MonoBehaviour
 
             if (ElegirPosiciones.turno_terminado == false) {
 
+                virtualCamera.Follow = transform;
+                virtualCamera.LookAt = transform;
                 textoDado.SetActive(false);
 
                 if (EscogerPersonaje.character_choosed[0] == 0 && una_vez && !EscogerJugador.four_player) {    //IA
@@ -91,12 +93,11 @@ public class MovementPlayer1 : MonoBehaviour
             else {
 
                 Dado1.SetActive(false);
-                Debug.Log("verdad o no: " + (navMeshAgent1.remainingDistance < ComunPlayers.tolerance));
-                Debug.Log("blabla: " + (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar));
+               //Debug.Log("verdad o no: " + (navMeshAgent1.remainingDistance < ComunPlayers.tolerance));
+                //Debug.Log("blabla: " + (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar));
                 if (ComunPlayers.comienza_turno)
                 {
-                    virtualCamera.Follow = transform;
-                    virtualCamera.LookAt = transform;
+                    
                     gira_una1 = true;
 
                     ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
@@ -106,15 +107,16 @@ public class MovementPlayer1 : MonoBehaviour
                     navMeshAgent1.speed = 25f;
                     navMeshAgent1.angularSpeed = 120f;
                     navMeshAgent1.acceleration = 8f;
+                    Debug.Log("xd: " + ComunPlayers.waypoints_recorrer[0] );
                 }
 
 
                 if (navMeshAgent1.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar)
                 {
-
                     animator1.SetBool("moving", true);
                     m_CurrentWaypointIndex1 = (m_CurrentWaypointIndex1 + 1) % ComunPlayers.waypoints_recorrer.Count;
                     navMeshAgent1.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex1].position);
+                    Debug.Log("m_current: " + ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex1]);
 
                 }
 
