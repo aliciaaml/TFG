@@ -20,7 +20,7 @@ public class ClickStart : MonoBehaviour
     }
 
     public void Click_Start(){
-
+        PlayerTiburones.contador_tiburones = 0;
         PlayerWin.mover = true;
         canvas_juego.SetActive(true);
         gameObject.SetActive(false);

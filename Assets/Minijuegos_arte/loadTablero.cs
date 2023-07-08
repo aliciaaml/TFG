@@ -12,6 +12,7 @@ public class LoadTablero : MonoBehaviour
 
         salirMinijuego = true;
         LoadCharacter.una_al_salirMinijuego = false;
+        minijuego = true;
         if(ComunPlayers.index<3 ){
 
             ComunPlayers.ActualizarPosicionPlayer();
@@ -24,7 +25,6 @@ public class LoadTablero : MonoBehaviour
             NumDado.resultado_dado_obtenido = false;
             MovementPlayer1.detectar_casilla = true;
             ElegirPosiciones.turno_terminado = false;
-            minijuego = true;
 
         }
         else if(ComunPlayers.index == 3){
@@ -41,7 +41,6 @@ public class LoadTablero : MonoBehaviour
             NumDado.resultado_dado_obtenido = false;
             MovementPlayer1.detectar_casilla = true;
             ElegirPosiciones.turno_terminado = false;
-            minijuego = true;
 
         }
 

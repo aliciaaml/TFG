@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClickCana0 : MonoBehaviour
 {
     private Animator animator;
-    public static int contador = 3;
+    public static int contador = 0;
 
     public static float aux_pesca = 0f;
     public static bool wait_pesca = true;

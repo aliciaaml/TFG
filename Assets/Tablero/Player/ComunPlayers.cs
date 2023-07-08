@@ -36,6 +36,7 @@ public class ComunPlayers : MonoBehaviour
     public static bool dic_lleno = false;
 
     public GameObject dialogo;
+    public GameObject texto_turno;
     public static bool no_detect_casilla_minijuego = false;
 
     // Update is called once per frame
@@ -60,6 +61,7 @@ public class ComunPlayers : MonoBehaviour
 
         if(LoadTablero.minijuego){
             dialogo.SetActive(false);
+            texto_turno.SetActive(true);
             LoadTablero.minijuego = false;
         }
         Debug.Log("INDEX" + index);

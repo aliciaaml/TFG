@@ -21,7 +21,7 @@ public class ClickStartPesca : MonoBehaviour
     }
 
     public void clickStartPesca(){
-
+        ClickCana0.contador = 3;
         canas.SetActive(true);
         canvas_juego.SetActive(true);
         gameObject.SetActive(false);

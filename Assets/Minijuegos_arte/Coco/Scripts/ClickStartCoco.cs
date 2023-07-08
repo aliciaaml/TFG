@@ -25,7 +25,7 @@ public class ClickStartCoco : MonoBehaviour
     }
 
     public void clickStartCoco(){
-
+        PlayerCoco.contador = 0;
         PlayerCoco.golpeado = false;
         start = true;
         canvas_juego.SetActive(true);

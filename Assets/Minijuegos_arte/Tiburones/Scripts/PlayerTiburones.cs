@@ -9,7 +9,7 @@ public class PlayerTiburones : MonoBehaviour
     private Vector3 PosicionInicial;
 
     public GameObject lose;
-    public static int contador_tiburones = 0;
+    public static int contador_tiburones = 5;
     public GameObject tiburones;
     public GameObject fondo_corazones;
 
