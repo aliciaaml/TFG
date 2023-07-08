@@ -64,9 +64,6 @@ public class ComunPlayers : MonoBehaviour
             texto_turno.SetActive(true);
             LoadTablero.minijuego = false;
         }
-        Debug.Log("INDEX" + index);
-        Debug.Log("Lista pos actual length: " + PosicionActualPlayers.Count);
-        Debug.Log("Pos actual:  " + colisionPlayer.actual);
     }
 
     public List<Transform> GetWaypointsRecorrer()
@@ -96,7 +93,6 @@ public class ComunPlayers : MonoBehaviour
     }
 
     public static void ActualizarPosicionPlayer(){
-        Debug.Log("AAAAA");
         if(PosicionActualPlayers.Count==4){
             //PosicionActualPlayers[index][1].numero = colisionPlayer.actual;
             ElementoLista elemento = PosicionActualPlayers[index][0].Copy();
@@ -104,7 +100,6 @@ public class ComunPlayers : MonoBehaviour
             elemento.numero = colisionPlayer.actual;
             // Asignar la copia modificada de nuevo a la lista interna
             PosicionActualPlayers[index][0] = elemento;
-            Debug.Log("Posicion actual players: " + PosicionActualPlayers[index][0]);
         }
     }
 }

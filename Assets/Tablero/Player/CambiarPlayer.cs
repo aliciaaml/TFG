@@ -72,16 +72,10 @@ public class CambiarPlayer : MonoBehaviour
         //Debug.Log("ENTRANDOOO: " + ComunPlayers.PosicionActualPlayers.Count );
         if(ComunPlayers.siguiente && ComunPlayers.dic_lleno && ComunPlayers.PosicionActualPlayers.Count == 4){
 
-            Debug.Log("index: " + ComunPlayers.index );
-
             player = ComunPlayers.OrdenInicioPlayers[ComunPlayers.index];
-
-            
             
             colisionPlayer.actual = ComunPlayers.PosicionActualPlayers[ComunPlayers.index][0].numero;
 
-            Debug.Log("Posicion Actual: " + ComunPlayers.PosicionActualPlayers[ComunPlayers.index][0].numero);
-            //Debug.Log("ACTUAL DEL PLAYER: " + colisionPlayer.actual);
             if(colisionPlayer.actual==0){
                 ComunPlayers.Inicio = true;
             }

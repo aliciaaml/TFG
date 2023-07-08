@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class LoadCharacter : MonoBehaviour
 {
-    bool una_vez = false;
-
     public GameObject canvas_dado;
     public GameObject canvas_inicio;
 
@@ -35,16 +33,6 @@ public class LoadCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(una_vez == false){
-
-            for(int i= 0; i<EscogerPersonaje.character_choosed.Count; i++ ){
-
-                //Debug.Log("LISTA: " + EscogerPersonaje.character_choosed[i]);
-            }
-            una_vez = true;
-        }
-
         if(EscogerPersonaje.juegoComenzar && !Replay.replay){
 
             canvas_dado.SetActive(true);
@@ -58,8 +46,6 @@ public class LoadCharacter : MonoBehaviour
             player2.transform.position = DontDestroy.guardarPosPlayer2;
             player3.transform.position = DontDestroy.guardarPosPlayer3;
             player4.transform.position = DontDestroy.guardarPosPlayer4;
-            
-
         }
 
         if(DontDestroy.guardarPosPlayer1  == cero){
