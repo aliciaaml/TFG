@@ -1259,8 +1259,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cocoPrefab: {fileID: 3837914538845291633, guid: a29e99045a98b0c4ba876d1f91aa21ae, type: 3}
-  tiempoEntreCocos: 0.75
-  alturaGeneracion: 10
 --- !u!1 &474048404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &474048405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4435,8 +4433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cocoPrefab: {fileID: 3837914538845291633, guid: a29e99045a98b0c4ba876d1f91aa21ae, type: 3}
-  tiempoEntreCocos: 0.5
-  alturaGeneracion: 10
 --- !u!4 &2067881690
 Transform:
   m_ObjectHideFlags: 0

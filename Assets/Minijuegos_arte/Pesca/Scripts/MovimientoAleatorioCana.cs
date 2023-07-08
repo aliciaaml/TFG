@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MovimientoAleatorioCana : MonoBehaviour
 {
-    float currentTime = 0f;
-    float startingTime = 0f;
-    float aux =0f;
+    public static float currentTime = 0f;
+    public static float startingTime = 0f;
+    public static float aux =0f; 
+    public static bool wait = true;
+
     private Animator animator;
-    bool wait = true;
 
     // Start is called before the first frame update
     void Start()

@@ -125,7 +125,7 @@ public class MovementPlayer1 : MonoBehaviour
 
                         Vector3 direccion = (objetivo - transform.position).normalized;
                         Quaternion rotacionDeseada = Quaternion.LookRotation(direccion);
-                        float velocidadRotacion = 5f; // Ajusta la velocidad de rotación según tus necesidades
+                        float velocidadRotacion = 120f; // Ajusta la velocidad de rotación según tus necesidades
                         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
                         transform.position += direccion * velocidad1 * Time.deltaTime;
                     }

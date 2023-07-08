@@ -6,14 +6,14 @@ public class PlayerCoco : MonoBehaviour
 {
     public float velocidad = 5f;
     public static bool golpeado = true;
-    public static int contador=3;
+    public static int contador=0;
 
     public GameObject lose;
     public GameObject corazon;
     public GameObject generadorCocos;
     public GameObject generadorCocos2;
 
-    float aux_coco = 0f;
+    public static float aux_coco = 0f;
 
     void Update()
     {

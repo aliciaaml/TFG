@@ -13,9 +13,9 @@ public class ClickCana0 : MonoBehaviour
     public static float aux_pesca2 = 0f;
     public static bool wait_pesca2 = true;
 
-    bool gana = false;
-    bool pierde = false;
-    bool mouse_fuera = true;
+    public static bool gana = false;
+    public static bool pierde = false;
+    public static bool mouse_fuera = true;
 
     public GameObject win;
     public GameObject lose;

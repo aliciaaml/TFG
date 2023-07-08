@@ -5,10 +5,10 @@ using UnityEngine;
 public class CocoSpawn : MonoBehaviour
 {
     public GameObject cocoPrefab;
-    public float tiempoEntreCocos = 1f;
-    public float alturaGeneracion = 10f;
+    public static float tiempoEntreCocos = 1f;
+    public static float alturaGeneracion = 10f;
 
-    private float temporizador = 0f;
+    public static float temporizador = 0f;
     private Camera mainCamera;
 
     private void Start(){

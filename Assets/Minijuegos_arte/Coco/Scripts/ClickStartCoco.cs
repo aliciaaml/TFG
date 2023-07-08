@@ -26,7 +26,14 @@ public class ClickStartCoco : MonoBehaviour
 
     public void clickStartCoco(){
         PlayerCoco.contador = 0;
-        PlayerCoco.golpeado = false;
+        PlayerCoco.golpeado = true;
+        PlayerCoco.aux_coco = 0f;
+
+        CocoSpawn.tiempoEntreCocos = 1f;
+        CocoSpawn.alturaGeneracion = 10f;
+
+        CocoSpawn.temporizador = 0f;
+
         start = true;
         canvas_juego.SetActive(true);
         generadorCocos.SetActive(true);

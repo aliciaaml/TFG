@@ -7,10 +7,10 @@ public class ClickCana2 : MonoBehaviour
 
     private Animator animator;
 
-    bool mouse_fuera = true;
+    public static bool mouse_fuera = true;
 
-    bool gana = false;
-    bool pierde = false;
+    public static bool gana = false;
+    public static bool pierde = false;
 
     public GameObject win;
     public GameObject lose;
