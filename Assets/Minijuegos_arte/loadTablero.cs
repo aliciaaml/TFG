@@ -11,6 +11,7 @@ public class LoadTablero : MonoBehaviour
     public void Back(){
 
         salirMinijuego = true;
+        LoadCharacter.una_al_salirMinijuego = false;
         if(ComunPlayers.index<3 ){
 
             ComunPlayers.ActualizarPosicionPlayer();

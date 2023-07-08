@@ -55,6 +55,7 @@ public class ComunPlayers : MonoBehaviour
                 PosicionActualPlayers.Add(sublista2);  
             }
             dic_lleno = true;
+            ActualizarPosicionPlayer();
         }
 
         if(LoadTablero.minijuego){

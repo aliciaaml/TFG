@@ -21,7 +21,7 @@ public class LoadCharacter : MonoBehaviour
 
     Vector3 cero = new Vector3(0f,0f,0f);
      
-
+    public static bool una_al_salirMinijuego = false;
 
     // Start is called before the first frame update
     void Start()
@@ -51,12 +51,14 @@ public class LoadCharacter : MonoBehaviour
             canvas_inicio.SetActive(false);
              
         }
-        if(LoadTablero.salirMinijuego){
-
+        if(LoadTablero.salirMinijuego && una_al_salirMinijuego == false){
+            
+            una_al_salirMinijuego = true;
             player1.transform.position = DontDestroy.guardarPosPlayer1;
             player2.transform.position = DontDestroy.guardarPosPlayer2;
             player3.transform.position = DontDestroy.guardarPosPlayer3;
             player4.transform.position = DontDestroy.guardarPosPlayer4;
+            
 
         }
 

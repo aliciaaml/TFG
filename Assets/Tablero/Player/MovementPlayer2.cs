@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class MovementPlayer2 : MonoBehaviour
 {
-    private UnityEngine.AI.NavMeshAgent navMeshAgent2;
+    //private UnityEngine.AI.NavMeshAgent navMeshAgent2;
     private Animator animator2;
 
     int m_CurrentWaypointIndex2;
@@ -34,11 +34,12 @@ public class MovementPlayer2 : MonoBehaviour
     public static bool gira_una2 = true;
     public MovementPlayer1 rotacion;
 
-    public static float guardarPosPlayer2;
+    //public static float guardarPosPlayer2;
+    public float velocidad2 = 15f;
 
     void Start()
     {
-        navMeshAgent2 = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        //navMeshAgent2 = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator2 = GetComponent<Animator>();
     }
 
@@ -86,7 +87,7 @@ public class MovementPlayer2 : MonoBehaviour
             
 
             else{
-                
+                /*
                 Dado1.SetActive(false);
                 //Debug.Log("verdad o no: " + (navMeshAgent2.remainingDistance < ComunPlayers.tolerance));
                 //Debug.Log("blabla: " + (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar));
@@ -94,24 +95,63 @@ public class MovementPlayer2 : MonoBehaviour
                 {
                     gira_una2 = true;
                     ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
-                    navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
+                    //navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[0].position);
+                    transform.position += (ComunPlayers.waypoints_recorrer[0].position) * velocidad2 * Time.deltaTime;
                     ComunPlayers.comienza_turno = false;
-
+                    /*
                     navMeshAgent2.speed = 25f;
                     navMeshAgent2.angularSpeed = 120f;
                     navMeshAgent2.acceleration = 8f;
-
+                   
                     //gameObject.layer = LayerMask.NameToLayer("Players");
                     Debug.Log("xd: " + ComunPlayers.waypoints_recorrer[0] );
                 }
 
-                if (navMeshAgent2.remainingDistance < ComunPlayers.tolerance && colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar)
+                if (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar)
                 {
                     animator2.SetBool("moving", true);
                     m_CurrentWaypointIndex2 = (m_CurrentWaypointIndex2 + 1) % ComunPlayers.waypoints_recorrer.Count; 
-                    navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2].position);
+                    //navMeshAgent2.SetDestination(ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2].position);
+                     transform.position += (ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2].position) * velocidad2 * Time.deltaTime;
                     Debug.Log("m_current: " + ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2]); 
 
+                }
+                */
+
+                if (ComunPlayers.comienza_turno)
+                {
+                    gira_una2 = true;
+                    ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
+                    m_CurrentWaypointIndex2 = 0; // Establecer el índice del waypoint actual en 0
+                    ComunPlayers.comienza_turno = false;
+                }
+
+                if (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar)
+                {
+                    animator2.SetBool("moving", true);
+
+                    if (m_CurrentWaypointIndex2 < ComunPlayers.waypoints_recorrer.Count)
+                    {
+                        Vector3 objetivo = ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2].position;
+                        float distancia = Vector3.Distance(transform.position, objetivo);
+
+                        if (distancia <= 0.1f)
+                        {
+                            m_CurrentWaypointIndex2++;
+                            if (m_CurrentWaypointIndex2 < ComunPlayers.waypoints_recorrer.Count)
+                            {
+                                objetivo = ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2].position;
+                            }
+                            else
+                            {
+                                animator2.SetBool("moving", false); // Detener la animación de movimiento
+                                return;
+                            }
+                        }
+
+                        Vector3 direccion = (objetivo - transform.position).normalized;
+                        transform.position += direccion * velocidad2 * Time.deltaTime;
+                    }
                 }
                 if(colisionPlayer.actual == ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar && MovementPlayer1.detectar_casilla == false)
                 {
@@ -124,10 +164,11 @@ public class MovementPlayer2 : MonoBehaviour
                     }
                     textoDado.SetActive(false);
                     animator2.SetBool("moving", false);
+                    /*
                     navMeshAgent2.speed = 0f;
                     navMeshAgent2.angularSpeed = 0f;
                     navMeshAgent2.acceleration = 0f;
-                    
+                    */
                     if(CasillaMinCoco.casilla_minijuego == ""){
                         
                         LetreroNoMinijuego.SetActive(true);
@@ -170,7 +211,7 @@ public class MovementPlayer2 : MonoBehaviour
         float _tiempotrans = 0f;
         float animTime = 2f;
 
-        guardarPosPlayer2 = transform.position.y;
+        //guardarPosPlayer2 = transform.position.y;
         Quaternion rotacionDeseada = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + 180f, transform.eulerAngles.z);
 
         
