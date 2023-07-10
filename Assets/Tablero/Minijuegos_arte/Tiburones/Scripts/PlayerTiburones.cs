@@ -37,7 +37,7 @@ public class PlayerTiburones : MonoBehaviour
         }
 
         if(contador_tiburones>=5){
-
+            jugadorPierdeTurno();
             lose.SetActive(true);
             fondo_corazones.SetActive(false);
             tiburones.SetActive(false);
@@ -61,5 +61,27 @@ public class PlayerTiburones : MonoBehaviour
             
             
         }
+    }
+
+    void jugadorPierdeTurno(){
+
+        // Verificar si el gameObject está activo
+        if (ClickStart.juegaplayer1)
+        {
+            ComunPlayers.pierdeTurnoplayer1 = true;
+        }
+        else if (ClickStart.juegaplayer2)
+        {
+            ComunPlayers.pierdeTurnoplayer2 = true;
+        }
+        else if (ClickStart.juegaplayer3)
+        {
+            ComunPlayers.pierdeTurnoplayer3 = true;
+        }
+        else if (ClickStart.juegaplayer4)
+        {
+            ComunPlayers.pierdeTurnoplayer4 = true;
+        }
+        
     }
 }

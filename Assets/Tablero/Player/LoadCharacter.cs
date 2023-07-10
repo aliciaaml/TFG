@@ -48,6 +48,14 @@ public class LoadCharacter : MonoBehaviour
             player4.transform.position = DontDestroy.guardarPosPlayer4;
         }
 
+        if(BotonSiguiente.siguientePlayer){    
+            player1.transform.position = DontDestroy.guardarPosPlayer1;
+            player2.transform.position = DontDestroy.guardarPosPlayer2;
+            player3.transform.position = DontDestroy.guardarPosPlayer3;
+            player4.transform.position = DontDestroy.guardarPosPlayer4;
+            BotonSiguiente.siguientePlayer = false;  
+        }
+
         if(DontDestroy.guardarPosPlayer1  == cero){
             DontDestroy.guardarPosPlayer1 = player1.transform.position;
 

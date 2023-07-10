@@ -40,7 +40,7 @@ public class ClickCana3 : MonoBehaviour
             ClickCana0.Wait_pesca();
 
             if(ClickCana0.wait_pesca == false){
-                
+                ClickCana0.jugadorPierdeTurno();
                 Debug.Log("YOU LOST");
                 tries.SetActive(false);
                 canas.SetActive(false);

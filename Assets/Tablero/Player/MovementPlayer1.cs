@@ -39,6 +39,7 @@ public class MovementPlayer1 : MonoBehaviour
 
     public float velocidad1 = 20f;
 
+    public GameObject panelPierdeTurno;
 
     void Start()
     {
@@ -47,7 +48,12 @@ public class MovementPlayer1 : MonoBehaviour
 
     void Update()
     {
-        if (CambiarPlayer.TurnoPlayer1) {
+        if(CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1){
+            
+            panelPierdeTurno.SetActive(true);
+        }
+
+        if (CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1 == false) {
 
             if (ElegirPosiciones.turno_terminado == false) {
 
@@ -98,40 +104,41 @@ public class MovementPlayer1 : MonoBehaviour
                     ComunPlayers.waypoints_recorrer = comunPlayers.GetWaypointsRecorrer();
                     m_CurrentWaypointIndex1 = 0; // Establecer el índice del waypoint actual en 0
                     ComunPlayers.comienza_turno = false;
+
                 }
 
-                if (colisionPlayer.actual != ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar)
+                if (transform.position != ComunPlayers.waypoints_recorrer[ComunPlayers.waypoints_recorrer.Count -1].position
+                    && m_CurrentWaypointIndex1 < ComunPlayers.waypoints_recorrer.Count)
                 {
                     animator1.SetBool("moving", true);
+                    Vector3 objetivo = ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex1].position;
+                    float distancia = Vector3.Distance(transform.position, objetivo);
 
-                    if (m_CurrentWaypointIndex1 < ComunPlayers.waypoints_recorrer.Count)
+                    if (distancia <= 0.1f)
                     {
-                        Vector3 objetivo = ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex1].position;
-                        float distancia = Vector3.Distance(transform.position, objetivo);
-
-                        if (distancia <= 0.1f)
+                        m_CurrentWaypointIndex1++;
+                        if (m_CurrentWaypointIndex1 < ComunPlayers.waypoints_recorrer.Count)
                         {
-                            m_CurrentWaypointIndex1++;
-                            if (m_CurrentWaypointIndex1 < ComunPlayers.waypoints_recorrer.Count)
-                            {
-                                objetivo = ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex1].position;
-                            }
-                            else
-                            {
-                                animator1.SetBool("moving", false); // Detener la animación de movimiento
-                                return;
-                            }
+                            objetivo = ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex1].position;
                         }
-
-                        Vector3 direccion = (objetivo - transform.position).normalized;
-                        Quaternion rotacionDeseada = Quaternion.LookRotation(direccion);
-                        float velocidadRotacion = 120f; // Ajusta la velocidad de rotación según tus necesidades
-                        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
-                        transform.position += direccion * velocidad1 * Time.deltaTime;
+                        else
+                        {
+                            animator1.SetBool("moving", false); // Detener la animación de movimiento
+                            return;
+                        }
                     }
-                }
 
-                if (colisionPlayer.actual == ComunPlayers.casilla_destino + ComunPlayers.casilla_antes_tirar && detectar_casilla == false)
+                    Vector3 direccion = (objetivo - transform.position).normalized;
+                    Quaternion rotacionDeseada = Quaternion.LookRotation(direccion);
+                    float velocidadRotacion = 30f; // Ajusta la velocidad de rotación según tus necesidades
+                    if(BotonSiguiente.siguientePlayer == false){
+                        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
+                    }
+                    
+                    transform.position += direccion * velocidad1 * Time.deltaTime;
+                }
+                
+                else
                 {
                     virtualCamera.Follow = null;
                     virtualCamera.LookAt = null;
@@ -187,10 +194,7 @@ public class MovementPlayer1 : MonoBehaviour
         Quaternion rotacionDeseada = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + 180f, transform.eulerAngles.z);
         
         float _ratio = 0;
-
         while(_tiempotrans < animTime){
-
-            Debug.Log("AHORAAA");
             _tiempotrans += Time.deltaTime;
             _ratio = _tiempotrans / animTime;
 

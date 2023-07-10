@@ -10,13 +10,20 @@ public class Lives : MonoBehaviour
     void Update(){
         switch(PlayerCoco.contador){
             case 1:
+                heart1.gameObject.SetActive(true);
+                heart2.gameObject.SetActive(true);
                 heart3.gameObject.SetActive(false);
                 break;
             case 2:
                 heart2.gameObject.SetActive(false);
+                heart3.gameObject.SetActive(false);
+                heart1.gameObject.SetActive(true);
                 break;
             case 3:
+
+                heart3.gameObject.SetActive(false);
                 heart1.gameObject.SetActive(false);
+                heart2.gameObject.SetActive(false);
                 break;
         }
     }

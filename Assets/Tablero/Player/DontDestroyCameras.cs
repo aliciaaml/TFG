@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DontDestroyPlayers : MonoBehaviour
+public class DontDestroyCameras : MonoBehaviour
 {
-    private static DontDestroyPlayers instance;
+    private static DontDestroyCameras instance;
 
     private void Awake()
     {

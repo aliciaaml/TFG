@@ -5,49 +5,50 @@ using UnityEngine;
 public class BotonSiguiente : MonoBehaviour
 {
     public GameObject LetreroNoMinijuego;
-    public GameObject botonPlayerSig;
+    //public GameObject botonPlayerSig;
 
     public GameObject player1;
     public GameObject player2;
     public GameObject player3;
     public GameObject player4;
 
+    public static bool siguientePlayer = false;
+
     public void SiguientePlayer(){
 
+        siguientePlayer = true;
 
         //ROTAR DE NUEVO JUGADOR
 
         if(CambiarPlayer.TurnoPlayer1){
-            
-            Quaternion newRotation = Quaternion.Euler(player1.transform.eulerAngles.x, player1.transform.eulerAngles.y -180f, player1.transform.eulerAngles.z);
-            player1.transform.rotation = newRotation;
+
+            player1.transform.Rotate(Vector3.up, -180f);
             DontDestroy.guardarPosPlayer1 = player1.transform.position;
+            CambiarPlayer.TurnoPlayer1 = false;
         }
         if(CambiarPlayer.TurnoPlayer2){
 
-            Quaternion newRotation = Quaternion.Euler(player2.transform.eulerAngles.x, player2.transform.eulerAngles.y -180f, player2.transform.eulerAngles.z);
-            player2.transform.rotation = newRotation;
+            player2.transform.Rotate(Vector3.up, -180f);
             DontDestroy.guardarPosPlayer2 = player2.transform.position;
+            CambiarPlayer.TurnoPlayer2 = false;
         }
 
         if(CambiarPlayer.TurnoPlayer3){
 
-            Quaternion newRotation = Quaternion.Euler(player3.transform.eulerAngles.x, player3.transform.eulerAngles.y -180f, player3.transform.eulerAngles.z);
-            player3.transform.rotation = newRotation;
+            player3.transform.Rotate(Vector3.up, -180f);
             DontDestroy.guardarPosPlayer3 = player3.transform.position;
+            CambiarPlayer.TurnoPlayer3 = false;
         }
 
         if(CambiarPlayer.TurnoPlayer4){
 
-            Quaternion newRotation = Quaternion.Euler(player4.transform.eulerAngles.x, player4.transform.eulerAngles.y -180f, player4.transform.eulerAngles.z);
-            player4.transform.rotation = newRotation;
+            player4.transform.Rotate(Vector3.up, -180f);
             DontDestroy.guardarPosPlayer4 = player4.transform.position;
+            CambiarPlayer.TurnoPlayer4 = false;
         }
 
-
-
         LetreroNoMinijuego.SetActive(false);
-        botonPlayerSig.SetActive(false);
+        //botonPlayerSig.SetActive(false);
 
         if(ComunPlayers.index<3 ){
 
@@ -77,6 +78,16 @@ public class BotonSiguiente : MonoBehaviour
             NumDado.resultado_dado_obtenido = false;
             MovementPlayer1.detectar_casilla = true;
             ElegirPosiciones.turno_terminado = false;
+            ComunPlayers.contadorTurnos+=1;
+
+            if(ComunPlayers.contadorTurnos >=2){
+                ComunPlayers.contadorTurnos = 0;
+
+                ComunPlayers.pierdeTurnoplayer1 = false;
+                ComunPlayers.pierdeTurnoplayer2 = false;
+                ComunPlayers.pierdeTurnoplayer3 = false;
+                ComunPlayers.pierdeTurnoplayer4 = false;
+            }
 
         }
     }

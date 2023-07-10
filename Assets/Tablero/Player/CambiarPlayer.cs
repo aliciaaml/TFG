@@ -69,7 +69,6 @@ public class CambiarPlayer : MonoBehaviour
                 CameraSwitcher.SwitchCamera(player4Camera);
             }
         }
-        //Debug.Log("ENTRANDOOO: " + ComunPlayers.PosicionActualPlayers.Count );
         if(ComunPlayers.siguiente && ComunPlayers.dic_lleno && ComunPlayers.PosicionActualPlayers.Count == 4){
 
             player = ComunPlayers.OrdenInicioPlayers[ComunPlayers.index];

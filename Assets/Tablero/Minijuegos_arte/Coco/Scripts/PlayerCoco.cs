@@ -29,6 +29,7 @@ public class PlayerCoco : MonoBehaviour
             TimerCoco.enMarcha = false;
             corazon.SetActive(false);
             lose.SetActive(true);
+            jugadorPierdeTurno();
             generadorCocos.SetActive(false);
             generadorCocos2.SetActive(false);
         }
@@ -44,5 +45,27 @@ public class PlayerCoco : MonoBehaviour
     void Wait_coco(){
         aux_coco+= 1*Time.deltaTime;
         if(aux_coco >= 0.02f) contador +=1; 
+    }
+
+    void jugadorPierdeTurno(){
+
+        // Verificar si el gameObject está activo
+        if (ClickStartCoco.juegaplayer1)
+        {
+            ComunPlayers.pierdeTurnoplayer1 = true;
+        }
+        else if (ClickStartCoco.juegaplayer2)
+        {
+            ComunPlayers.pierdeTurnoplayer2 = true;
+        }
+        else if (ClickStartCoco.juegaplayer3)
+        {
+            ComunPlayers.pierdeTurnoplayer3 = true;
+        }
+        else if (ClickStartCoco.juegaplayer4)
+        {
+            ComunPlayers.pierdeTurnoplayer4 = true;
+        }
+        
     }
 }

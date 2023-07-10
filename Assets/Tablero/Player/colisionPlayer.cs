@@ -16,7 +16,6 @@ public class colisionPlayer : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         
         if(other.gameObject.tag == "casillas" && ComunPlayers.no_detect_casilla_minijuego == false){
-            Debug.Log("ESta entrando?????");
             casilla_actual = other.gameObject;
 
             if(casilla_actual!=casilla_aux){
@@ -24,7 +23,6 @@ public class colisionPlayer : MonoBehaviour
                 casilla_aux = casilla_actual;
                 actual +=1;
                 NumDado.auxNumDado-=1;
-                Debug.Log("contaDado: " + NumDado.auxNumDado);
                 dadoTexto.text = (NumDado.auxNumDado).ToString();
             }
         }

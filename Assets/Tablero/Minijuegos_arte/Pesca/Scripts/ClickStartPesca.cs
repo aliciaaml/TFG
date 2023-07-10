@@ -8,6 +8,11 @@ public class ClickStartPesca : MonoBehaviour
     public GameObject[] player;
     public GameObject canas;
 
+    public static bool juegaplayer1 = false;
+    public static bool juegaplayer2 = false;
+    public static bool juegaplayer3 = false;
+    public static bool juegaplayer4 = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +28,16 @@ public class ClickStartPesca : MonoBehaviour
     public void clickStartPesca(){
         ClickCana0.contador = 3;
         ElegirQuienPez.range = Random.Range(0,4);
-        MovimientoAleatorioCana.startingTime = Random.Range(1f,5f);
-        MovimientoAleatorioCana.currentTime = MovimientoAleatorioCana.startingTime;
-        MovimientoAleatorioCana.aux = 0f;
-
+    
+        MovimientoAleatorioCana.currentTime = 0f;
+        MovimientoAleatorioCana.startingTime = 0f;
+        MovimientoAleatorioCana.isMoving = false;
+        
         ClickCana0.aux_pesca = 0f;
         ClickCana0.aux_pesca2 = 0f;
         ClickCana0.wait_pesca = true;
         ClickCana0.wait_pesca2 = true;
+
         ClickCana0.gana = false;
         ClickCana0.pierde = false;
         ClickCana0.mouse_fuera = true;
@@ -56,17 +63,33 @@ public class ClickStartPesca : MonoBehaviour
         if(CasillaMinCoco.player == "player1"){
 
             player[0].SetActive(true);
+            juegaplayer1 = true;
+            juegaplayer2 = false;
+            juegaplayer3 = false;
+            juegaplayer4 = false;
         }
         else if(CasillaMinCoco.player == "player2"){
             player[1].SetActive(true);
+            juegaplayer2 = true;
+            juegaplayer1 = false;
+            juegaplayer3 = false;
+            juegaplayer4 = false;
         }
         else if(CasillaMinCoco.player == "player3"){
 
             player[2].SetActive(true);
+            juegaplayer3 = true;
+            juegaplayer1 = false;
+            juegaplayer2 = false;
+            juegaplayer4 = false;
         }
         else if(CasillaMinCoco.player == "player4"){
             
             player[3].SetActive(true);
+            juegaplayer4 = true;
+            juegaplayer1 = false;
+            juegaplayer2 = false;
+            juegaplayer3 = false;
         }
 
     }

@@ -14,9 +14,10 @@ public class BotonMinijuego : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
+    
 
     public void f_IrMinijuego(){
-
+        
         LoadTablero.salirMinijuego = false;  
         ComunPlayers.no_detect_casilla_minijuego = true;    
         if(CambiarPlayer.TurnoPlayer1){
@@ -67,4 +68,5 @@ public class BotonMinijuego : MonoBehaviour
         }
 
     }
+
 }

@@ -42,10 +42,21 @@ public class LoadTablero : MonoBehaviour
             MovementPlayer1.detectar_casilla = true;
             ElegirPosiciones.turno_terminado = false;
 
-        }
+            ComunPlayers.contadorTurnos+=1;
 
+            if(ComunPlayers.contadorTurnos >=2){
+                ComunPlayers.contadorTurnos = 0;
+                
+                ComunPlayers.pierdeTurnoplayer1 = false;
+                ComunPlayers.pierdeTurnoplayer2 = false;
+                ComunPlayers.pierdeTurnoplayer3 = false;
+                ComunPlayers.pierdeTurnoplayer4 = false;
+            }
+
+        }
         SceneManager.LoadScene("Terreno");
     
     }
+
     
 }

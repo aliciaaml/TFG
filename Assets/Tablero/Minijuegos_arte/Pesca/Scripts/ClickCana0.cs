@@ -41,6 +41,7 @@ public class ClickCana0 : MonoBehaviour
         else if(pierde){
             Wait_pesca();
             if(wait_pesca == false){ 
+                jugadorPierdeTurno();
                 Debug.Log("YOU LOST");
                 canas.SetActive(false);
                 lose.SetActive(true);
@@ -91,5 +92,27 @@ public class ClickCana0 : MonoBehaviour
     public static void Wait_pesca2(){
         aux_pesca2 += 1*Time.deltaTime;
         if(aux_pesca2 >= 0.2f) wait_pesca2 = false;  
+    }
+
+    public static void jugadorPierdeTurno(){
+
+        // Verificar si el gameObject está activo
+        if (ClickStartPesca.juegaplayer1)
+        {
+            ComunPlayers.pierdeTurnoplayer1 = true;
+        }
+        else if (ClickStartPesca.juegaplayer2)
+        {
+            ComunPlayers.pierdeTurnoplayer2 = true;
+        }
+        else if (ClickStartPesca.juegaplayer3)
+        {
+            ComunPlayers.pierdeTurnoplayer3 = true;
+        }
+        else if (ClickStartPesca.juegaplayer4)
+        {
+            ComunPlayers.pierdeTurnoplayer4 = true;
+        }
+        
     }
 }

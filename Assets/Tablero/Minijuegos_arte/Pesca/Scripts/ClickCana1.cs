@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickCana2 : MonoBehaviour
+public class ClickCana1 : MonoBehaviour
 {
 
     private Animator animator;
@@ -16,6 +16,8 @@ public class ClickCana2 : MonoBehaviour
     public GameObject lose;
     public GameObject canas;
     public GameObject tries;
+
+    
 
     void Start(){
 
@@ -41,7 +43,7 @@ public class ClickCana2 : MonoBehaviour
             ClickCana0.Wait_pesca();
 
             if(ClickCana0.wait_pesca == false){
-                
+                ClickCana0.jugadorPierdeTurno();
                 Debug.Log("YOU LOST");
                 tries.SetActive(false);
                 canas.SetActive(false);
@@ -71,7 +73,7 @@ public class ClickCana2 : MonoBehaviour
     void OnMouseDown()
     {
         mouse_fuera = false;
-        if(ElegirQuienPez.range == 2){
+        if(ElegirQuienPez.range == 1){
 
             animator.SetBool("pez",true);
             gana = true;
@@ -90,9 +92,7 @@ public class ClickCana2 : MonoBehaviour
             animator.SetBool("pez",false);
             animator.SetBool("no_pez",true);
 
-            
         }
-
 
 
     }
@@ -100,7 +100,7 @@ public class ClickCana2 : MonoBehaviour
     void OnMouseUp()
     {
         mouse_fuera = true;
+        
     }
-
 
 }
