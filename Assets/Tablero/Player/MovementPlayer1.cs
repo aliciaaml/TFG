@@ -40,21 +40,46 @@ public class MovementPlayer1 : MonoBehaviour
     public float velocidad1 = 20f;
 
     public GameObject panelPierdeTurno;
+    public BotonSiguiente botonSiguiente;
+    public GameObject panelIAWin;
+    public GameObject panelIALose;
+    public TextMeshProUGUI cartelWinIA;
+    public TextMeshProUGUI cartelLoseIA;
+    float aux_LW  = 0f;
+    bool wait_LW = true;
+    float aux_siguiente = 0f;
+    bool wait_siguiente = true;
 
     void Start()
     {
         animator1 = GetComponent<Animator>();
+        
     }
 
     void Update()
     {
         if(CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1){
             
+            if(EscogerPersonaje.character_choosed[0] == 0){
+                turno_jugador.text = "Mushroom";
+                turno_jugador_b.text = "Mushroom";
+            }
+            if (EscogerPersonaje.character_choosed[0] != 0) {
+                turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[0].ToString();
+                turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[0].ToString();
+            }
+
+            if (EscogerJugador.four_player) { 
+
+                turno_jugador.text = "Player 1";
+                turno_jugador_b.text = "Player 1";
+            }
             panelPierdeTurno.SetActive(true);
         }
 
         if (CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1 == false) {
-
+            //wait_LW = true;
+            //aux_LW = 0f;
             if (ElegirPosiciones.turno_terminado == false) {
 
                 virtualCamera.Follow = transform;
@@ -153,32 +178,80 @@ public class MovementPlayer1 : MonoBehaviour
                     textoDado.SetActive(false);
                     animator1.SetBool("moving", false);
 
-                    if (CasillaMinCoco.casilla_minijuego == "") {
-
+                    if(CasillaMinCoco.casilla_minijuego == ""){
+                        
                         LetreroNoMinijuego.SetActive(true);
-                        botonPlayerSig.SetActive(true);
+                        if(EscogerPersonaje.character_choosed[0] != 0){
+                            botonPlayerSig.SetActive(true);
+                        }
+                            
+                        else{
+                            Wait_Siguiente();
+                            if(wait_siguiente == false){
+
+                                botonSiguiente.SiguientePlayer();
+                                wait_siguiente = true;
+                                aux_siguiente = 0f;
+                            }
+                        }
 
                     }
-                    else {
+                    else{
 
-                        if (CasillaMinCoco.casilla_minijuego == "juego_pesca") {
+                        if(CasillaMinCoco.casilla_minijuego == "juego_pesca"){
 
-                            nombreMinijuego.text = "Fishing minigame";
-                            nombreMinijuego2.text = "Fishing minigame";
+                            nombreMinijuego.text = "Fishing minigame" ;
+                            nombreMinijuego2.text = "Fishing minigame" ;
                         }
-                        if (CasillaMinCoco.casilla_minijuego == "juego_cocos") {
+                        if(CasillaMinCoco.casilla_minijuego == "juego_cocos"){
 
                             nombreMinijuego.text = "Coconuts minigame";
                             nombreMinijuego2.text = "Coconuts minigame";
                         }
-                        if (CasillaMinCoco.casilla_minijuego == "juego_tiburones") {
+                        if(CasillaMinCoco.casilla_minijuego == "juego_tiburones"){
                             nombreMinijuego.text = "Sharks minigame";
                             nombreMinijuego2.text = "Sharks minigame";
-
+                            
                         }
 
                         LetreroMinijuego.SetActive(true);
-                        botonMinijuego.SetActive(true);
+                        if(EscogerPersonaje.character_choosed[0] != 0){
+                            botonMinijuego.SetActive(true);
+                        }
+                        else{
+                            Wait_LoseWin();
+                            if(wait_LW == false){
+                                LetreroMinijuego.SetActive(false);
+                                CambiarPlayer.TurnoPlayer1 = false;
+                                ComunPlayers.juegaIA();
+                                if(ComunPlayers.ganar_perder == 0){
+                                    cartelLoseIA.text= " Mushroom loses the minigame!";
+                                    panelIALose.SetActive(true);
+                                    ComunPlayers.pierdeTurnoplayer1 = true;
+                                    Wait_Siguiente();
+                                    if(wait_siguiente == false){
+                                        botonSiguiente.SiguientePlayer();
+                                        panelIALose.SetActive(false);
+                                        //wait_siguiente = true;
+                                        //aux_siguiente = 0f;
+                                    }
+                                }
+                                else{
+                                    cartelWinIA.text = "Mushroom wins the minigame!";
+                                    panelIAWin.SetActive(true);
+                                    Wait_Siguiente();
+                                    if(wait_siguiente == false){
+
+                                        botonSiguiente.SiguientePlayer();
+                                        panelIAWin.SetActive(false);
+                                        //wait_siguiente = true;
+                                        //aux_siguiente = 0f;
+                                    }
+                                }
+                            }
+                            
+                        }
+
                     }
 
                 }
@@ -208,4 +281,19 @@ public class MovementPlayer1 : MonoBehaviour
         yield return null;
     }
 
+    public void Wait_LoseWin(){
+
+        aux_LW += 1*Time.deltaTime;
+
+        if(aux_LW >= 5f) wait_LW = false;
+
+    }
+
+    public void Wait_Siguiente(){
+
+        aux_siguiente += 1*Time.deltaTime;
+
+        if(aux_siguiente >= 2f) wait_siguiente = false;
+
+    }
 }

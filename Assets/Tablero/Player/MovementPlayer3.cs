@@ -36,6 +36,17 @@ public class MovementPlayer3 : MonoBehaviour
     public float velocidad3 = 15f;
 
     public GameObject panelPierdeTurno;
+    public BotonSiguiente botonSiguiente;
+    public TextMeshProUGUI cartelWinIA;
+    public TextMeshProUGUI cartelLoseIA;
+    public GameObject panelIAWin;
+    public GameObject panelIALose;
+
+    float aux_LW  = 0f;
+    bool wait_LW = true;
+    float aux_siguiente = 0f;
+    bool wait_siguiente = true;
+
     void Start()
     {
         animator3 = GetComponent<Animator>();
@@ -45,12 +56,29 @@ public class MovementPlayer3 : MonoBehaviour
     void Update()
     {
         if(CambiarPlayer.TurnoPlayer3  && ComunPlayers.pierdeTurnoplayer3){
+
+            if(EscogerPersonaje.character_choosed[2] == 0){
+                turno_jugador.text = "Cheese";
+                turno_jugador_b.text = "Cheese";
+            }
+            if (EscogerPersonaje.character_choosed[2] != 0) {
+                turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[2].ToString();
+                turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[2].ToString();
+            }
+
+            if (EscogerJugador.four_player) { 
+
+                turno_jugador.text = "Player 3";
+                turno_jugador_b.text = "Player 3";
+            }
+            
             
             panelPierdeTurno.SetActive(true);
         }
 
         if(CambiarPlayer.TurnoPlayer3  && ComunPlayers.pierdeTurnoplayer3 == false){
-            
+            //wait_LW = true;
+            //aux_LW = 0f;
             if(ElegirPosiciones.turno_terminado == false){
                 textoDado.SetActive(false);
                 virtualCamera.Follow = transform;
@@ -124,7 +152,6 @@ public class MovementPlayer3 : MonoBehaviour
                     Quaternion rotacionDeseada = Quaternion.LookRotation(direccion);
                     float velocidadRotacion = 30f; // Ajusta la velocidad de rotación según tus necesidades
                     if(BotonSiguiente.siguientePlayer == false){
-                        Debug.Log("LALA");
                         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
                     }
                     transform.position += direccion * velocidad3 * Time.deltaTime;
@@ -146,7 +173,19 @@ public class MovementPlayer3 : MonoBehaviour
                     if(CasillaMinCoco.casilla_minijuego == ""){
                         
                         LetreroNoMinijuego.SetActive(true);
-                        botonPlayerSig.SetActive(true);
+                        if(EscogerPersonaje.character_choosed[2] != 0){
+                            botonPlayerSig.SetActive(true);
+                        }
+                            
+                        else{
+                            Wait_Siguiente();
+                            if(wait_siguiente == false){
+
+                                botonSiguiente.SiguientePlayer();
+                                wait_siguiente = true;
+                                aux_siguiente = 0f;
+                            }
+                        }
 
                     }
                     else{
@@ -168,7 +207,42 @@ public class MovementPlayer3 : MonoBehaviour
                         }
 
                         LetreroMinijuego.SetActive(true);
-                        botonMinijuego.SetActive(true);
+                        if(EscogerPersonaje.character_choosed[2] != 0){
+                            botonMinijuego.SetActive(true);
+                        }
+                        else{  
+                            Wait_LoseWin();
+                            if(wait_LW == false){
+                                LetreroMinijuego.SetActive(false);
+                                CambiarPlayer.TurnoPlayer3 = false;
+                                ComunPlayers.juegaIA();
+                                if(ComunPlayers.ganar_perder == 0){
+                                    cartelLoseIA.text= "Cheese loses the minigame!";
+                                    panelIALose.SetActive(true);
+                                    ComunPlayers.pierdeTurnoplayer3 = true;
+                                    Wait_Siguiente();
+                                    if(wait_siguiente == false){
+                                        botonSiguiente.SiguientePlayer();
+                                        panelIALose.SetActive(false);
+                                        //wait_siguiente = true;
+                                        //aux_siguiente = 0f;
+                                    }
+                                }
+                                else{
+                                    cartelWinIA.text = "Cheese wins the minigame!";
+                                    panelIAWin.SetActive(true);
+                                    Wait_Siguiente();
+                                    if(wait_siguiente == false){
+
+                                        botonSiguiente.SiguientePlayer();
+                                        panelIAWin.SetActive(false);
+                                        //wait_siguiente = true;
+                                        //aux_siguiente = 0f;
+                                    }
+                                }
+                            }
+                            
+                        }
 
                     }
                     
@@ -202,6 +276,22 @@ public class MovementPlayer3 : MonoBehaviour
 
         
         yield return null;
+    }
+
+    public void Wait_LoseWin(){
+
+        aux_LW += 1*Time.deltaTime;
+
+        if(aux_LW >= 5f) wait_LW = false;
+
+    }
+
+    public void Wait_Siguiente(){
+
+        aux_siguiente += 1*Time.deltaTime;
+
+        if(aux_siguiente >= 2f) wait_siguiente = false;
+
     }
 
 

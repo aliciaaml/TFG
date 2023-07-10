@@ -54,6 +54,7 @@ public class ComunPlayers : MonoBehaviour
     public static bool pierdeTurnoplayer4 = false;
 
     public static int contadorTurnos = 0;
+    public static int ganar_perder;
 
     // Update is called once per frame
     void Update()
@@ -202,5 +203,11 @@ public class ComunPlayers : MonoBehaviour
             }  
         }
         return -1;
+    }
+
+    public static int juegaIA(){
+
+        int ganar_perder = Random.Range(0, 2);
+        return ganar_perder;
     }
 }
