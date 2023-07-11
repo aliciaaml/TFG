@@ -56,14 +56,17 @@ public class ComunPlayers : MonoBehaviour
     public static int contadorTurnos = 0;
     public static int ganar_perder;
 
+    public static bool una_por_turno = true;
+
     // Update is called once per frame
     void Update()
     {   
+        /*
         Debug.Log("pierdeTurnoplayer1: " + pierdeTurnoplayer1);
         Debug.Log("pierdeTurnoplayer2: " + pierdeTurnoplayer2);  
         Debug.Log("pierdeTurnoplayer3: " + pierdeTurnoplayer3);  
         Debug.Log("pierdeTurnoplayer4: " + pierdeTurnoplayer4);  
-
+        */
         if(primeraRonda && siguiente){         
             primeraRonda=false;
             List<ElementoLista> sublista1 = new List<ElementoLista>();
@@ -206,8 +209,12 @@ public class ComunPlayers : MonoBehaviour
     }
 
     public static int juegaIA(){
-
-        int ganar_perder = Random.Range(0, 2);
+        if(una_por_turno){
+            ganar_perder = Random.Range(0, 2);
+            Debug.Log("ganar_perder: " + ganar_perder);
+            una_por_turno = false;
+        }
+        
         return ganar_perder;
     }
 }
