@@ -75,12 +75,14 @@ public class MovementPlayer2 : MonoBehaviour
                     botonSiguiente.SiguientePlayer();
                     wait_pasar = true;
                     aux_pasar = 0f;
+                    ComunPlayers.pierdeTurnoplayer2 = false;
                 }
             }
             if (EscogerPersonaje.character_choosed[1] != 0) {
                 turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[1].ToString();
                 turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[1].ToString();
                 panelPierdeTurno.SetActive(true);
+                ComunPlayers.pierdeTurnoplayer2 = false;
             }
 
             if (EscogerJugador.four_player) { 
@@ -88,6 +90,7 @@ public class MovementPlayer2 : MonoBehaviour
                 turno_jugador.text = "Player 2";
                 turno_jugador_b.text = "Player 2";
                 panelPierdeTurno.SetActive(true);
+                ComunPlayers.pierdeTurnoplayer2 = false;
             }
             
             
@@ -236,7 +239,7 @@ public class MovementPlayer2 : MonoBehaviour
                                 LetreroMinijuego.SetActive(false);
                                 
                                 ComunPlayers.ganar_perder = ComunPlayers.juegaIA();
-                                Debug.Log("ComunPlayers.ganar_perder: " + ComunPlayers.ganar_perder);
+
                                 if(ComunPlayers.ganar_perder == 0 && ComunPlayers.una_por_turno == false){
                                     cartelLoseIA.text= " Frog loses the minigame!";
                                     panelIALose.SetActive(true);
@@ -333,7 +336,7 @@ public class MovementPlayer2 : MonoBehaviour
     void Wait_pasar(){
         aux_pasar += 1*Time.deltaTime;
 
-        if(aux_pasar >= 2f) wait_pasar= false;
+        if(aux_pasar >= 5f) wait_pasar= false;
     }
 
 

@@ -79,12 +79,14 @@ public class MovementPlayer3 : MonoBehaviour
                     botonSiguiente.SiguientePlayer();
                     wait_pasar = true;
                     aux_pasar = 0f;
+                    ComunPlayers.pierdeTurnoplayer3 = false;
                 }
             }
             if (EscogerPersonaje.character_choosed[2] != 0) {
                 turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[2].ToString();
                 turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[2].ToString();
                 panelPierdeTurno.SetActive(true);
+                ComunPlayers.pierdeTurnoplayer3 = false;
             }
 
             if (EscogerJugador.four_player) { 
@@ -92,6 +94,7 @@ public class MovementPlayer3 : MonoBehaviour
                 turno_jugador.text = "Player 3";
                 turno_jugador_b.text = "Player 3";
                 panelPierdeTurno.SetActive(true);
+                ComunPlayers.pierdeTurnoplayer3 = false;
             }
             
             
@@ -241,7 +244,7 @@ public class MovementPlayer3 : MonoBehaviour
                                 LetreroMinijuego.SetActive(false);
                                 
                                 ComunPlayers.ganar_perder = ComunPlayers.juegaIA();
-                                Debug.Log("ComunPlayers.ganar_perder: " + ComunPlayers.ganar_perder);
+     
                                 if(ComunPlayers.ganar_perder == 0 && ComunPlayers.una_por_turno == false){
                                     cartelLoseIA.text= " Cheese loses the minigame!";
                                     panelIALose.SetActive(true);
@@ -340,7 +343,7 @@ public class MovementPlayer3 : MonoBehaviour
     void Wait_pasar(){
         aux_pasar += 1*Time.deltaTime;
 
-        if(aux_pasar >= 2f) wait_pasar= false;
+        if(aux_pasar >= 5f) wait_pasar= false;
     }
 
 

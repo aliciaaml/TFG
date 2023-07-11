@@ -78,12 +78,14 @@ public class MovementPlayer4 : MonoBehaviour
                     botonSiguiente.SiguientePlayer();
                     wait_pasar = true;
                     aux_pasar = 0f;
+                    ComunPlayers.pierdeTurnoplayer4 = false;
                 }
             }
             if (EscogerPersonaje.character_choosed[3] != 0) {
                 turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[3].ToString();
                 turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[3].ToString();
                 panelPierdeTurno.SetActive(true);
+                ComunPlayers.pierdeTurnoplayer4 = false;
             }
 
             if (EscogerJugador.four_player) { 
@@ -91,6 +93,7 @@ public class MovementPlayer4 : MonoBehaviour
                 turno_jugador.text = "Player 4";
                 turno_jugador_b.text = "Player 4";
                 panelPierdeTurno.SetActive(true);
+                ComunPlayers.pierdeTurnoplayer4 = false;
             }
 
             
@@ -243,7 +246,7 @@ public class MovementPlayer4 : MonoBehaviour
                                 LetreroMinijuego.SetActive(false);
                                 
                                 ComunPlayers.ganar_perder = ComunPlayers.juegaIA();
-                                Debug.Log("ComunPlayers.ganar_perder: " + ComunPlayers.ganar_perder);
+   
                                 if(ComunPlayers.ganar_perder == 0 && ComunPlayers.una_por_turno ==false){
                                     cartelLoseIA.text= "Cactus loses the minigame!";
                                     panelIALose.SetActive(true);
@@ -271,7 +274,7 @@ public class MovementPlayer4 : MonoBehaviour
                                     cartelWinIA.text = "Cactus wins the minigame!";
                                     panelIAWin.SetActive(true);
                                     Wait_Siguiente();
-                                    if(wait_siguiente == false && ComunPlayers.una_por_turno){
+                                    if(wait_siguiente == false){
                                         CambiarPlayer.TurnoPlayer4 = false;
 
                                         transform.Rotate(Vector3.up, -180f);
@@ -340,6 +343,6 @@ public class MovementPlayer4 : MonoBehaviour
     void Wait_pasar(){
         aux_pasar += 1*Time.deltaTime;
 
-        if(aux_pasar >= 2f) wait_pasar= false;
+        if(aux_pasar >= 5f) wait_pasar= false;
     }
 }

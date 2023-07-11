@@ -6,6 +6,7 @@ public class SoundClick : MonoBehaviour
 {
     private AudioSource audioSource;
 
+    
 
     void Start(){
 
@@ -15,6 +16,8 @@ public class SoundClick : MonoBehaviour
     // Update is called once per frame
     public void Click()
     {
+        
         audioSource.Play();
+
     }
 }

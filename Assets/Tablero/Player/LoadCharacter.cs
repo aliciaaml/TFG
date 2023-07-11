@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadCharacter : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class LoadCharacter : MonoBehaviour
      
     public static bool una_al_salirMinijuego = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +39,7 @@ public class LoadCharacter : MonoBehaviour
 
             canvas_dado.SetActive(true);
             canvas_inicio.SetActive(false);
-             
+           
         }
         if(LoadTablero.salirMinijuego && una_al_salirMinijuego == false){
             

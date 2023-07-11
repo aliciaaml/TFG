@@ -72,6 +72,7 @@ public class CambiarPlayer : MonoBehaviour
         if(ComunPlayers.siguiente && ComunPlayers.dic_lleno && ComunPlayers.PosicionActualPlayers.Count == 4){
 
             player = ComunPlayers.OrdenInicioPlayers[ComunPlayers.index];
+            Debug.Log("what: " + player + " ,"+ ComunPlayers.index);
             
             colisionPlayer.actual = ComunPlayers.PosicionActualPlayers[ComunPlayers.index][0].numero;
 
@@ -104,8 +105,8 @@ public class CambiarPlayer : MonoBehaviour
                 }
             }
 
-            else if(CameraSwitcher.IsActiveCamera(player1Camera)){
-
+            if(CameraSwitcher.IsActiveCamera(player1Camera)){
+                Debug.Log("detecta camara");
                 if(player == "player2"){
                     CameraSwitcher.SwitchCamera(player2Camera);
                     TurnoPlayer1 = false;
@@ -122,8 +123,8 @@ public class CambiarPlayer : MonoBehaviour
                     TurnoPlayer4 = true;
                 }
             }
-            else if(CameraSwitcher.IsActiveCamera(player2Camera)){
-
+            if(CameraSwitcher.IsActiveCamera(player2Camera)){
+                Debug.Log("detecta camara2");
                 if(player == "player1"){
                     CameraSwitcher.SwitchCamera(player1Camera);
                     TurnoPlayer1 = true;
@@ -140,8 +141,8 @@ public class CambiarPlayer : MonoBehaviour
                     TurnoPlayer2 = false;
                 }
             }
-            else if(CameraSwitcher.IsActiveCamera(player3Camera)){
-
+            if(CameraSwitcher.IsActiveCamera(player3Camera)){
+                Debug.Log("detecta camara3");
                 if(player == "player2"){
                     CameraSwitcher.SwitchCamera(player2Camera);
                     TurnoPlayer2 = true;
@@ -158,8 +159,8 @@ public class CambiarPlayer : MonoBehaviour
                     TurnoPlayer3 = false;
                 }
             }
-            else if(CameraSwitcher.IsActiveCamera(player4Camera)){
-
+            if(CameraSwitcher.IsActiveCamera(player4Camera)){
+                Debug.Log("detecta camara4");
                 if(player == "player2"){
                     CameraSwitcher.SwitchCamera(player2Camera);
                     TurnoPlayer2 = true;

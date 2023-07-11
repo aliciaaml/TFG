@@ -53,7 +53,7 @@ public class ComunPlayers : MonoBehaviour
     public static bool pierdeTurnoplayer3 = false;
     public static bool pierdeTurnoplayer4 = false;
 
-    public static int contadorTurnos = 0;
+    //public static int contadorTurnos = 0;
     public static int ganar_perder;
 
     public static bool una_por_turno = true;
@@ -211,7 +211,6 @@ public class ComunPlayers : MonoBehaviour
     public static int juegaIA(){
         if(una_por_turno){
             ganar_perder = Random.Range(0, 2);
-            Debug.Log("ganar_perder: " + ganar_perder);
             una_por_turno = false;
         }
         

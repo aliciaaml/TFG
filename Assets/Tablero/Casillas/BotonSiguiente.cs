@@ -78,6 +78,7 @@ public class BotonSiguiente : MonoBehaviour
             NumDado.resultado_dado_obtenido = false;
             MovementPlayer1.detectar_casilla = true;
             ElegirPosiciones.turno_terminado = false;
+            /*
             ComunPlayers.contadorTurnos+=1;
 
             if(ComunPlayers.contadorTurnos >=2){
@@ -88,7 +89,7 @@ public class BotonSiguiente : MonoBehaviour
                 ComunPlayers.pierdeTurnoplayer3 = false;
                 ComunPlayers.pierdeTurnoplayer4 = false;
             }
-
+            */
         }
     }
 }

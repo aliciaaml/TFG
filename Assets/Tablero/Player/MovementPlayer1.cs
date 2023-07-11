@@ -80,6 +80,7 @@ public class MovementPlayer1 : MonoBehaviour
                     botonSiguiente.SiguientePlayer();
                     wait_pasar = true;
                     aux_pasar = 0f;
+                    ComunPlayers.pierdeTurnoplayer1 = false;
                 }
 
 
@@ -88,6 +89,7 @@ public class MovementPlayer1 : MonoBehaviour
                 turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[0].ToString();
                 turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[0].ToString();
                 panelPierdeTurno.SetActive(true);
+                ComunPlayers.pierdeTurnoplayer1 = false;
             }
 
             if (EscogerJugador.four_player) { 
@@ -95,7 +97,10 @@ public class MovementPlayer1 : MonoBehaviour
                 turno_jugador.text = "Player 1";
                 turno_jugador_b.text = "Player 1";
                 panelPierdeTurno.SetActive(true);
+                ComunPlayers.pierdeTurnoplayer1 = false;
             }
+
+            
             
         }
 
@@ -249,7 +254,7 @@ public class MovementPlayer1 : MonoBehaviour
                                 LetreroMinijuego.SetActive(false);
                                 
                                 ComunPlayers.ganar_perder = ComunPlayers.juegaIA();
-                                Debug.Log("ComunPlayers.ganar_perder: " + ComunPlayers.ganar_perder);
+
                                 if(ComunPlayers.ganar_perder == 0 && ComunPlayers.una_por_turno == false){
                                     cartelLoseIA.text= " Mushroom loses the minigame!";
                                     panelIALose.SetActive(true);
@@ -342,6 +347,6 @@ public class MovementPlayer1 : MonoBehaviour
     void Wait_pasar(){
         aux_pasar += 1*Time.deltaTime;
 
-        if(aux_pasar >= 2f) wait_pasar= false;
+        if(aux_pasar >= 5f) wait_pasar= false;
     }
 }

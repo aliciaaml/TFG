@@ -374,7 +374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2991667, y: 0.11667645}
   m_AnchorMax: {x: 0.65000004, y: 0.78400004}
-  m_AnchoredPosition: {x: -6.388855, y: 8.399933}
+  m_AnchoredPosition: {x: -6.388916, y: 8.399902}
   m_SizeDelta: {x: -33.514038, y: -5.307556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &10768936
@@ -6924,7 +6924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.27732745, y: 0.20169714}
   m_AnchorMax: {x: 0.7176726, y: 0.72155}
-  m_AnchoredPosition: {x: -50.388855, y: 6.399933}
+  m_AnchoredPosition: {x: -50.388916, y: 6.3999023}
   m_SizeDelta: {x: -205.51404, y: 20.692444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &335583407
@@ -12945,7 +12945,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3053334, y: 0.11667645}
   m_AnchorMax: {x: 0.65000004, y: 0.78400004}
-  m_AnchoredPosition: {x: -3.1922607, y: 2.278656}
+  m_AnchoredPosition: {x: -3.1922607, y: 2.2786865}
   m_SizeDelta: {x: -21.907227, y: -5.5500793}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &670201057
@@ -16520,7 +16520,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899650367}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.2496634, y: 3.2496634, z: 3.2496634}
   m_ConstrainProportionsScale: 0
@@ -20017,7 +20017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 11.023804, y: -46.702515}
+  m_AnchoredPosition: {x: 11.023926, y: -46.702515}
   m_SizeDelta: {x: -804.7283, y: -639.3732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057655283
@@ -20796,7 +20796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.035793286, y: 0.45465255}
   m_AnchorMax: {x: 0.96524286, y: 0.81600004}
-  m_AnchoredPosition: {x: 0.055541992, y: 2.1322632}
+  m_AnchoredPosition: {x: 0.055419922, y: 2.1322632}
   m_SizeDelta: {x: 0.8547058, y: 0.62013245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1106053041
@@ -22563,7 +22563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.28334516, y: 0.20169714}
   m_AnchorMax: {x: 0.7176726, y: 0.6661625}
-  m_AnchoredPosition: {x: -47.19226, y: 5.278656}
+  m_AnchoredPosition: {x: -47.19226, y: 5.2786865}
   m_SizeDelta: {x: -193.90723, y: 30.44992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1174732659
@@ -24881,9 +24881,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1318817309}
-        m_TargetAssemblyTypeName: Brillo, Assembly-CSharp
-        m_MethodName: ChangeSlider
+      - m_Target: {fileID: 1318817319}
+        m_TargetAssemblyTypeName: Brillo2, Assembly-CSharp
+        m_MethodName: ChangeSlider2
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25088,6 +25088,8 @@ GameObject:
   - component: {fileID: 1318817309}
   - component: {fileID: 1318817312}
   - component: {fileID: 1318817317}
+  - component: {fileID: 1318817319}
+  - component: {fileID: 1318817318}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -25565,6 +25567,36 @@ MonoBehaviour:
   turno_jugador_b: {fileID: 361478351}
   turno: {fileID: 1044776}
   comenzar: {fileID: 91137089}
+--- !u!114 &1318817318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318817300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b041888196377594f91345fcb39e6c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider1: {fileID: 899650369}
+  slider2: {fileID: 1677287103}
+  sliderValue2: 0
+--- !u!114 &1318817319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318817300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68511944f2bd67b4bac7ea0aecbd2138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider1: {fileID: 1445867327}
+  slider2: {fileID: 1310639023}
+  panelBrillo: {fileID: 1527986863}
 --- !u!1 &1332679444
 GameObject:
   m_ObjectHideFlags: 0
@@ -26410,7 +26442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.024206717, y: 0.45465255}
   m_AnchorMax: {x: 0.9571731, y: 0.8234075}
-  m_AnchoredPosition: {x: -2.444458, y: 2.5}
+  m_AnchoredPosition: {x: -2.44458, y: 2.5}
   m_SizeDelta: {x: -4.145294, y: 1.3565826}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1370471038
@@ -28362,7 +28394,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445867325}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.2496634, y: 3.2496634, z: 3.2496634}
   m_ConstrainProportionsScale: 0
@@ -32380,9 +32412,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1318817308}
-        m_TargetAssemblyTypeName: Volumen, Assembly-CSharp
-        m_MethodName: ChangeSlider
+      - m_Target: {fileID: 1318817318}
+        m_TargetAssemblyTypeName: Volumen2, Assembly-CSharp
+        m_MethodName: ChangeSlider2
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32788,8 +32820,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708615706}
   m_LocalRotation: {x: -0, y: -0.9969411, z: -0, w: 0.07815745}
-  m_LocalPosition: {x: -346.1, y: -389.5, z: 1007.3}
-  m_LocalScale: {x: 0.94423044, y: 0.9442301, z: 0.94423044}
+  m_LocalPosition: {x: -346.09998, y: -389.5, z: 1007.3}
+  m_LocalScale: {x: 0.94423056, y: 0.9442301, z: 0.94423056}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 541929053}
