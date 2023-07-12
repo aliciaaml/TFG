@@ -113,6 +113,9 @@ public class ComunPlayers : MonoBehaviour
                     i++;
                 }
                 recorrer.Add(waypoints_personaje1[i]);
+                if(i>waypoints_personaje1.Count){
+                    recorrer.Add(waypoints_personaje1[waypoints_personaje1.Count-1]);
+                }
                 
             }
             if(CambiarPlayer.TurnoPlayer2){               
@@ -133,7 +136,9 @@ public class ComunPlayers : MonoBehaviour
                     i++;
                 }
                 recorrer.Add(waypoints_personaje2[i]);
-                
+                if(i>waypoints_personaje1.Count){
+                    recorrer.Add(waypoints_personaje2[waypoints_personaje2.Count-1]);
+                }
 
             }
             if(CambiarPlayer.TurnoPlayer3){
@@ -153,6 +158,9 @@ public class ComunPlayers : MonoBehaviour
                     i++;
                 }
                 recorrer.Add(waypoints_personaje3[i]);
+                if(i>waypoints_personaje1.Count){
+                    recorrer.Add(waypoints_personaje3[waypoints_personaje3.Count-1]);
+                }
             }
             if(CambiarPlayer.TurnoPlayer4){
                 
@@ -171,6 +179,9 @@ public class ComunPlayers : MonoBehaviour
                     i++;
                 }
                 recorrer.Add(waypoints_personaje4[i]);
+                if(i>waypoints_personaje1.Count){
+                    recorrer.Add(waypoints_personaje4[waypoints_personaje4.Count-1]);
+                }
                 
             }
         }
