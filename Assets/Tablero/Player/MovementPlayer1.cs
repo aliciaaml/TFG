@@ -71,7 +71,7 @@ public class MovementPlayer1 : MonoBehaviour
         if(CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1){
             virtualCamera.Follow = transform;
             virtualCamera.LookAt = transform;
-            if(EscogerPersonaje.character_choosed[0] == 0){    
+            if(EscogerPersonaje.character_choosed[0] == 0 && EscogerJugador.four_player == false ){    
                 turno_jugador.text = "Mushroom";
                 turno_jugador_b.text = "Mushroom";
                 panelPierdeTurnoIA.SetActive(true);
@@ -111,7 +111,7 @@ public class MovementPlayer1 : MonoBehaviour
         }
 
         else if (CambiarPlayer.TurnoPlayer1 && panelPierdeTurno.activeSelf == false && panelPierdeTurnoIA.activeSelf == false) {
-
+            Debug.Log("nooo entresss1");
             if (ElegirPosiciones.turno_terminado == false) {
 
                 virtualCamera.Follow = transform;
@@ -211,7 +211,7 @@ public class MovementPlayer1 : MonoBehaviour
                     if(CasillaMinCoco.casilla_minijuego == ""){
                         
                         LetreroNoMinijuego.SetActive(true);
-                        if(EscogerPersonaje.character_choosed[0] != 0){
+                        if(EscogerPersonaje.character_choosed[0] != 0 || EscogerJugador.four_player){
                             botonPlayerSig.SetActive(true);
                         }
                             
@@ -255,7 +255,7 @@ public class MovementPlayer1 : MonoBehaviour
                         }
 
                         LetreroMinijuego.SetActive(true);
-                        if(EscogerPersonaje.character_choosed[0] != 0){
+                        if(EscogerPersonaje.character_choosed[0] != 0 || EscogerJugador.four_player){
                             botonMinijuego.SetActive(true);
                         }
                         else {
@@ -325,14 +325,15 @@ public class MovementPlayer1 : MonoBehaviour
                                 transform.Rotate(Vector3.up, -180f);
                                 ComunPlayers.espaldas = true;
                             }
-                            if(EscogerPersonaje.character_choosed[0] == 0){
+                            if(EscogerPersonaje.character_choosed[0] != 0 || EscogerJugador.four_player){
 
-                                cartelFinal.text = "MUSHROOM WIN!! CONGRATULATIONS";
-                                cartelFinal2.text = "MUSHROOM WIN!! CONGRATULATIONS";
-                            }
-                            else{
                                 cartelFinal.text = "PLAYER" + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
                                 cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
+                                
+                            }
+                            else{
+                                cartelFinal.text = "MUSHROOM WIN!! CONGRATULATIONS";
+                                cartelFinal2.text = "MUSHROOM WIN!! CONGRATULATIONS";
                             }
                         }
 

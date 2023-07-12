@@ -69,7 +69,7 @@ public class MovementPlayer3 : MonoBehaviour
         if(CambiarPlayer.TurnoPlayer3  && ComunPlayers.pierdeTurnoplayer3){
             virtualCamera.Follow = transform;
             virtualCamera.LookAt = transform;
-            if(EscogerPersonaje.character_choosed[2] == 0){
+            if(EscogerPersonaje.character_choosed[2] == 0 && EscogerJugador.four_player == false ){
                 virtualCamera.Follow = transform;
                 virtualCamera.LookAt = transform;
                 turno_jugador.text = "Cheese";
@@ -109,7 +109,7 @@ public class MovementPlayer3 : MonoBehaviour
         }
 
         else if(CambiarPlayer.TurnoPlayer3  && panelPierdeTurno.activeSelf == false && panelPierdeTurnoIA.activeSelf == false){
-       
+            Debug.Log("nooo entresss3");
             if(ElegirPosiciones.turno_terminado == false){
                 textoDado.SetActive(false);
                 virtualCamera.Follow = transform;
@@ -201,7 +201,7 @@ public class MovementPlayer3 : MonoBehaviour
                     if(CasillaMinCoco.casilla_minijuego == ""){
                         
                         LetreroNoMinijuego.SetActive(true);
-                        if(EscogerPersonaje.character_choosed[2] != 0){
+                        if(EscogerPersonaje.character_choosed[2] != 0 || EscogerJugador.four_player){
                             botonPlayerSig.SetActive(true);
                         }
                             
@@ -243,7 +243,7 @@ public class MovementPlayer3 : MonoBehaviour
                         }
 
                         LetreroMinijuego.SetActive(true);
-                        if(EscogerPersonaje.character_choosed[2] != 0){
+                        if(EscogerPersonaje.character_choosed[2] != 0 || EscogerJugador.four_player){
                             botonMinijuego.SetActive(true);
                         }
                         else{
@@ -311,14 +311,15 @@ public class MovementPlayer3 : MonoBehaviour
                                 transform.Rotate(Vector3.up, -180f);
                                 ComunPlayers.espaldas = true;
                             }
-                            if(EscogerPersonaje.character_choosed[0] == 0){
+                            if(EscogerPersonaje.character_choosed[0] != 0 || EscogerJugador.four_player){
 
-                                cartelFinal.text = "CHEESE WIN!! CONGRATULATIONS";
-                                cartelFinal2.text = "CHEESE WIN!! CONGRATULATIONS";
-                            }
-                            else{
                                 cartelFinal.text = "PLAYER" + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
                                 cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
+                                
+                            }
+                            else{
+                                cartelFinal.text = "CHEESE WIN!! CONGRATULATIONS";
+                                cartelFinal2.text = "CHEESE WIN!! CONGRATULATIONS";
                             }
                         }
 

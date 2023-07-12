@@ -62,11 +62,6 @@ public class ComunPlayers : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
-    public static Quaternion guardarRotacionAlanteplayer1;
-    public static Quaternion guardarRotacionAlanteplayer2;
-    public static Quaternion guardarRotacionAlanteplayer3;
-    public static Quaternion guardarRotacionAlanteplayer4;
-
     public static bool espaldas = true;
     
     private void Start()
@@ -132,7 +127,7 @@ public class ComunPlayers : MonoBehaviour
                     i++;
                 }
                 recorrer.Add(waypoints_personaje1[i]);
-                if(i>=waypoints_personaje1.Count-1){
+                if(i>waypoints_personaje1.Count-1){
                     i = waypoints_personaje1.Count - 1;
                     recorrer.Add(waypoints_personaje1[i]);
                 }
@@ -156,7 +151,7 @@ public class ComunPlayers : MonoBehaviour
                     i++;
                 }
                 recorrer.Add(waypoints_personaje2[i]);
-                if(i>=waypoints_personaje2.Count-1){
+                if(i>waypoints_personaje2.Count-1){
                     i = waypoints_personaje2.Count - 1;
                     recorrer.Add(waypoints_personaje2[i]);
                 }
@@ -179,7 +174,7 @@ public class ComunPlayers : MonoBehaviour
                     i++;
                 }
                 recorrer.Add(waypoints_personaje3[i]);
-                if(i>=waypoints_personaje3.Count-1){
+                if(i>waypoints_personaje3.Count-1){
                     i = waypoints_personaje3.Count - 1;
                     recorrer.Add(waypoints_personaje3[i]);
                 }
@@ -201,7 +196,7 @@ public class ComunPlayers : MonoBehaviour
                     i++;
                 }
                 recorrer.Add(waypoints_personaje4[i]);
-                if(i>=waypoints_personaje4.Count-1){
+                if(i>waypoints_personaje4.Count-1){
                     i = waypoints_personaje4.Count - 1;
                     recorrer.Add(waypoints_personaje4[i]);
                 }

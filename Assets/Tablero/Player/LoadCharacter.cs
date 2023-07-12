@@ -35,7 +35,7 @@ public class LoadCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(EscogerPersonaje.juegoComenzar && !Replay.replay){
+        if((EscogerPersonaje.juegoComenzar && !Replay.replay) || EscogerJugador.four_player){
 
             canvas_dado.SetActive(true);
             canvas_inicio.SetActive(false);

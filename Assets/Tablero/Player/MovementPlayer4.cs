@@ -68,7 +68,7 @@ public class MovementPlayer4 : MonoBehaviour
         if(CambiarPlayer.TurnoPlayer4  && ComunPlayers.pierdeTurnoplayer4){
             virtualCamera.Follow = transform;
             virtualCamera.LookAt = transform;
-            if(EscogerPersonaje.character_choosed[3] == 0){
+            if(EscogerPersonaje.character_choosed[3] == 0 && EscogerJugador.four_player == false ){
                 virtualCamera.Follow = transform;
                 virtualCamera.LookAt = transform;
                 turno_jugador.text = "Cactus";
@@ -107,7 +107,7 @@ public class MovementPlayer4 : MonoBehaviour
         }
 
         else if(CambiarPlayer.TurnoPlayer4  && panelPierdeTurno.activeSelf == false && panelPierdeTurnoIA.activeSelf == false){
-           
+           Debug.Log("nooo entresss4");
             if(ElegirPosiciones.turno_terminado == false){
                 textoDado.SetActive(false);
                 virtualCamera.Follow = transform;
@@ -203,7 +203,7 @@ public class MovementPlayer4 : MonoBehaviour
                     if(CasillaMinCoco.casilla_minijuego == ""){
                         
                         LetreroNoMinijuego.SetActive(true);
-                        if(EscogerPersonaje.character_choosed[3] != 0){
+                        if(EscogerPersonaje.character_choosed[3] != 0 || EscogerJugador.four_player){
                             botonPlayerSig.SetActive(true);
                         }
                             
@@ -245,7 +245,7 @@ public class MovementPlayer4 : MonoBehaviour
                         }
 
                         LetreroMinijuego.SetActive(true);
-                        if(EscogerPersonaje.character_choosed[3] != 0){
+                        if(EscogerPersonaje.character_choosed[3] != 0 || EscogerJugador.four_player){
                             botonMinijuego.SetActive(true);
                         }
                         else {
@@ -314,14 +314,15 @@ public class MovementPlayer4 : MonoBehaviour
                                 transform.Rotate(Vector3.up, -180f);
                                 ComunPlayers.espaldas = true;
                             }
-                            if(EscogerPersonaje.character_choosed[0] == 0){
+                            if(EscogerPersonaje.character_choosed[0] != 0 || EscogerJugador.four_player){
 
-                                cartelFinal.text = "CACTUS WIN!! CONGRATULATIONS";
-                                cartelFinal2.text = "CACTUS WIN!! CONGRATULATIONS";
-                            }
-                            else{
                                 cartelFinal.text = "PLAYER" + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
                                 cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
+                                
+                            }
+                            else{
+                                cartelFinal.text = "CACTUS WIN!! CONGRATULATIONS";
+                                cartelFinal2.text = "CACTUS WIN!! CONGRATULATIONS";
                             }
                         }
 

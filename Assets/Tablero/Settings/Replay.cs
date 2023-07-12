@@ -16,6 +16,7 @@ public class Replay : MonoBehaviour
     public void OnReplayButtonClicked()
     {    
         sliderVolum1.value = sliderVolum2.value;   
+        
         ComunPlayers.PosicionActualPlayers = new List<List<ComunPlayers.ElementoLista>>();
         ComunPlayers.tolerance = 0.5f;
         ComunPlayers.waypoints_recorrer = new List<Transform>();
@@ -38,6 +39,7 @@ public class Replay : MonoBehaviour
         ComunPlayers.pierdeTurnoplayer3 = false;
         ComunPlayers.pierdeTurnoplayer4 = false;
         ComunPlayers.una_por_turno = true;
+        ComunPlayers.espaldas = true;
 
 
         MovementPlayer1.una_vez = true;

@@ -24,7 +24,7 @@ public class BotonSiguiente : MonoBehaviour
   
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
-        
+                Debug.Log("entra1");
                 player1.transform.Rotate(Vector3.up, -180f);
                 ComunPlayers.espaldas = true;
             }
@@ -35,7 +35,7 @@ public class BotonSiguiente : MonoBehaviour
         }
         if(CambiarPlayer.TurnoPlayer2 && ComunPlayers.pierdeTurnoplayer2 == false){
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
-            {
+            {   Debug.Log("entra2");
                 player2.transform.Rotate(Vector3.up, -180f);
                 ComunPlayers.espaldas = true;
             }
@@ -47,7 +47,8 @@ public class BotonSiguiente : MonoBehaviour
         if(CambiarPlayer.TurnoPlayer3 && ComunPlayers.pierdeTurnoplayer3 == false){
 
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
-            {
+            {   
+                Debug.Log("entra3");
                 player3.transform.Rotate(Vector3.up, -180f);
                 ComunPlayers.espaldas = true;
             }
@@ -59,6 +60,7 @@ public class BotonSiguiente : MonoBehaviour
         if(CambiarPlayer.TurnoPlayer4 && ComunPlayers.pierdeTurnoplayer4 == false){
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
+                Debug.Log("entra4");
                 player4.transform.Rotate(Vector3.up, -180f);
                 ComunPlayers.espaldas = true;
             }

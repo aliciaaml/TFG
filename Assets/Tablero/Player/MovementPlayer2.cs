@@ -67,7 +67,7 @@ public class MovementPlayer2 : MonoBehaviour
         if(CambiarPlayer.TurnoPlayer2 && ComunPlayers.pierdeTurnoplayer2){
             virtualCamera.Follow = transform;
             virtualCamera.LookAt = transform;
-            if(EscogerPersonaje.character_choosed[1] == 0){
+            if(EscogerPersonaje.character_choosed[1] == 0 && EscogerJugador.four_player == false ){
                 
                 turno_jugador.text = "Frog";
                 turno_jugador_b.text = "Frog";
@@ -85,7 +85,7 @@ public class MovementPlayer2 : MonoBehaviour
                     ComunPlayers.pierdeTurnoplayer2 = false;
                 }
             }
-            if (EscogerPersonaje.character_choosed[1] != 0) {
+            if (EscogerPersonaje.character_choosed[1] != 0 ) {
                 Dado1.SetActive(false);
                 turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[1].ToString();
                 turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[1].ToString();
@@ -105,7 +105,7 @@ public class MovementPlayer2 : MonoBehaviour
         }
 
         else if(CambiarPlayer.TurnoPlayer2 && panelPierdeTurno.activeSelf == false && panelPierdeTurnoIA.activeSelf == false){
-
+            Debug.Log("nooo entresss2");
             if(ElegirPosiciones.turno_terminado == false){
                 textoDado.SetActive(false);
                 virtualCamera.Follow = transform;
@@ -197,7 +197,7 @@ public class MovementPlayer2 : MonoBehaviour
                    if(CasillaMinCoco.casilla_minijuego == ""){
                         
                         LetreroNoMinijuego.SetActive(true);
-                        if(EscogerPersonaje.character_choosed[1] != 0){
+                        if(EscogerPersonaje.character_choosed[1] != 0 || EscogerJugador.four_player){
                             botonPlayerSig.SetActive(true);
                         }
                             
@@ -240,7 +240,7 @@ public class MovementPlayer2 : MonoBehaviour
                         }
 
                         LetreroMinijuego.SetActive(true);
-                        if(EscogerPersonaje.character_choosed[1] != 0){
+                        if(EscogerPersonaje.character_choosed[1] != 0 || EscogerJugador.four_player){
                             botonMinijuego.SetActive(true);
                         }
                         else{
@@ -308,14 +308,17 @@ public class MovementPlayer2 : MonoBehaviour
                                 transform.Rotate(Vector3.up, -180f);
                                 ComunPlayers.espaldas = true;
                             }
-                            if(EscogerPersonaje.character_choosed[0] == 0){
+                            if(EscogerPersonaje.character_choosed[0] != 0 || EscogerJugador.four_player){
 
-                                cartelFinal.text = "FROG WIN!! CONGRATULATIONS";
-                                cartelFinal2.text = "FROG WIN!! CONGRATULATIONS";
-                            }
-                            else{
                                 cartelFinal.text = "PLAYER" + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
                                 cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
+
+                               
+                            }
+                            else{
+                                
+                                cartelFinal.text = "FROG WIN!! CONGRATULATIONS";
+                                cartelFinal2.text = "FROG WIN!! CONGRATULATIONS";
                             }
                         }
             
