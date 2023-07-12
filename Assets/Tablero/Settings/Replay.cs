@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Replay : MonoBehaviour
 {
@@ -9,8 +10,12 @@ public class Replay : MonoBehaviour
     public GameObject CanvasInicio;
     public static bool replay = false;
 
+    public Slider sliderVolum1;
+    public Slider sliderVolum2;
+
     public void OnReplayButtonClicked()
-    {       
+    {    
+        sliderVolum1.value = sliderVolum2.value;   
         ComunPlayers.PosicionActualPlayers = new List<List<ComunPlayers.ElementoLista>>();
         ComunPlayers.tolerance = 0.5f;
         ComunPlayers.waypoints_recorrer = new List<Transform>();
@@ -25,12 +30,48 @@ public class Replay : MonoBehaviour
         ComunPlayers.dic_lleno = false;
         ComunPlayers.casilla_destino = 0;
         ComunPlayers.casilla_antes_tirar = 0;
+        ComunPlayers.waypoint_final = "";
+        ComunPlayers.waypoint_actual= "";
+        ComunPlayers.i = 0 ;
+        ComunPlayers.pierdeTurnoplayer1 = false;
+        ComunPlayers.pierdeTurnoplayer2 = false;
+        ComunPlayers.pierdeTurnoplayer3 = false;
+        ComunPlayers.pierdeTurnoplayer4 = false;
+        ComunPlayers.una_por_turno = true;
+
 
         MovementPlayer1.una_vez = true;
         MovementPlayer1.detectar_casilla = false;
         MovementPlayer1.gira_una1 = true;
+        MovementPlayer1.aux_LW  = 0f;
+        MovementPlayer1.wait_LW = true;
+        MovementPlayer1.aux_siguiente = 0f;
+        MovementPlayer1.wait_siguiente = true;
+        MovementPlayer1.wait_pasar = true;
+        MovementPlayer1.aux_pasar = 0f;
+
         MovementPlayer2.gira_una2= true;
+        MovementPlayer2.aux_LW  = 0f;
+        MovementPlayer2.wait_LW = true;
+        MovementPlayer2.aux_siguiente = 0f;
+        MovementPlayer2.wait_siguiente = true;
+        MovementPlayer2.wait_pasar = true;
+        MovementPlayer2.aux_pasar = 0f;
+
+        MovementPlayer3.aux_LW  = 0f;
+        MovementPlayer3.wait_LW = true;
+        MovementPlayer3.aux_siguiente = 0f;
+        MovementPlayer3.wait_siguiente = true;
+        MovementPlayer3.wait_pasar = true;
+        MovementPlayer3.aux_pasar = 0f;
         MovementPlayer3.gira_una3 = true;
+
+        MovementPlayer4.aux_LW  = 0f;
+        MovementPlayer4.wait_LW = true;
+        MovementPlayer4.aux_siguiente = 0f;
+        MovementPlayer4.wait_siguiente = true;
+        MovementPlayer4.wait_pasar = true;
+        MovementPlayer4.aux_pasar = 0f;
         MovementPlayer4.gira_una4 = true;
 
         ElegirPosiciones.numeroDado = new List<List<int>>();
@@ -89,6 +130,16 @@ public class Replay : MonoBehaviour
         DontDestroy.guardarPosPlayer2 = LoadCharacter.posInitPlayer2;
         DontDestroy.guardarPosPlayer3 = LoadCharacter.posInitPlayer3;
         DontDestroy.guardarPosPlayer4 = LoadCharacter.posInitPlayer4;
+
+        LoadTablero.minijuego = false;
+        LoadTablero.salirMinijuego = false;
+
+        LoadCharacter.una_al_salirMinijuego = false;
+        BotonSiguiente.siguientePlayer = false;
+        ColliderEnable.collider_casilla = false;
+        Rota90.una = true;
+        DialogControler.i = 0;
+        DialogControler.dialog_terminado = false;
 
         replay = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

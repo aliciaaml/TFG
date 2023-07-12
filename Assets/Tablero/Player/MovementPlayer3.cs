@@ -47,13 +47,13 @@ public class MovementPlayer3 : MonoBehaviour
     public GameObject panelIAWin;
     public GameObject panelIALose;
 
-    float aux_LW  = 0f;
-    bool wait_LW = true;
-    float aux_siguiente = 0f;
-    bool wait_siguiente = true;
+    public static  float aux_LW  = 0f;
+    public static bool wait_LW = true;
+    public static float aux_siguiente = 0f;
+    public static bool wait_siguiente = true;
 
-    bool wait_pasar = true;
-    float aux_pasar = 0f;
+    public static bool wait_pasar = true;
+    public static float aux_pasar = 0f;
 
     void Start()
     {

@@ -44,16 +44,15 @@ public class ComunPlayers : MonoBehaviour
     public GameObject cameraTodos;
     public GameObject texto_turno;
     public static bool no_detect_casilla_minijuego = false;
-    string waypoint_final = "";
-    string waypoint_actual= "";
-    int i = 0 ;
+    public static string waypoint_final = "";
+    public static string waypoint_actual= "";
+    public static int i = 0 ;
 
     public static bool pierdeTurnoplayer1 = false;
     public static bool pierdeTurnoplayer2 = false;
     public static bool pierdeTurnoplayer3 = false;
     public static bool pierdeTurnoplayer4 = false;
 
-    //public static int contadorTurnos = 0;
     public static int ganar_perder;
 
     public static bool una_por_turno = true;
@@ -61,12 +60,6 @@ public class ComunPlayers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        /*
-        Debug.Log("pierdeTurnoplayer1: " + pierdeTurnoplayer1);
-        Debug.Log("pierdeTurnoplayer2: " + pierdeTurnoplayer2);  
-        Debug.Log("pierdeTurnoplayer3: " + pierdeTurnoplayer3);  
-        Debug.Log("pierdeTurnoplayer4: " + pierdeTurnoplayer4);  
-        */
         if(primeraRonda && siguiente){         
             primeraRonda=false;
             List<ElementoLista> sublista1 = new List<ElementoLista>();

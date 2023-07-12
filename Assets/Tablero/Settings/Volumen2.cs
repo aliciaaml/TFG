@@ -14,7 +14,7 @@ public class Volumen2 : MonoBehaviour
     {
         
         slider2.value = slider1.value;
-        sliderValue2 = slider1.value;
+        //sliderValue2 = slider1.value;
         AudioListener.volume = slider2.value;
 
     }

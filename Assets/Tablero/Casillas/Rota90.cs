@@ -10,7 +10,7 @@ public class Rota90 : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
-    bool una = true;
+    public static bool una = true;
 
     private void OnTriggerEnter(Collider other)
     {
