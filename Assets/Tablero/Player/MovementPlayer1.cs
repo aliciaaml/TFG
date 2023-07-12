@@ -57,7 +57,6 @@ public class MovementPlayer1 : MonoBehaviour
     public static bool wait_pasar = true;
     public static float aux_pasar = 0f;
 
-    public LookAt lookAt;
     void Start()
     {
         animator1 = GetComponent<Animator>();
@@ -105,7 +104,7 @@ public class MovementPlayer1 : MonoBehaviour
             
         }
 
-        if (CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1 == false) {
+        else if (CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1 == false) {
             
             if (ElegirPosiciones.turno_terminado == false) {
 
@@ -197,7 +196,7 @@ public class MovementPlayer1 : MonoBehaviour
 
                     if(gira_una1){
                         StartCoroutine(InterpolarRotacion());
-                        ComunPlayers.angle = Vector3.Angle(transform.forward, ComunPlayers.worldForwardDirection);
+                        //ComunPlayers.angle = Vector3.Angle(transform.forward, ComunPlayers.worldForwardDirection);
                         gira_una1 = false;
                     }
                     
@@ -216,12 +215,13 @@ public class MovementPlayer1 : MonoBehaviour
                         else{
                             Wait_Siguiente();
                             if(wait_siguiente == false){
+                                /*
                                 if (ComunPlayers.angle < 90f) //Si está hacia detras se gira
                                 {
                                     transform.Rotate(Vector3.up, -180f);
-                                    ComunPlayers.angle = Vector3.Angle(transform.forward, ComunPlayers.worldForwardDirection);
+                                    //ComunPlayers.angle = Vector3.Angle(transform.forward, ComunPlayers.worldForwardDirection);
                                 }
-                                
+                                */
                                 DontDestroy.guardarPosPlayer1 = transform.position;
                                 CambiarPlayer.TurnoPlayer1 = false;
 
@@ -269,13 +269,13 @@ public class MovementPlayer1 : MonoBehaviour
                                     if(wait_siguiente == false){
                                         ComunPlayers.pierdeTurnoplayer1 = true;
                                         ComunPlayers.una_por_turno = true;
-
+                                        /*
                                         if (ComunPlayers.angle < 90f) //Si está hacia detras se gira
                                         {
                                             transform.Rotate(Vector3.up, -180f);
                                             ComunPlayers.angle = Vector3.Angle(transform.forward, ComunPlayers.worldForwardDirection);
                                         }
-            
+                                        */
                                         DontDestroy.guardarPosPlayer1 = transform.position;
                                         CambiarPlayer.TurnoPlayer1 = false;
             
@@ -292,13 +292,13 @@ public class MovementPlayer1 : MonoBehaviour
                                     panelIAWin.SetActive(true);
                                     Wait_Siguiente();
                                     if(wait_siguiente == false){
-
+                                        /*
                                         if (ComunPlayers.angle < 90f) //Si está hacia detras se gira
                                         {
                                             transform.Rotate(Vector3.up, -180f);
                                             ComunPlayers.angle = Vector3.Angle(transform.forward, ComunPlayers.worldForwardDirection);
                                         }
-
+                                        */
                                         
                                         DontDestroy.guardarPosPlayer1 = transform.position;
                                         CambiarPlayer.TurnoPlayer1 = false;

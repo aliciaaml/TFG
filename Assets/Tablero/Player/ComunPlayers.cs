@@ -68,14 +68,14 @@ public class ComunPlayers : MonoBehaviour
     public static Quaternion guardarRotacionAlanteplayer4;
 
 
-    public static float angle;
-    Vector3 forwardDirection;
-    public static Vector3 worldForwardDirection;
+    //public static float angle;
+    //Vector3 forwardDirection;
+    //public static Vector3 worldForwardDirection;
     // Update is called once per frame
     private void Start()
     {
-        // Obtener la dirección hacia adelante del mundo (eje Z positivo)
-        worldForwardDirection = Vector3.forward;
+        // Obtener la direcciï¿½n hacia adelante del mundo (eje Z positivo)
+        //worldForwardDirection = Vector3.forward;
     }
     void Update()
     {   
@@ -123,10 +123,10 @@ public class ComunPlayers : MonoBehaviour
             
             if(CambiarPlayer.TurnoPlayer1){
 
-                forwardDirection = player1.transform.forward;
-                angle = Vector3.Angle(forwardDirection, worldForwardDirection);
+                //forwardDirection = player1.transform.forward;
+                //angle = Vector3.Angle(forwardDirection, worldForwardDirection);
 
-                Debug.Log("angle1: " + angle);
+                
                 waypoint_actual = "Sphere" + (colisionPlayer.actual).ToString() + " (1)" + " (UnityEngine.Transform)";
                 if(ComunPlayers.Inicio){
                     i = 0;
@@ -153,9 +153,9 @@ public class ComunPlayers : MonoBehaviour
             }
             if(CambiarPlayer.TurnoPlayer2){
 
-                forwardDirection = player2.transform.forward;
-                angle = Vector3.Angle(forwardDirection, worldForwardDirection);
-                Debug.Log("angle2: " + angle);
+                //forwardDirection = player2.transform.forward;
+                //angle = Vector3.Angle(forwardDirection, worldForwardDirection);
+                
                 waypoint_actual = "Sphere" + (colisionPlayer.actual).ToString() + " (2)" + " (UnityEngine.Transform)";
                 
                 if(ComunPlayers.Inicio){
@@ -180,9 +180,9 @@ public class ComunPlayers : MonoBehaviour
             }
             if(CambiarPlayer.TurnoPlayer3){
 
-                forwardDirection = player3.transform.forward;
-                angle = Vector3.Angle(forwardDirection, worldForwardDirection);
-                Debug.Log("angle3: " + angle);
+                //forwardDirection = player3.transform.forward;
+                //angle = Vector3.Angle(forwardDirection, worldForwardDirection);
+               
 
                 waypoint_actual = "Sphere" + (colisionPlayer.actual).ToString() + " (3)" + " (UnityEngine.Transform)";
                 if(ComunPlayers.Inicio){
@@ -206,9 +206,9 @@ public class ComunPlayers : MonoBehaviour
             }
             if(CambiarPlayer.TurnoPlayer4){
 
-                forwardDirection = player4.transform.forward;
-                angle = Vector3.Angle(forwardDirection, worldForwardDirection);
-                Debug.Log("angle4: " + angle);
+                //forwardDirection = player4.transform.forward;
+                //angle = Vector3.Angle(forwardDirection, worldForwardDirection);
+                
                 waypoint_actual = "Sphere" + (colisionPlayer.actual).ToString() + " (4)" + " (UnityEngine.Transform)";
 
                 if(ComunPlayers.Inicio){

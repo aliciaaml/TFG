@@ -43918,7 +43918,6 @@ MonoBehaviour:
   panelIALose: {fileID: 1060930989}
   cartelWinIA: {fileID: 1883708996}
   cartelLoseIA: {fileID: 172557693}
-  lookAt: {fileID: 0}
 --- !u!95 &1910107530
 Animator:
   serializedVersion: 5
@@ -50417,7 +50416,6 @@ MonoBehaviour:
   cartelLoseIA: {fileID: 172557693}
   panelIAWin: {fileID: 1695084038}
   panelIALose: {fileID: 1060930989}
-  lookAt: {fileID: 0}
 --- !u!1 &919132147610192291
 GameObject:
   m_ObjectHideFlags: 0
@@ -50653,7 +50651,6 @@ MonoBehaviour:
   cartelLoseIA: {fileID: 172557693}
   panelIAWin: {fileID: 1695084038}
   panelIALose: {fileID: 1060930989}
-  lookAt: {fileID: 0}
 --- !u!1 &919132148250045968
 GameObject:
   m_ObjectHideFlags: 0
@@ -50945,7 +50942,6 @@ MonoBehaviour:
   cartelLoseIA: {fileID: 172557693}
   panelIAWin: {fileID: 1695084038}
   panelIALose: {fileID: 1060930989}
-  lookAt: {fileID: 0}
 --- !u!1 &919132149163929416
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,7 +54,7 @@ public class MovementPlayer3 : MonoBehaviour
 
     public static bool wait_pasar = true;
     public static float aux_pasar = 0f;
-    public LookAt lookAt;
+
     void Start()
     {
         animator3 = GetComponent<Animator>();
@@ -101,7 +101,7 @@ public class MovementPlayer3 : MonoBehaviour
             
         }
 
-        if(CambiarPlayer.TurnoPlayer3  && ComunPlayers.pierdeTurnoplayer3 == false){
+        else if(CambiarPlayer.TurnoPlayer3  && ComunPlayers.pierdeTurnoplayer3 == false){
             //wait_LW = true;
             //aux_LW = 0f;
             if(ElegirPosiciones.turno_terminado == false){
@@ -205,11 +205,12 @@ public class MovementPlayer3 : MonoBehaviour
                         else{
                             Wait_Siguiente();
                             if(wait_siguiente == false){
-
+                                /*
                                 if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
                                 {
                                     transform.Rotate(Vector3.up, -180f);
                                 }
+                                */
                                 DontDestroy.guardarPosPlayer3 = transform.position;
                                 CambiarPlayer.TurnoPlayer3 = false;
 
@@ -258,11 +259,12 @@ public class MovementPlayer3 : MonoBehaviour
                                         CambiarPlayer.TurnoPlayer3 = false;
                                         ComunPlayers.pierdeTurnoplayer3 = true;
                                         ComunPlayers.una_por_turno = true;
-
+                                        /*
                                         if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
                                         {
                                             transform.Rotate(Vector3.up, -180f);
                                         }
+                                        */
                                         DontDestroy.guardarPosPlayer3 = transform.position;
             
             
@@ -280,11 +282,12 @@ public class MovementPlayer3 : MonoBehaviour
                                     Wait_Siguiente();
                                     if(wait_siguiente == false ){
                                         CambiarPlayer.TurnoPlayer3 = false;
-
+                                        /*
                                         if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
                                         {
                                             transform.Rotate(Vector3.up, -180f);
                                         }
+                                        */
                                         DontDestroy.guardarPosPlayer3 = transform.position;
  
 

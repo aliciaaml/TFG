@@ -20,43 +20,47 @@ public class BotonSiguiente : MonoBehaviour
 
         //ROTAR DE NUEVO JUGADOR
 
-        if(CambiarPlayer.TurnoPlayer1){
-
-            if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+        if(CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1 == false){
+            /*
+            if (ComunPlayers.angle > 90f) //Si estï¿½ hacia detras se gira
             {
                 player1.transform.Rotate(Vector3.up, -180f);
             }
+            */
             //player1.transform.Rotate(Vector3.up, -180f);
             DontDestroy.guardarPosPlayer1 = player1.transform.position;
             CambiarPlayer.TurnoPlayer1 = false;
         }
-        if(CambiarPlayer.TurnoPlayer2){
-
-            if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+        if(CambiarPlayer.TurnoPlayer2 && ComunPlayers.pierdeTurnoplayer2 == false){
+            /*
+            if (ComunPlayers.angle > 90f) //Si estï¿½ hacia detras se gira
             {
                 player2.transform.Rotate(Vector3.up, -180f);
             }
+            */
             DontDestroy.guardarPosPlayer2 = player2.transform.position;
             CambiarPlayer.TurnoPlayer2 = false;
         }
 
-        if(CambiarPlayer.TurnoPlayer3){
+        if(CambiarPlayer.TurnoPlayer3 && ComunPlayers.pierdeTurnoplayer3 == false){
 
-
-            if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+            /*
+            if (ComunPlayers.angle > 90f) //Si estï¿½ hacia detras se gira
             {
                 player3.transform.Rotate(Vector3.up, -180f);
             }
+            */
             DontDestroy.guardarPosPlayer3 = player3.transform.position;
             CambiarPlayer.TurnoPlayer3 = false;
         }
 
-        if(CambiarPlayer.TurnoPlayer4){
-
-            if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+        if(CambiarPlayer.TurnoPlayer4 && ComunPlayers.pierdeTurnoplayer4 == false){
+            /*
+            if (ComunPlayers.angle > 90f) //Si estï¿½ hacia detras se gira
             {
                 player4.transform.Rotate(Vector3.up, -180f);
             }
+            */
             DontDestroy.guardarPosPlayer4 = player4.transform.position;
             CambiarPlayer.TurnoPlayer4 = false;
         }
