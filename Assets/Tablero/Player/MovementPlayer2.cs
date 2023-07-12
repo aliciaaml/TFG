@@ -52,6 +52,8 @@ public class MovementPlayer2 : MonoBehaviour
 
     public static bool wait_pasar = true;
     public static float aux_pasar = 0f;
+
+    public LookAt lookAt;
     void Start()
     {
         animator2 = GetComponent<Animator>();
@@ -170,10 +172,11 @@ public class MovementPlayer2 : MonoBehaviour
                     }
 
                     Vector3 direccion = (objetivo - transform.position).normalized;
-                    Quaternion rotacionDeseada = Quaternion.LookRotation(direccion);
-                    float velocidadRotacion = 40f; // Ajusta la velocidad de rotación según tus necesidades
-
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
+                    //Quaternion rotacionDeseada = Quaternion.LookRotation(direccion);
+                    //float velocidadRotacion = 40f; // Ajusta la velocidad de rotación según tus necesidades
+                    transform.LookAt(objetivo);
+                    //lookAt.StartRotation(gameObject, ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex2]);
+                    //transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
                     transform.position += direccion * velocidad2 * Time.deltaTime;
                 }
 
@@ -199,8 +202,12 @@ public class MovementPlayer2 : MonoBehaviour
                         else{
                             Wait_Siguiente();
                             if(wait_siguiente == false){
+
+                                if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+                                {
+                                    transform.Rotate(Vector3.up, -180f);
+                                }
                                 
-                                transform.Rotate(Vector3.up, -180f);
                                 DontDestroy.guardarPosPlayer2 = transform.position;
                                 CambiarPlayer.TurnoPlayer2 = false;
 
@@ -250,8 +257,11 @@ public class MovementPlayer2 : MonoBehaviour
                                         ComunPlayers.pierdeTurnoplayer2 = true;
                                         ComunPlayers.una_por_turno = true;
 
-                                        transform.Rotate(Vector3.up, -180f);
-                                        DontDestroy.guardarPosPlayer2 = transform.position;
+                                        if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+                                        {
+                                            transform.Rotate(Vector3.up, -180f);
+                                        }
+                                       DontDestroy.guardarPosPlayer2 = transform.position;
             
             
                                         botonSiguiente.SiguientePlayer();
@@ -269,7 +279,10 @@ public class MovementPlayer2 : MonoBehaviour
                                     if(wait_siguiente == false){
                                         CambiarPlayer.TurnoPlayer2 = false;
 
-                                        transform.Rotate(Vector3.up, -180f);
+                                        if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+                                        {
+                                            transform.Rotate(Vector3.up, -180f);
+                                        }
                                         DontDestroy.guardarPosPlayer2 = transform.position;
  
 
@@ -295,7 +308,7 @@ public class MovementPlayer2 : MonoBehaviour
         }
 
     }
-
+    
     IEnumerator InterpolarRotacion2(){
         float _tiempotrans = 0f;
         float animTime = 2f;
@@ -316,7 +329,7 @@ public class MovementPlayer2 : MonoBehaviour
         }
         yield return null;
     }
-
+    
     public void Wait_LoseWin(){
 
         aux_LW += 1*Time.deltaTime;

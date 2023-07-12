@@ -54,7 +54,7 @@ public class MovementPlayer4 : MonoBehaviour
 
     public static bool wait_pasar = true;
     public static float aux_pasar = 0f;
-
+    public LookAt lookAt;
     void Start()
     {
         animator4 = GetComponent<Animator>();
@@ -174,11 +174,12 @@ public class MovementPlayer4 : MonoBehaviour
                     }
 
                     Vector3 direccion = (objetivo - transform.position).normalized;
-                    Quaternion rotacionDeseada = Quaternion.LookRotation(direccion);
-                    float velocidadRotacion = 40f; // Ajusta la velocidad de rotación según tus necesidades
+                    //Quaternion rotacionDeseada = Quaternion.LookRotation(direccion);
+                    //float velocidadRotacion = 40f; // Ajusta la velocidad de rotación según tus necesidades
 
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
-
+                    //transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
+                    transform.LookAt(objetivo);
+                    //lookAt.StartRotation(gameObject, ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex4]);
                     transform.position += direccion * velocidad4 * Time.deltaTime;
                 }
 
@@ -206,8 +207,11 @@ public class MovementPlayer4 : MonoBehaviour
                         else{
                             Wait_Siguiente();
                             if(wait_siguiente == false){
-                                
-                                transform.Rotate(Vector3.up, -180f);
+
+                                if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+                                {
+                                    transform.Rotate(Vector3.up, -180f);
+                                }
                                 DontDestroy.guardarPosPlayer4 = transform.position;
                                 CambiarPlayer.TurnoPlayer4 = false;
 
@@ -257,7 +261,10 @@ public class MovementPlayer4 : MonoBehaviour
                                         ComunPlayers.pierdeTurnoplayer4 = true;
                                         ComunPlayers.una_por_turno = true;
 
-                                        transform.Rotate(Vector3.up, -180f);
+                                        if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+                                        {
+                                            transform.Rotate(Vector3.up, -180f);
+                                        }
                                         DontDestroy.guardarPosPlayer4 = transform.position;
             
             
@@ -277,7 +284,10 @@ public class MovementPlayer4 : MonoBehaviour
                                     if(wait_siguiente == false){
                                         CambiarPlayer.TurnoPlayer4 = false;
 
-                                        transform.Rotate(Vector3.up, -180f);
+                                        if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+                                        {
+                                            transform.Rotate(Vector3.up, -180f);
+                                        }
                                         DontDestroy.guardarPosPlayer4 = transform.position;
  
 

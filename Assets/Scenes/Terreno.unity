@@ -4244,7 +4244,6 @@ GameObject:
   m_Component:
   - component: {fileID: 173886742}
   - component: {fileID: 173886744}
-  - component: {fileID: 173886746}
   - component: {fileID: 173886743}
   m_Layer: 0
   m_Name: Sphere15 (3)
@@ -4277,7 +4276,7 @@ SphereCollider:
   m_GameObject: {fileID: 173886741}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -4323,22 +4322,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &173886746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173886741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db761999784170408229856d8ef0652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 919132148656620156}
-  player2: {fileID: 919132148179284294}
-  player3: {fileID: 919132149139760652}
-  player4: {fileID: 919132147607795558}
 --- !u!1 &187021765
 GameObject:
   m_ObjectHideFlags: 0
@@ -6892,7 +6875,6 @@ GameObject:
   m_Component:
   - component: {fileID: 280807098}
   - component: {fileID: 280807100}
-  - component: {fileID: 280807102}
   - component: {fileID: 280807099}
   m_Layer: 0
   m_Name: Sphere15 (1)
@@ -6925,7 +6907,7 @@ SphereCollider:
   m_GameObject: {fileID: 280807097}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -6971,22 +6953,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &280807102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280807097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db761999784170408229856d8ef0652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 919132148656620156}
-  player2: {fileID: 919132148179284294}
-  player3: {fileID: 919132149139760652}
-  player4: {fileID: 919132147607795558}
 --- !u!1 &285588231
 GameObject:
   m_ObjectHideFlags: 0
@@ -10418,7 +10384,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448968407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
   m_Name: 
@@ -15416,7 +15382,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
-  m_YawDamping: 0
+  m_YawDamping: 3
   m_RollDamping: 0
   m_AngularDamping: 0
 --- !u!114 &702642795
@@ -16275,7 +16241,6 @@ GameObject:
   m_Component:
   - component: {fileID: 787050836}
   - component: {fileID: 787050838}
-  - component: {fileID: 787050840}
   - component: {fileID: 787050837}
   m_Layer: 0
   m_Name: Sphere15 (2)
@@ -16308,7 +16273,7 @@ SphereCollider:
   m_GameObject: {fileID: 787050835}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -16354,22 +16319,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &787050840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787050835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db761999784170408229856d8ef0652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 919132148656620156}
-  player2: {fileID: 919132148179284294}
-  player3: {fileID: 919132149139760652}
-  player4: {fileID: 919132147607795558}
 --- !u!1001 &789104876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20680,7 +20629,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
-  m_YawDamping: 0
+  m_YawDamping: 3
   m_RollDamping: 0
   m_AngularDamping: 0
 --- !u!114 &979615322
@@ -26980,7 +26929,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205766618}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
   m_Name: 
@@ -29207,8 +29156,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318817300}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 507.32907, y: 418.94943, z: -244.82649}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 507.32904, y: 418.9494, z: -244.82654}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29690,6 +29639,10 @@ MonoBehaviour:
   dialogo: {fileID: 1249559785}
   cameraTodos: {fileID: 1416303935}
   texto_turno: {fileID: 1167788993}
+  player1: {fileID: 919132148656620156}
+  player2: {fileID: 919132148179284294}
+  player3: {fileID: 919132149139760652}
+  player4: {fileID: 919132147607795558}
 --- !u!114 &1318817307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31850,7 +31803,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389892284}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
   m_Name: 
@@ -35848,7 +35801,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560454711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
   m_Name: 
@@ -40629,7 +40582,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1803483894}
   - component: {fileID: 1803483896}
-  - component: {fileID: 1803483898}
   - component: {fileID: 1803483895}
   m_Layer: 0
   m_Name: Sphere15 (4)
@@ -40662,7 +40614,7 @@ SphereCollider:
   m_GameObject: {fileID: 1803483893}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -40708,22 +40660,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1803483898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803483893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db761999784170408229856d8ef0652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 919132148656620156}
-  player2: {fileID: 919132148179284294}
-  player3: {fileID: 919132149139760652}
-  player4: {fileID: 919132147607795558}
 --- !u!1 &1803507605
 GameObject:
   m_ObjectHideFlags: 0
@@ -43982,6 +43918,7 @@ MonoBehaviour:
   panelIALose: {fileID: 1060930989}
   cartelWinIA: {fileID: 1883708996}
   cartelLoseIA: {fileID: 172557693}
+  lookAt: {fileID: 0}
 --- !u!95 &1910107530
 Animator:
   serializedVersion: 5
@@ -45855,7 +45792,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
-  m_YawDamping: 0
+  m_YawDamping: 3
   m_RollDamping: 0
   m_AngularDamping: 0
 --- !u!114 &1957061695
@@ -49709,7 +49646,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
-  m_YawDamping: 0
+  m_YawDamping: 3
   m_RollDamping: 0
   m_AngularDamping: 0
 --- !u!114 &2141007211
@@ -50480,6 +50417,7 @@ MonoBehaviour:
   cartelLoseIA: {fileID: 172557693}
   panelIAWin: {fileID: 1695084038}
   panelIALose: {fileID: 1060930989}
+  lookAt: {fileID: 0}
 --- !u!1 &919132147610192291
 GameObject:
   m_ObjectHideFlags: 0
@@ -50715,6 +50653,7 @@ MonoBehaviour:
   cartelLoseIA: {fileID: 172557693}
   panelIAWin: {fileID: 1695084038}
   panelIALose: {fileID: 1060930989}
+  lookAt: {fileID: 0}
 --- !u!1 &919132148250045968
 GameObject:
   m_ObjectHideFlags: 0
@@ -51006,6 +50945,7 @@ MonoBehaviour:
   cartelLoseIA: {fileID: 172557693}
   panelIAWin: {fileID: 1695084038}
   panelIALose: {fileID: 1060930989}
+  lookAt: {fileID: 0}
 --- !u!1 &919132149163929416
 GameObject:
   m_ObjectHideFlags: 0

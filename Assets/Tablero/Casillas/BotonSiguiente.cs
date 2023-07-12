@@ -22,27 +22,41 @@ public class BotonSiguiente : MonoBehaviour
 
         if(CambiarPlayer.TurnoPlayer1){
 
-            player1.transform.Rotate(Vector3.up, -180f);
+            if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+            {
+                player1.transform.Rotate(Vector3.up, -180f);
+            }
+            //player1.transform.Rotate(Vector3.up, -180f);
             DontDestroy.guardarPosPlayer1 = player1.transform.position;
             CambiarPlayer.TurnoPlayer1 = false;
         }
         if(CambiarPlayer.TurnoPlayer2){
 
-            player2.transform.Rotate(Vector3.up, -180f);
+            if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+            {
+                player2.transform.Rotate(Vector3.up, -180f);
+            }
             DontDestroy.guardarPosPlayer2 = player2.transform.position;
             CambiarPlayer.TurnoPlayer2 = false;
         }
 
         if(CambiarPlayer.TurnoPlayer3){
 
-            player3.transform.Rotate(Vector3.up, -180f);
+
+            if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+            {
+                player3.transform.Rotate(Vector3.up, -180f);
+            }
             DontDestroy.guardarPosPlayer3 = player3.transform.position;
             CambiarPlayer.TurnoPlayer3 = false;
         }
 
         if(CambiarPlayer.TurnoPlayer4){
 
-            player4.transform.Rotate(Vector3.up, -180f);
+            if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+            {
+                player4.transform.Rotate(Vector3.up, -180f);
+            }
             DontDestroy.guardarPosPlayer4 = player4.transform.position;
             CambiarPlayer.TurnoPlayer4 = false;
         }
