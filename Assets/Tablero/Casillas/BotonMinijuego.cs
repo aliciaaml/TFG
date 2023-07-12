@@ -22,32 +22,50 @@ public class BotonMinijuego : MonoBehaviour
         ComunPlayers.no_detect_casilla_minijuego = true;    
         if(CambiarPlayer.TurnoPlayer1){
             
-            Quaternion newRotation = Quaternion.Euler(player1.transform.eulerAngles.x, player1.transform.eulerAngles.y -180f, player1.transform.eulerAngles.z);
-            player1.transform.rotation = newRotation;
+            //Quaternion newRotation = Quaternion.Euler(player1.transform.eulerAngles.x, player1.transform.eulerAngles.y -180f, player1.transform.eulerAngles.z);
+            //player1.transform.rotation = newRotation;
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
+            {
+                player1.transform.Rotate(Vector3.up, -180f);
+                ComunPlayers.espaldas = true;
+            }
             DontDestroy.guardarPosPlayer1 = player1.transform.position;
+            DontDestroy.guardarRotacionPlayer1 = player1.transform.rotation;
             CambiarPlayer.TurnoPlayer1 = false;
         }
         if(CambiarPlayer.TurnoPlayer2){
 
-            Quaternion newRotation = Quaternion.Euler(player2.transform.eulerAngles.x, player2.transform.eulerAngles.y -180f, player2.transform.eulerAngles.z);
-            player2.transform.rotation = newRotation;
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
+            {
+                player2.transform.Rotate(Vector3.up, -180f);
+                ComunPlayers.espaldas = true;
+            }
             DontDestroy.guardarPosPlayer2 = player2.transform.position;
+            DontDestroy.guardarRotacionPlayer2 = player2.transform.rotation;
             CambiarPlayer.TurnoPlayer2 = false;
         }
 
         if(CambiarPlayer.TurnoPlayer3){
 
-            Quaternion newRotation = Quaternion.Euler(player3.transform.eulerAngles.x, player3.transform.eulerAngles.y -180f, player3.transform.eulerAngles.z);
-            player3.transform.rotation = newRotation;
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
+            {
+                player3.transform.Rotate(Vector3.up, -180f);
+                ComunPlayers.espaldas = true;
+            }
             DontDestroy.guardarPosPlayer3 = player3.transform.position;
+            DontDestroy.guardarRotacionPlayer3 = player3.transform.rotation;
             CambiarPlayer.TurnoPlayer3 = false;
         }
 
         if(CambiarPlayer.TurnoPlayer4){
 
-            Quaternion newRotation = Quaternion.Euler(player4.transform.eulerAngles.x, player4.transform.eulerAngles.y -180f, player4.transform.eulerAngles.z);
-            player4.transform.rotation = newRotation;
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
+            {
+                player4.transform.Rotate(Vector3.up, -180f);
+                ComunPlayers.espaldas = true;
+            }
             DontDestroy.guardarPosPlayer4 = player4.transform.position;
+            DontDestroy.guardarRotacionPlayer4 = player4.transform.rotation;
             CambiarPlayer.TurnoPlayer4 = false;
         }
 

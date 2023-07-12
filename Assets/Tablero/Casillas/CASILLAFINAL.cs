@@ -17,6 +17,9 @@ public class CASILLAFINAL : MonoBehaviour
         setings.SetActive(false);
         textoDados.SetActive(false);
 
+        CasillaMinCoco.casilla_minijuego = "CASILLA_FINAL";
+        
+
     }
 
 }

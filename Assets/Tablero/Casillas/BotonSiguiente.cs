@@ -21,47 +21,49 @@ public class BotonSiguiente : MonoBehaviour
         //ROTAR DE NUEVO JUGADOR
 
         if(CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1 == false){
-            /*
-            if (ComunPlayers.angle > 90f) //Si est� hacia detras se gira
+  
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
+        
                 player1.transform.Rotate(Vector3.up, -180f);
+                ComunPlayers.espaldas = true;
             }
-            */
-            //player1.transform.Rotate(Vector3.up, -180f);
+            
             DontDestroy.guardarPosPlayer1 = player1.transform.position;
+            DontDestroy.guardarRotacionPlayer1 = player1.transform.rotation;
             CambiarPlayer.TurnoPlayer1 = false;
         }
         if(CambiarPlayer.TurnoPlayer2 && ComunPlayers.pierdeTurnoplayer2 == false){
-            /*
-            if (ComunPlayers.angle > 90f) //Si est� hacia detras se gira
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
                 player2.transform.Rotate(Vector3.up, -180f);
+                ComunPlayers.espaldas = true;
             }
-            */
             DontDestroy.guardarPosPlayer2 = player2.transform.position;
+            DontDestroy.guardarRotacionPlayer2 = player2.transform.rotation;
             CambiarPlayer.TurnoPlayer2 = false;
         }
 
         if(CambiarPlayer.TurnoPlayer3 && ComunPlayers.pierdeTurnoplayer3 == false){
 
-            /*
-            if (ComunPlayers.angle > 90f) //Si est� hacia detras se gira
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
                 player3.transform.Rotate(Vector3.up, -180f);
+                ComunPlayers.espaldas = true;
             }
-            */
             DontDestroy.guardarPosPlayer3 = player3.transform.position;
+            DontDestroy.guardarRotacionPlayer3 = player3.transform.rotation;
             CambiarPlayer.TurnoPlayer3 = false;
         }
 
         if(CambiarPlayer.TurnoPlayer4 && ComunPlayers.pierdeTurnoplayer4 == false){
-            /*
-            if (ComunPlayers.angle > 90f) //Si est� hacia detras se gira
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
                 player4.transform.Rotate(Vector3.up, -180f);
+                ComunPlayers.espaldas = true;
             }
-            */
             DontDestroy.guardarPosPlayer4 = player4.transform.position;
+            DontDestroy.guardarRotacionPlayer4 = player4.transform.rotation;
             CambiarPlayer.TurnoPlayer4 = false;
         }
 

@@ -55,6 +55,9 @@ public class MovementPlayer3 : MonoBehaviour
     public static bool wait_pasar = true;
     public static float aux_pasar = 0f;
 
+    public TextMeshProUGUI cartelFinal;
+    public TextMeshProUGUI cartelFinal2;
+
     void Start()
     {
         animator3 = GetComponent<Animator>();
@@ -64,8 +67,11 @@ public class MovementPlayer3 : MonoBehaviour
     void Update()
     {
         if(CambiarPlayer.TurnoPlayer3  && ComunPlayers.pierdeTurnoplayer3){
-
+            virtualCamera.Follow = transform;
+            virtualCamera.LookAt = transform;
             if(EscogerPersonaje.character_choosed[2] == 0){
+                virtualCamera.Follow = transform;
+                virtualCamera.LookAt = transform;
                 turno_jugador.text = "Cheese";
                 turno_jugador_b.text = "Cheese";
 
@@ -83,6 +89,7 @@ public class MovementPlayer3 : MonoBehaviour
                 }
             }
             if (EscogerPersonaje.character_choosed[2] != 0) {
+                Dado1.SetActive(false);
                 turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[2].ToString();
                 turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[2].ToString();
                 panelPierdeTurno.SetActive(true);
@@ -90,7 +97,7 @@ public class MovementPlayer3 : MonoBehaviour
             }
 
             if (EscogerJugador.four_player) { 
-
+                Dado1.SetActive(false);
                 turno_jugador.text = "Player 3";
                 turno_jugador_b.text = "Player 3";
                 panelPierdeTurno.SetActive(true);
@@ -101,9 +108,8 @@ public class MovementPlayer3 : MonoBehaviour
             
         }
 
-        else if(CambiarPlayer.TurnoPlayer3  && ComunPlayers.pierdeTurnoplayer3 == false){
-            //wait_LW = true;
-            //aux_LW = 0f;
+        else if(CambiarPlayer.TurnoPlayer3  && panelPierdeTurno.activeSelf == false && panelPierdeTurnoIA.activeSelf == false){
+       
             if(ElegirPosiciones.turno_terminado == false){
                 textoDado.SetActive(false);
                 virtualCamera.Follow = transform;
@@ -174,11 +180,7 @@ public class MovementPlayer3 : MonoBehaviour
                     }
 
                     Vector3 direccion = (objetivo - transform.position).normalized;
-                    //Quaternion rotacionDeseada = Quaternion.LookRotation(direccion);
-                    //float velocidadRotacion = 40f; // Ajusta la velocidad de rotación según tus necesidades
-                    //transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
                     transform.LookAt(objetivo);
-                    //lookAt.StartRotation(gameObject, ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex3]);
                     transform.position += direccion * velocidad3 * Time.deltaTime;
                 }
 
@@ -188,6 +190,7 @@ public class MovementPlayer3 : MonoBehaviour
                     virtualCamera.LookAt = null;
 
                     if(gira_una3){
+                        ComunPlayers.espaldas = false;
                         StartCoroutine(InterpolarRotacion3());
                         gira_una3 = false;
                     }
@@ -205,13 +208,13 @@ public class MovementPlayer3 : MonoBehaviour
                         else{
                             Wait_Siguiente();
                             if(wait_siguiente == false){
-                                /*
-                                if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+                                if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                 {
                                     transform.Rotate(Vector3.up, -180f);
+                                    ComunPlayers.espaldas = true;
                                 }
-                                */
                                 DontDestroy.guardarPosPlayer3 = transform.position;
+                                DontDestroy.guardarRotacionPlayer3 = transform.rotation;
                                 CambiarPlayer.TurnoPlayer3 = false;
 
                                 botonSiguiente.SiguientePlayer();
@@ -221,7 +224,7 @@ public class MovementPlayer3 : MonoBehaviour
                         }
 
                     }
-                    else{
+                    else if(CasillaMinCoco.casilla_minijuego != "CASILLA_FINAL"){
 
                         if(CasillaMinCoco.casilla_minijuego == "juego_pesca"){
 
@@ -251,7 +254,7 @@ public class MovementPlayer3 : MonoBehaviour
                                 ComunPlayers.ganar_perder = ComunPlayers.juegaIA();
      
                                 if(ComunPlayers.ganar_perder == 0 && ComunPlayers.una_por_turno == false){
-                                    cartelLoseIA.text= " Cheese loses the minigame!";
+                                    cartelLoseIA.text= "Cheese lose the minigame!";
                                     panelIALose.SetActive(true);
                                     
                                     Wait_Siguiente();
@@ -259,13 +262,13 @@ public class MovementPlayer3 : MonoBehaviour
                                         CambiarPlayer.TurnoPlayer3 = false;
                                         ComunPlayers.pierdeTurnoplayer3 = true;
                                         ComunPlayers.una_por_turno = true;
-                                        /*
-                                        if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+                                        if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                         {
                                             transform.Rotate(Vector3.up, -180f);
+                                            ComunPlayers.espaldas = true;
                                         }
-                                        */
                                         DontDestroy.guardarPosPlayer3 = transform.position;
+                                        DontDestroy.guardarRotacionPlayer3 = transform.rotation;
             
             
                                         botonSiguiente.SiguientePlayer();
@@ -282,13 +285,13 @@ public class MovementPlayer3 : MonoBehaviour
                                     Wait_Siguiente();
                                     if(wait_siguiente == false ){
                                         CambiarPlayer.TurnoPlayer3 = false;
-                                        /*
-                                        if (ComunPlayers.angle > 90f) //Si está hacia detras se gira
+                                        if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                         {
                                             transform.Rotate(Vector3.up, -180f);
+                                            ComunPlayers.espaldas = true;
                                         }
-                                        */
                                         DontDestroy.guardarPosPlayer3 = transform.position;
+                                        DontDestroy.guardarRotacionPlayer3 = transform.rotation;
  
 
                                         botonSiguiente.SiguientePlayer();
@@ -300,6 +303,22 @@ public class MovementPlayer3 : MonoBehaviour
                                         aux_LW = 0f;
                                     }
                                 }
+                            }
+                        }
+                        if(CasillaMinCoco.casilla_minijuego == "CASILLA_FINAL"){
+                            if (ComunPlayers.espaldas == false) //Si está mirando a camara
+                            {
+                                transform.Rotate(Vector3.up, -180f);
+                                ComunPlayers.espaldas = true;
+                            }
+                            if(EscogerPersonaje.character_choosed[0] == 0){
+
+                                cartelFinal.text = "CHEESE WIN!! CONGRATULATIONS";
+                                cartelFinal2.text = "CHEESE WIN!! CONGRATULATIONS";
+                            }
+                            else{
+                                cartelFinal.text = "PLAYER" + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
+                                cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
                             }
                         }
 

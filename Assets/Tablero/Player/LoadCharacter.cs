@@ -41,6 +41,7 @@ public class LoadCharacter : MonoBehaviour
             canvas_inicio.SetActive(false);
            
         }
+        
         if(LoadTablero.salirMinijuego && una_al_salirMinijuego == false){
             
             una_al_salirMinijuego = true;
@@ -48,21 +49,32 @@ public class LoadCharacter : MonoBehaviour
             player2.transform.position = DontDestroy.guardarPosPlayer2;
             player3.transform.position = DontDestroy.guardarPosPlayer3;
             player4.transform.position = DontDestroy.guardarPosPlayer4;
+            
+            player1.transform.rotation = DontDestroy.guardarRotacionPlayer1;
+            player2.transform.rotation = DontDestroy.guardarRotacionPlayer2;
+            player3.transform.rotation = DontDestroy.guardarRotacionPlayer3;
+            player4.transform.rotation = DontDestroy.guardarRotacionPlayer4;
+                
+            
         }
-
+        
         if(DontDestroy.guardarPosPlayer1  == cero){
             DontDestroy.guardarPosPlayer1 = player1.transform.position;
+            DontDestroy.guardarRotacionPlayer1 = player1.transform.rotation;
 
         }
         if(DontDestroy.guardarPosPlayer2  == cero){
             DontDestroy.guardarPosPlayer2 = player2.transform.position;
+            DontDestroy.guardarRotacionPlayer2 = player2.transform.rotation;
             
         }
         if(DontDestroy.guardarPosPlayer3  == cero){
-            DontDestroy.guardarPosPlayer3 = player3.transform.position;      
+            DontDestroy.guardarPosPlayer3 = player3.transform.position; 
+            DontDestroy.guardarRotacionPlayer3 = player3.transform.rotation;     
         }
         if (DontDestroy.guardarPosPlayer4  == cero){
             DontDestroy.guardarPosPlayer4 = player4.transform.position;
+            DontDestroy.guardarRotacionPlayer4 = player4.transform.rotation;
         }
 
     }

@@ -72,7 +72,7 @@ public class CambiarPlayer : MonoBehaviour
         if(ComunPlayers.siguiente && ComunPlayers.dic_lleno && ComunPlayers.PosicionActualPlayers.Count == 4){
 
             player = ComunPlayers.OrdenInicioPlayers[ComunPlayers.index];
-            Debug.Log("what: " + player + " ,"+ ComunPlayers.index);
+            
             
             colisionPlayer.actual = ComunPlayers.PosicionActualPlayers[ComunPlayers.index][0].numero;
 
@@ -106,72 +106,84 @@ public class CambiarPlayer : MonoBehaviour
             }
 
             if(CameraSwitcher.IsActiveCamera(player1Camera)){
-                Debug.Log("detecta camara");
+                
                 if(player == "player2"){
+                    
                     CameraSwitcher.SwitchCamera(player2Camera);
                     TurnoPlayer1 = false;
                     TurnoPlayer2 = true;
                 }
                 else if(player == "player3"){
+                   
                     CameraSwitcher.SwitchCamera(player3Camera);
                     TurnoPlayer1 = false;
                     TurnoPlayer3 = true;
                 }
                 else if(player == "player4"){
+                    
                     CameraSwitcher.SwitchCamera(player4Camera);
                     TurnoPlayer1 = false;
                     TurnoPlayer4 = true;
                 }
             }
             if(CameraSwitcher.IsActiveCamera(player2Camera)){
-                Debug.Log("detecta camara2");
+
                 if(player == "player1"){
+                    
                     CameraSwitcher.SwitchCamera(player1Camera);
                     TurnoPlayer1 = true;
                     TurnoPlayer2 = false;
                 }
                 else if(player == "player3"){
+                    
                     CameraSwitcher.SwitchCamera(player3Camera);
                     TurnoPlayer3 = true;
                     TurnoPlayer2 = false;
                 }
                 else if(player == "player4"){
+                   
                     CameraSwitcher.SwitchCamera(player4Camera);
                     TurnoPlayer4 = true;
                     TurnoPlayer2 = false;
                 }
             }
             if(CameraSwitcher.IsActiveCamera(player3Camera)){
-                Debug.Log("detecta camara3");
+                
                 if(player == "player2"){
+                   
                     CameraSwitcher.SwitchCamera(player2Camera);
                     TurnoPlayer2 = true;
                     TurnoPlayer3 = false;
                 }
                 else if(player == "player1"){
+                    
                     CameraSwitcher.SwitchCamera(player1Camera);
                     TurnoPlayer1 = true;
                     TurnoPlayer3 = false;
                 }
                 else if(player == "player4"){
+                    
                     CameraSwitcher.SwitchCamera(player4Camera);
                     TurnoPlayer4 = true;
                     TurnoPlayer3 = false;
                 }
             }
             if(CameraSwitcher.IsActiveCamera(player4Camera)){
-                Debug.Log("detecta camara4");
+                
                 if(player == "player2"){
+                    
                     CameraSwitcher.SwitchCamera(player2Camera);
                     TurnoPlayer2 = true;
                     TurnoPlayer4 = false;
                 }
                 else if(player == "player3"){
+                    
                     CameraSwitcher.SwitchCamera(player3Camera);
                     TurnoPlayer3 = true;
                     TurnoPlayer4 = false;
                 }
                 else if(player == "player1"){
+                    
                     CameraSwitcher.SwitchCamera(player1Camera);
                     TurnoPlayer1 = true;
                     TurnoPlayer4 = false;

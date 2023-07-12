@@ -57,6 +57,9 @@ public class MovementPlayer1 : MonoBehaviour
     public static bool wait_pasar = true;
     public static float aux_pasar = 0f;
 
+    public TextMeshProUGUI cartelFinal;
+    public TextMeshProUGUI cartelFinal2;
+
     void Start()
     {
         animator1 = GetComponent<Animator>();
@@ -66,8 +69,9 @@ public class MovementPlayer1 : MonoBehaviour
     void Update()
     {
         if(CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1){
-            
-            if(EscogerPersonaje.character_choosed[0] == 0){
+            virtualCamera.Follow = transform;
+            virtualCamera.LookAt = transform;
+            if(EscogerPersonaje.character_choosed[0] == 0){    
                 turno_jugador.text = "Mushroom";
                 turno_jugador_b.text = "Mushroom";
                 panelPierdeTurnoIA.SetActive(true);
@@ -86,6 +90,8 @@ public class MovementPlayer1 : MonoBehaviour
 
             }
             if (EscogerPersonaje.character_choosed[0] != 0) {
+                
+                Dado1.SetActive(false);
                 turno_jugador.text = "Player " + EscogerPersonaje.character_choosed[0].ToString();
                 turno_jugador_b.text = "Player " + EscogerPersonaje.character_choosed[0].ToString();
                 panelPierdeTurno.SetActive(true);
@@ -93,7 +99,7 @@ public class MovementPlayer1 : MonoBehaviour
             }
 
             if (EscogerJugador.four_player) { 
-
+                Dado1.SetActive(false);
                 turno_jugador.text = "Player 1";
                 turno_jugador_b.text = "Player 1";
                 panelPierdeTurno.SetActive(true);
@@ -104,8 +110,8 @@ public class MovementPlayer1 : MonoBehaviour
             
         }
 
-        else if (CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1 == false) {
-            
+        else if (CambiarPlayer.TurnoPlayer1 && panelPierdeTurno.activeSelf == false && panelPierdeTurnoIA.activeSelf == false) {
+
             if (ElegirPosiciones.turno_terminado == false) {
 
                 virtualCamera.Follow = transform;
@@ -180,12 +186,9 @@ public class MovementPlayer1 : MonoBehaviour
                     }
 
                     Vector3 direccion = (objetivo - transform.position).normalized;
-                    //Quaternion rotacionDeseada = Quaternion.LookRotation(direccion);
-                    //float velocidadRotacion = 40f; // Ajusta la velocidad de rotación según tus necesidades
 
-                    //transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
                     transform.LookAt(objetivo);
-                    //lookAt.StartRotation(gameObject, ComunPlayers.waypoints_recorrer[m_CurrentWaypointIndex1]);
+   
                     transform.position += direccion * velocidad1 * Time.deltaTime;
                 }
                 
@@ -195,8 +198,8 @@ public class MovementPlayer1 : MonoBehaviour
                     virtualCamera.LookAt = null;
 
                     if(gira_una1){
+                        ComunPlayers.espaldas = false;
                         StartCoroutine(InterpolarRotacion());
-                        //ComunPlayers.angle = Vector3.Angle(transform.forward, ComunPlayers.worldForwardDirection);
                         gira_una1 = false;
                     }
                     
@@ -215,14 +218,15 @@ public class MovementPlayer1 : MonoBehaviour
                         else{
                             Wait_Siguiente();
                             if(wait_siguiente == false){
-                                /*
-                                if (ComunPlayers.angle < 90f) //Si está hacia detras se gira
+                                
+                                if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                 {
                                     transform.Rotate(Vector3.up, -180f);
-                                    //ComunPlayers.angle = Vector3.Angle(transform.forward, ComunPlayers.worldForwardDirection);
+                                    ComunPlayers.espaldas = true;
                                 }
-                                */
+                                
                                 DontDestroy.guardarPosPlayer1 = transform.position;
+                                DontDestroy.guardarRotacionPlayer1 = transform.rotation;
                                 CambiarPlayer.TurnoPlayer1 = false;
 
                                 botonSiguiente.SiguientePlayer();
@@ -232,7 +236,7 @@ public class MovementPlayer1 : MonoBehaviour
                         }
 
                     }
-                    else{
+                    else if(CasillaMinCoco.casilla_minijuego != "CASILLA_FINAL"){
 
                         if(CasillaMinCoco.casilla_minijuego == "juego_pesca"){
 
@@ -254,7 +258,7 @@ public class MovementPlayer1 : MonoBehaviour
                         if(EscogerPersonaje.character_choosed[0] != 0){
                             botonMinijuego.SetActive(true);
                         }
-                        else{
+                        else {
                             Wait_LoseWin();
                             if(wait_LW == false){
                                 LetreroMinijuego.SetActive(false);
@@ -262,21 +266,20 @@ public class MovementPlayer1 : MonoBehaviour
                                 ComunPlayers.ganar_perder = ComunPlayers.juegaIA();
 
                                 if(ComunPlayers.ganar_perder == 0 && ComunPlayers.una_por_turno == false){
-                                    cartelLoseIA.text= " Mushroom loses the minigame!";
+                                    cartelLoseIA.text= "Mushroom lose the minigame!";
                                     panelIALose.SetActive(true);
                                     
                                     Wait_Siguiente();
                                     if(wait_siguiente == false){
                                         ComunPlayers.pierdeTurnoplayer1 = true;
                                         ComunPlayers.una_por_turno = true;
-                                        /*
-                                        if (ComunPlayers.angle < 90f) //Si está hacia detras se gira
+                                        if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                         {
                                             transform.Rotate(Vector3.up, -180f);
-                                            ComunPlayers.angle = Vector3.Angle(transform.forward, ComunPlayers.worldForwardDirection);
+                                            ComunPlayers.espaldas = true;
                                         }
-                                        */
                                         DontDestroy.guardarPosPlayer1 = transform.position;
+                                        DontDestroy.guardarRotacionPlayer1 = transform.rotation;
                                         CambiarPlayer.TurnoPlayer1 = false;
             
                                         botonSiguiente.SiguientePlayer();
@@ -292,15 +295,15 @@ public class MovementPlayer1 : MonoBehaviour
                                     panelIAWin.SetActive(true);
                                     Wait_Siguiente();
                                     if(wait_siguiente == false){
-                                        /*
-                                        if (ComunPlayers.angle < 90f) //Si está hacia detras se gira
+
+                                        if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                         {
                                             transform.Rotate(Vector3.up, -180f);
-                                            ComunPlayers.angle = Vector3.Angle(transform.forward, ComunPlayers.worldForwardDirection);
+                                            ComunPlayers.espaldas = true;
                                         }
-                                        */
                                         
                                         DontDestroy.guardarPosPlayer1 = transform.position;
+                                        DontDestroy.guardarRotacionPlayer1 = transform.rotation;
                                         CambiarPlayer.TurnoPlayer1 = false;
 
                                         botonSiguiente.SiguientePlayer();
@@ -314,6 +317,23 @@ public class MovementPlayer1 : MonoBehaviour
                                 }
                             }
                             
+                        }
+
+                        if(CasillaMinCoco.casilla_minijuego == "CASILLA_FINAL"){
+                            if (ComunPlayers.espaldas == false) //Si está mirando a camara
+                            {
+                                transform.Rotate(Vector3.up, -180f);
+                                ComunPlayers.espaldas = true;
+                            }
+                            if(EscogerPersonaje.character_choosed[0] == 0){
+
+                                cartelFinal.text = "MUSHROOM WIN!! CONGRATULATIONS";
+                                cartelFinal2.text = "MUSHROOM WIN!! CONGRATULATIONS";
+                            }
+                            else{
+                                cartelFinal.text = "PLAYER" + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
+                                cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
+                            }
                         }
 
                     }

@@ -10,6 +10,11 @@ public class DontDestroy : MonoBehaviour
     public static Vector3 guardarPosPlayer3 = new Vector3(0f,0f,0f);
     public static Vector3 guardarPosPlayer4 = new Vector3(0f,0f,0f);
 
+    public static Quaternion guardarRotacionPlayer1;
+    public static Quaternion guardarRotacionPlayer2;
+    public static Quaternion guardarRotacionPlayer3;
+    public static Quaternion guardarRotacionPlayer4;
+
     public AudioClip Start_music;
     public AudioClip Game_music;
 
