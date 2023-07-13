@@ -68,6 +68,12 @@ public class MovementPlayer1 : MonoBehaviour
 
     void Update()
     {
+        if(CambiarPlayer.TurnoPlayer1 && animator1.GetBool("moving") == false && ComunPlayers.espaldas){
+        
+                          
+            transform.rotation = ComunPlayers.guardarRotacionAlanteplayer1;
+        }
+
         if(CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1){
             virtualCamera.Follow = transform;
             virtualCamera.LookAt = transform;
@@ -181,6 +187,7 @@ public class MovementPlayer1 : MonoBehaviour
                         else
                         {
                             animator1.SetBool("moving", false); // Detener la animación de movimiento
+                            
                             return;
                         }
                     }

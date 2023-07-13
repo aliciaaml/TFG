@@ -66,6 +66,12 @@ public class MovementPlayer3 : MonoBehaviour
 
     void Update()
     {
+        if( CambiarPlayer.TurnoPlayer3 &&  animator3.GetBool("moving") == false && ComunPlayers.espaldas){
+        
+                          
+            transform.rotation = ComunPlayers.guardarRotacionAlanteplayer3;
+        }
+
         if(CambiarPlayer.TurnoPlayer3  && ComunPlayers.pierdeTurnoplayer3){
             virtualCamera.Follow = transform;
             virtualCamera.LookAt = transform;
@@ -109,7 +115,7 @@ public class MovementPlayer3 : MonoBehaviour
         }
 
         else if(CambiarPlayer.TurnoPlayer3  && panelPierdeTurno.activeSelf == false && panelPierdeTurnoIA.activeSelf == false){
-            Debug.Log("nooo entresss3");
+            //Debug.Log("nooo entresss3");
             if(ElegirPosiciones.turno_terminado == false){
                 textoDado.SetActive(false);
                 virtualCamera.Follow = transform;

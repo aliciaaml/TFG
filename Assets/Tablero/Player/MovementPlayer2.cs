@@ -64,6 +64,12 @@ public class MovementPlayer2 : MonoBehaviour
 
     void Update()
     {
+        if(CambiarPlayer.TurnoPlayer2 &&  animator2.GetBool("moving") == false && ComunPlayers.espaldas){
+        
+                          
+            transform.rotation = ComunPlayers.guardarRotacionAlanteplayer2;
+        }
+
         if(CambiarPlayer.TurnoPlayer2 && ComunPlayers.pierdeTurnoplayer2){
             virtualCamera.Follow = transform;
             virtualCamera.LookAt = transform;
@@ -105,7 +111,7 @@ public class MovementPlayer2 : MonoBehaviour
         }
 
         else if(CambiarPlayer.TurnoPlayer2 && panelPierdeTurno.activeSelf == false && panelPierdeTurnoIA.activeSelf == false){
-            Debug.Log("nooo entresss2");
+            //Debug.Log("nooo entresss2");
             if(ElegirPosiciones.turno_terminado == false){
                 textoDado.SetActive(false);
                 virtualCamera.Follow = transform;
@@ -141,7 +147,6 @@ public class MovementPlayer2 : MonoBehaviour
                     turno_jugador_b.text = "Player 2";
                     MovementPlayer1.detectar_casilla = false;
                 }
-
             }
             
 

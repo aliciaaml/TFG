@@ -62,7 +62,14 @@ public class ComunPlayers : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
+    public static Quaternion guardarRotacionAlanteplayer1;
+    public static Quaternion guardarRotacionAlanteplayer2;
+    public static Quaternion guardarRotacionAlanteplayer3;
+    public static Quaternion guardarRotacionAlanteplayer4;
+
     public static bool espaldas = true;
+
+    public static bool guardaRotacionuna = true;
     
     private void Start()
     {
@@ -70,8 +77,17 @@ public class ComunPlayers : MonoBehaviour
     }
     void Update()
     {   
-        if(primeraRonda && siguiente){
+        if(ElegirPosiciones.ElegirTurnoTerminado && guardaRotacionuna ){
             
+            guardaRotacionuna = false;
+            guardarRotacionAlanteplayer1 = player1.transform.rotation;
+            guardarRotacionAlanteplayer2 = player2.transform.rotation;
+            guardarRotacionAlanteplayer3 = player3.transform.rotation;
+            guardarRotacionAlanteplayer4 = player4.transform.rotation;
+        }
+        
+
+        if(primeraRonda && siguiente){
 
             primeraRonda =false;
             List<ElementoLista> sublista1 = new List<ElementoLista>();
