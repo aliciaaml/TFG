@@ -14,12 +14,65 @@ public class BotonSiguiente : MonoBehaviour
 
     public static bool siguientePlayer = false;
 
+    public void ClickBoton()
+    {
+        player1.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer1;
+        player2.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer2;
+        player3.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer3;
+        player4.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer4;
+        /*
+        if (CambiarPlayer.TurnoPlayer1)
+        {
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
+            {
+                CambiarPlayer.TurnoPlayer1 = false;
+                Debug.Log("1");
+                player1.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer1;
+
+
+                ComunPlayers.espaldas = true;
+            }
+        }
+        if (CambiarPlayer.TurnoPlayer2)
+        {
+
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
+            {
+                CambiarPlayer.TurnoPlayer2 = false;
+                Debug.Log("2");
+                player2.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer2;
+                ComunPlayers.espaldas = true;
+            }
+        }
+        if (CambiarPlayer.TurnoPlayer3)
+        {
+            CambiarPlayer.TurnoPlayer3 = false;
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
+            {
+                Debug.Log("3");
+                player3.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer3;
+                ComunPlayers.espaldas = true;
+            }
+        }
+        if (CambiarPlayer.TurnoPlayer4)
+        {
+            CambiarPlayer.TurnoPlayer4 = false;
+            if (ComunPlayers.espaldas == false) //Si está mirando a camara
+            {
+                Debug.Log("4");
+                player4.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer4;
+                ComunPlayers.espaldas = true;
+            }
+        }
+        */
+    }
+
     public void SiguientePlayer(){
 
         siguientePlayer = true;
 
         //ROTAR DE NUEVO JUGADOR
-
+        /*
         if(CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1 == false){
   
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
@@ -68,7 +121,7 @@ public class BotonSiguiente : MonoBehaviour
             DontDestroy.guardarRotacionPlayer4 = player4.transform.rotation;
             CambiarPlayer.TurnoPlayer4 = false;
         }
-
+        */
         LetreroNoMinijuego.SetActive(false);
 
         if(ComunPlayers.index<3 ){

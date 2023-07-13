@@ -76,7 +76,11 @@ public class ComunPlayers : MonoBehaviour
     
     }
     void Update()
-    {   
+    {
+        if (espaldas)
+        {
+            StopAllCoroutines();
+        }
         if(ElegirPosiciones.ElegirTurnoTerminado && guardaRotacionuna ){
             
             guardaRotacionuna = false;
@@ -85,7 +89,15 @@ public class ComunPlayers : MonoBehaviour
             guardarRotacionAlanteplayer3 = player3.transform.rotation;
             guardarRotacionAlanteplayer4 = player4.transform.rotation;
         }
-        
+        /*
+        if(ElegirPosiciones.ElegirTurnoTerminado && espaldas)
+        {
+            player1.transform.rotation = guardarRotacionAlanteplayer1;
+            player2.transform.rotation = guardarRotacionAlanteplayer2;
+            player3.transform.rotation = guardarRotacionAlanteplayer3;
+            player4.transform.rotation = guardarRotacionAlanteplayer4;
+        }
+        */
 
         if(primeraRonda && siguiente){
 

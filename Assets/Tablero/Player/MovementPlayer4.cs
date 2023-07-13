@@ -65,11 +65,6 @@ public class MovementPlayer4 : MonoBehaviour
 
     void Update()
     {
-        if(CambiarPlayer.TurnoPlayer4 && animator4.GetBool("moving") == false && ComunPlayers.espaldas){
-        
-                          
-            transform.rotation = ComunPlayers.guardarRotacionAlanteplayer4;
-        }
 
         if(CambiarPlayer.TurnoPlayer4  && ComunPlayers.pierdeTurnoplayer4){
             virtualCamera.Follow = transform;
@@ -210,14 +205,18 @@ public class MovementPlayer4 : MonoBehaviour
                         
                         LetreroNoMinijuego.SetActive(true);
                         if(EscogerPersonaje.character_choosed[3] != 0 || EscogerJugador.four_player){
+                            DontDestroy.guardarPosPlayer4 = transform.position;
+                            
                             botonPlayerSig.SetActive(true);
                         }
-                            
-                        else{
+
+                        if (EscogerPersonaje.character_choosed[3] == 0 && EscogerJugador.four_player == false)
+                        {
                             Wait_Siguiente();
                             if(wait_siguiente == false){
                                 if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                 {
+                                    Debug.Log("IA");
                                     transform.Rotate(Vector3.up, -180f);
                                     ComunPlayers.espaldas = true;
                                 }
@@ -252,9 +251,12 @@ public class MovementPlayer4 : MonoBehaviour
 
                         LetreroMinijuego.SetActive(true);
                         if(EscogerPersonaje.character_choosed[3] != 0 || EscogerJugador.four_player){
+                            DontDestroy.guardarPosPlayer4 = transform.position;
+                            
                             botonMinijuego.SetActive(true);
                         }
-                        else {
+                        if (EscogerPersonaje.character_choosed[3] == 0 && EscogerJugador.four_player == false)
+                        {
                             Wait_LoseWin();
                             if(wait_LW == false){
                                 LetreroMinijuego.SetActive(false);
@@ -272,6 +274,7 @@ public class MovementPlayer4 : MonoBehaviour
                                         ComunPlayers.una_por_turno = true;
                                         if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                         {
+                                            Debug.Log("IA");
                                             transform.Rotate(Vector3.up, -180f);
                                             ComunPlayers.espaldas = true;
                                         }
@@ -296,6 +299,7 @@ public class MovementPlayer4 : MonoBehaviour
                                         CambiarPlayer.TurnoPlayer4 = false;
                                         if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                         {
+                                            Debug.Log("IA");
                                             transform.Rotate(Vector3.up, -180f);
                                             ComunPlayers.espaldas = true;
                                         }
@@ -317,6 +321,7 @@ public class MovementPlayer4 : MonoBehaviour
                         if(CasillaMinCoco.casilla_minijuego == "CASILLA_FINAL"){
                             if (ComunPlayers.espaldas == false) //Si está mirando a camara
                             {
+                                Debug.Log("IA");
                                 transform.Rotate(Vector3.up, -180f);
                                 ComunPlayers.espaldas = true;
                             }
@@ -326,7 +331,8 @@ public class MovementPlayer4 : MonoBehaviour
                                 cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
                                 
                             }
-                            else{
+                            if (EscogerPersonaje.character_choosed[3] == 0 && EscogerJugador.four_player == false)
+                            {
                                 cartelFinal.text = "CACTUS WIN!! CONGRATULATIONS";
                                 cartelFinal2.text = "CACTUS WIN!! CONGRATULATIONS";
                             }
@@ -342,22 +348,26 @@ public class MovementPlayer4 : MonoBehaviour
     }
 
     IEnumerator InterpolarRotacion4(){
-        float _tiempotrans = 0f;
-        float animTime = 2f;
+        if (ComunPlayers.espaldas == false)
+        {
+            float _tiempotrans = 0f;
+            float animTime = 2f;
+            Debug.Log("interpolacion");
+            Quaternion rotacionDeseada = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + 180f, transform.eulerAngles.z);
 
-        Quaternion rotacionDeseada = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + 180f, transform.eulerAngles.z);
-        
-        float _ratio = 0;
-        while(_tiempotrans < animTime){
+            float _ratio = 0;
+            while (_tiempotrans < animTime)
+            {
 
-            _tiempotrans += Time.deltaTime;
-            _ratio = _tiempotrans / animTime;
+                _tiempotrans += Time.deltaTime;
+                _ratio = _tiempotrans / animTime;
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotacionDeseada,_ratio);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotacionDeseada, _ratio);
 
-            yield return new WaitForSeconds(1f / 60f);
+                yield return new WaitForSeconds(1f / 60f);
 
-            _tiempotrans +=1f/60f;
+                _tiempotrans += 1f / 60f;
+            }
         }
         yield return null;
     }
