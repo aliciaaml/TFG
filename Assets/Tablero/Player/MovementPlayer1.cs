@@ -69,6 +69,7 @@ public class MovementPlayer1 : MonoBehaviour
     void Update()
     {
         if(CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1){
+            Dado1.SetActive(false);
             virtualCamera.Follow = transform;
             virtualCamera.LookAt = transform;
             if(EscogerPersonaje.character_choosed[0] == 0 && EscogerJugador.four_player == false ){    
@@ -200,7 +201,8 @@ public class MovementPlayer1 : MonoBehaviour
 
                     if(gira_una1){
                         ComunPlayers.espaldas = false;
-                        StartCoroutine(InterpolarRotacion());
+                        transform.Rotate(Vector3.up, 180f);
+                        //StartCoroutine(InterpolarRotacion());
                         gira_una1 = false;
                     }
                     
@@ -215,8 +217,6 @@ public class MovementPlayer1 : MonoBehaviour
                         LetreroNoMinijuego.SetActive(true);
                         if(EscogerPersonaje.character_choosed[0] != 0 || EscogerJugador.four_player){
                             DontDestroy.guardarPosPlayer1 = transform.position;
-                            
-
                             botonPlayerSig.SetActive(true);
                         }
                             

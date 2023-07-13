@@ -70,6 +70,7 @@ public class MovementPlayer3 : MonoBehaviour
             virtualCamera.Follow = transform;
             virtualCamera.LookAt = transform;
             if(EscogerPersonaje.character_choosed[2] == 0 && EscogerJugador.four_player == false ){
+                Dado1.SetActive(false);
                 virtualCamera.Follow = transform;
                 virtualCamera.LookAt = transform;
                 turno_jugador.text = "Cheese";
@@ -191,7 +192,8 @@ public class MovementPlayer3 : MonoBehaviour
 
                     if(gira_una3){
                         ComunPlayers.espaldas = false;
-                        StartCoroutine(InterpolarRotacion3());
+                        transform.Rotate(Vector3.up, 180f);
+                        //StartCoroutine(InterpolarRotacion3());
                         gira_una3 = false;
                     }
 
@@ -321,13 +323,13 @@ public class MovementPlayer3 : MonoBehaviour
                                 transform.Rotate(Vector3.up, -180f);
                                 ComunPlayers.espaldas = true;
                             }
-                            if(EscogerPersonaje.character_choosed[0] != 0 || EscogerJugador.four_player){
+                            if(EscogerPersonaje.character_choosed[2] != 0 || EscogerJugador.four_player){
 
-                                cartelFinal.text = "PLAYER" + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
-                                cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
+                                cartelFinal.text = "PLAYER" + EscogerPersonaje.character_choosed[2].ToString() + "WIN!! CONGRATULATIONS";
+                                cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[2].ToString() + "WIN!! CONGRATULATIONS";
                                 
                             }
-                            if (EscogerPersonaje.character_choosed[0] == 0 && EscogerJugador.four_player == false)
+                            if (EscogerPersonaje.character_choosed[2] == 0 && EscogerJugador.four_player == false)
                             {
                                 cartelFinal.text = "CHEESE WIN!! CONGRATULATIONS";
                                 cartelFinal2.text = "CHEESE WIN!! CONGRATULATIONS";

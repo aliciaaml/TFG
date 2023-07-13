@@ -132,7 +132,8 @@ public class ComunPlayers : MonoBehaviour
         List<Transform> recorrer = new List<Transform>();
         
         if (NumDado.resultado_dado_obtenido)
-        {      
+        {   
+            
             casilla_antes_tirar = colisionPlayer.actual;
             
             if(CambiarPlayer.TurnoPlayer1){
@@ -145,9 +146,14 @@ public class ComunPlayers : MonoBehaviour
                     i = GetWaypointActual(waypoint_actual, waypoints_personaje1);
                 }
                
-
-                waypoint_final = "Sphere" + (casilla_destino + colisionPlayer.actual).ToString() + " (1)" + " (UnityEngine.Transform)";
-
+                if(casilla_destino + colisionPlayer.actual < 32){
+                    waypoint_final = "Sphere" + (casilla_destino + colisionPlayer.actual).ToString() + " (1)" + " (UnityEngine.Transform)";
+                }
+                else{
+                    waypoint_final = "Sphere32" + " (UnityEngine.Transform)";
+                }
+                
+                Debug.Log("waypoint_final: "+ waypoint_final);
                 while (i< waypoints_personaje1.Count-1 && waypoints_personaje1[i].ToString() != waypoint_final)
                 {
                     
@@ -155,10 +161,7 @@ public class ComunPlayers : MonoBehaviour
                     i++;
                 }
                 recorrer.Add(waypoints_personaje1[i]);
-                if(i>waypoints_personaje1.Count-1){
-                    i = waypoints_personaje1.Count - 1;
-                    recorrer.Add(waypoints_personaje1[i]);
-                }
+                
                 
             }
             if(CambiarPlayer.TurnoPlayer2){
@@ -171,18 +174,20 @@ public class ComunPlayers : MonoBehaviour
                 else{
                     i = GetWaypointActual(waypoint_actual, waypoints_personaje2);
                 }
-                waypoint_final = "Sphere" + (casilla_destino + colisionPlayer.actual).ToString() + " (2)" + " (UnityEngine.Transform)";
-
+                if(casilla_destino + colisionPlayer.actual < 32){
+                    waypoint_final = "Sphere" + (casilla_destino + colisionPlayer.actual).ToString() + " (2)" + " (UnityEngine.Transform)";
+                }
+                else{
+                    waypoint_final = "Sphere32" + " (UnityEngine.Transform)";
+                }
+                Debug.Log("waypoint_final: "+ waypoint_final);
                 while (i<waypoints_personaje2.Count-1 && waypoints_personaje2[i].ToString() != waypoint_final)
                 {    
                     recorrer.Add(waypoints_personaje2[i]);
                     i++;
                 }
                 recorrer.Add(waypoints_personaje2[i]);
-                if(i>waypoints_personaje2.Count-1){
-                    i = waypoints_personaje2.Count - 1;
-                    recorrer.Add(waypoints_personaje2[i]);
-                }
+                
 
             }
             if(CambiarPlayer.TurnoPlayer3){
@@ -194,7 +199,13 @@ public class ComunPlayers : MonoBehaviour
                 else{
                     i = GetWaypointActual(waypoint_actual, waypoints_personaje3);
                 }
-                waypoint_final = "Sphere" + (casilla_destino + colisionPlayer.actual).ToString() + " (3)" + " (UnityEngine.Transform)";
+                if(casilla_destino + colisionPlayer.actual < 32){
+                    waypoint_final = "Sphere" + (casilla_destino + colisionPlayer.actual).ToString() + " (3)" + " (UnityEngine.Transform)";
+                }
+                else{
+                    waypoint_final = "Sphere32" + " (UnityEngine.Transform)";
+                }
+                Debug.Log("waypoint_final: "+ waypoint_final);
                 while (i<waypoints_personaje3.Count-1 && waypoints_personaje3[i].ToString() != waypoint_final)
                 {
                     
@@ -202,10 +213,7 @@ public class ComunPlayers : MonoBehaviour
                     i++;
                 }
                 recorrer.Add(waypoints_personaje3[i]);
-                if(i>waypoints_personaje3.Count-1){
-                    i = waypoints_personaje3.Count - 1;
-                    recorrer.Add(waypoints_personaje3[i]);
-                }
+                
             }
             if(CambiarPlayer.TurnoPlayer4){
 
@@ -217,17 +225,21 @@ public class ComunPlayers : MonoBehaviour
                 else{
                     i = GetWaypointActual(waypoint_actual, waypoints_personaje4);
                 }
-                waypoint_final = "Sphere" + (casilla_destino + colisionPlayer.actual).ToString() + " (4)" + " (UnityEngine.Transform)";
+                
+                if(casilla_destino + colisionPlayer.actual < 32){
+                    waypoint_final = "Sphere" + (casilla_destino + colisionPlayer.actual).ToString() + " (4)" + " (UnityEngine.Transform)";
+                }
+                else{
+                    waypoint_final = "Sphere32" + " (UnityEngine.Transform)";
+                }
+                Debug.Log("waypoint_final: "+ waypoint_final);
                 while (i<waypoints_personaje4.Count-1 && waypoints_personaje4[i].ToString() != waypoint_final)
                 {                   
                     recorrer.Add(waypoints_personaje4[i]);
                     i++;
                 }
                 recorrer.Add(waypoints_personaje4[i]);
-                if(i>waypoints_personaje4.Count-1){
-                    i = waypoints_personaje4.Count - 1;
-                    recorrer.Add(waypoints_personaje4[i]);
-                }
+               
                 
             }
         }

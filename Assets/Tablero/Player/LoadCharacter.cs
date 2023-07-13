@@ -50,13 +50,13 @@ public class LoadCharacter : MonoBehaviour
             player3.transform.position = DontDestroy.guardarPosPlayer3;
             player4.transform.position = DontDestroy.guardarPosPlayer4;
             
-            /*
+            
             player1.transform.rotation = DontDestroy.guardarRotacionPlayer1;
             player2.transform.rotation = DontDestroy.guardarRotacionPlayer2;
             player3.transform.rotation = DontDestroy.guardarRotacionPlayer3;
             player4.transform.rotation = DontDestroy.guardarRotacionPlayer4;
                 
-            */
+        
         }
         
         if(DontDestroy.guardarPosPlayer1  == cero){

@@ -66,6 +66,7 @@ public class MovementPlayer2 : MonoBehaviour
     {
 
         if(CambiarPlayer.TurnoPlayer2 && ComunPlayers.pierdeTurnoplayer2){
+            Dado1.SetActive(false);
             virtualCamera.Follow = transform;
             virtualCamera.LookAt = transform;
             if(EscogerPersonaje.character_choosed[1] == 0 && EscogerJugador.four_player == false ){
@@ -188,7 +189,8 @@ public class MovementPlayer2 : MonoBehaviour
                     virtualCamera.LookAt = null;
                     if(gira_una2){
                         ComunPlayers.espaldas = false;
-                        StartCoroutine(InterpolarRotacion2());
+                        //StartCoroutine(InterpolarRotacion2());
+                        transform.Rotate(Vector3.up, 180f);
                         gira_una2 = false;
                     }
                     textoDado.SetActive(false);
@@ -203,7 +205,7 @@ public class MovementPlayer2 : MonoBehaviour
                             botonPlayerSig.SetActive(true);
                         }
 
-                        if (EscogerPersonaje.character_choosed[0] == 0 && EscogerJugador.four_player == false)
+                        if (EscogerPersonaje.character_choosed[1] == 0 && EscogerJugador.four_player == false)
                         {
                             Wait_Siguiente();
                             if(wait_siguiente == false){
@@ -318,14 +320,14 @@ public class MovementPlayer2 : MonoBehaviour
                                 transform.Rotate(Vector3.up, -180f);
                                 ComunPlayers.espaldas = true;
                             }
-                            if(EscogerPersonaje.character_choosed[0] != 0 || EscogerJugador.four_player){
+                            if(EscogerPersonaje.character_choosed[1] != 0 || EscogerJugador.four_player){
 
-                                cartelFinal.text = "PLAYER" + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
-                                cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[0].ToString() + "WIN!! CONGRATULATIONS";
+                                cartelFinal.text = "PLAYER" + EscogerPersonaje.character_choosed[1].ToString() + "WIN!! CONGRATULATIONS";
+                                cartelFinal2.text = "PLAYER " + EscogerPersonaje.character_choosed[1].ToString() + "WIN!! CONGRATULATIONS";
 
                                
                             }
-                            if (EscogerPersonaje.character_choosed[0] == 0 && EscogerJugador.four_player == false)
+                            if (EscogerPersonaje.character_choosed[1] == 0 && EscogerJugador.four_player == false)
                             {
 
                                 cartelFinal.text = "FROG WIN!! CONGRATULATIONS";

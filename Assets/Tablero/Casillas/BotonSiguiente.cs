@@ -16,32 +16,37 @@ public class BotonSiguiente : MonoBehaviour
 
     public void ClickBoton()
     {
+        /*
         player1.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer1;
         player2.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer2;
         player3.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer3;
         player4.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer4;
-        /*
+        */
         if (CambiarPlayer.TurnoPlayer1)
         {
+            CambiarPlayer.TurnoPlayer1 = false;
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
-                CambiarPlayer.TurnoPlayer1 = false;
-                Debug.Log("1");
-                player1.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer1;
-
-
                 ComunPlayers.espaldas = true;
+
+                Quaternion newRotation = Quaternion.Euler(player1.transform.eulerAngles.x, player1.transform.eulerAngles.y -180f, player1.transform.eulerAngles.z);
+                player1.transform.rotation = newRotation;
+                DontDestroy.guardarRotacionPlayer1 = player1.transform.rotation;
+                Debug.Log("1");
             }
         }
         if (CambiarPlayer.TurnoPlayer2)
         {
-
+            CambiarPlayer.TurnoPlayer2 = false;
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
-                CambiarPlayer.TurnoPlayer2 = false;
-                Debug.Log("2");
-                player2.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer2;
                 ComunPlayers.espaldas = true;
+                
+                
+                Quaternion newRotation = Quaternion.Euler(player2.transform.eulerAngles.x, player2.transform.eulerAngles.y -180f, player2.transform.eulerAngles.z);
+                player2.transform.rotation = newRotation;
+                DontDestroy.guardarRotacionPlayer2 = player2.transform.rotation;
+                Debug.Log("2");
             }
         }
         if (CambiarPlayer.TurnoPlayer3)
@@ -49,9 +54,12 @@ public class BotonSiguiente : MonoBehaviour
             CambiarPlayer.TurnoPlayer3 = false;
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
-                Debug.Log("3");
-                player3.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer3;
                 ComunPlayers.espaldas = true;
+               
+                Quaternion newRotation = Quaternion.Euler(player3.transform.eulerAngles.x, player3.transform.eulerAngles.y -180f, player3.transform.eulerAngles.z);
+                player3.transform.rotation = newRotation;
+                DontDestroy.guardarRotacionPlayer3 = player3.transform.rotation;
+                Debug.Log("3");
             }
         }
         if (CambiarPlayer.TurnoPlayer4)
@@ -59,69 +67,20 @@ public class BotonSiguiente : MonoBehaviour
             CambiarPlayer.TurnoPlayer4 = false;
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
-                Debug.Log("4");
-                player4.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer4;
                 ComunPlayers.espaldas = true;
+                
+                Quaternion newRotation = Quaternion.Euler(player4.transform.eulerAngles.x, player4.transform.eulerAngles.y -180f, player4.transform.eulerAngles.z);
+                player4.transform.rotation = newRotation;
+                DontDestroy.guardarRotacionPlayer4 = player4.transform.rotation;
+                Debug.Log("4");
             }
         }
-        */
+        
     }
 
     public void SiguientePlayer(){
-
+        Debug.Log("Boton Siguiente");
         siguientePlayer = true;
-
-        //ROTAR DE NUEVO JUGADOR
-        /*
-        if(CambiarPlayer.TurnoPlayer1 && ComunPlayers.pierdeTurnoplayer1 == false){
-  
-            if (ComunPlayers.espaldas == false) //Si está mirando a camara
-            {
-                Debug.Log("entra1");
-                player1.transform.Rotate(Vector3.up, -180f);
-                ComunPlayers.espaldas = true;
-            }
-            
-            DontDestroy.guardarPosPlayer1 = player1.transform.position;
-            DontDestroy.guardarRotacionPlayer1 = player1.transform.rotation;
-            CambiarPlayer.TurnoPlayer1 = false;
-        }
-        if(CambiarPlayer.TurnoPlayer2 && ComunPlayers.pierdeTurnoplayer2 == false){
-            if (ComunPlayers.espaldas == false) //Si está mirando a camara
-            {   Debug.Log("entra2");
-                player2.transform.Rotate(Vector3.up, -180f);
-                ComunPlayers.espaldas = true;
-            }
-            DontDestroy.guardarPosPlayer2 = player2.transform.position;
-            DontDestroy.guardarRotacionPlayer2 = player2.transform.rotation;
-            CambiarPlayer.TurnoPlayer2 = false;
-        }
-
-        if(CambiarPlayer.TurnoPlayer3 && ComunPlayers.pierdeTurnoplayer3 == false){
-
-            if (ComunPlayers.espaldas == false) //Si está mirando a camara
-            {   
-                Debug.Log("entra3");
-                player3.transform.Rotate(Vector3.up, -180f);
-                ComunPlayers.espaldas = true;
-            }
-            DontDestroy.guardarPosPlayer3 = player3.transform.position;
-            DontDestroy.guardarRotacionPlayer3 = player3.transform.rotation;
-            CambiarPlayer.TurnoPlayer3 = false;
-        }
-
-        if(CambiarPlayer.TurnoPlayer4 && ComunPlayers.pierdeTurnoplayer4 == false){
-            if (ComunPlayers.espaldas == false) //Si está mirando a camara
-            {
-                Debug.Log("entra4");
-                player4.transform.Rotate(Vector3.up, -180f);
-                ComunPlayers.espaldas = true;
-            }
-            DontDestroy.guardarPosPlayer4 = player4.transform.position;
-            DontDestroy.guardarRotacionPlayer4 = player4.transform.rotation;
-            CambiarPlayer.TurnoPlayer4 = false;
-        }
-        */
         LetreroNoMinijuego.SetActive(false);
 
         if(ComunPlayers.index<3 ){
