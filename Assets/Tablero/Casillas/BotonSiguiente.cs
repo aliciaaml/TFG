@@ -16,12 +16,6 @@ public class BotonSiguiente : MonoBehaviour
 
     public void ClickBoton()
     {
-        /*
-        player1.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer1;
-        player2.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer2;
-        player3.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer3;
-        player4.transform.rotation = ComunPlayers.guardarRotacionAlanteplayer4;
-        */
         if (CambiarPlayer.TurnoPlayer1)
         {
             CambiarPlayer.TurnoPlayer1 = false;
@@ -32,7 +26,7 @@ public class BotonSiguiente : MonoBehaviour
                 Quaternion newRotation = Quaternion.Euler(player1.transform.eulerAngles.x, player1.transform.eulerAngles.y -180f, player1.transform.eulerAngles.z);
                 player1.transform.rotation = newRotation;
                 DontDestroy.guardarRotacionPlayer1 = player1.transform.rotation;
-                Debug.Log("1");
+               
             }
         }
         if (CambiarPlayer.TurnoPlayer2)
@@ -46,7 +40,7 @@ public class BotonSiguiente : MonoBehaviour
                 Quaternion newRotation = Quaternion.Euler(player2.transform.eulerAngles.x, player2.transform.eulerAngles.y -180f, player2.transform.eulerAngles.z);
                 player2.transform.rotation = newRotation;
                 DontDestroy.guardarRotacionPlayer2 = player2.transform.rotation;
-                Debug.Log("2");
+              
             }
         }
         if (CambiarPlayer.TurnoPlayer3)
@@ -59,7 +53,7 @@ public class BotonSiguiente : MonoBehaviour
                 Quaternion newRotation = Quaternion.Euler(player3.transform.eulerAngles.x, player3.transform.eulerAngles.y -180f, player3.transform.eulerAngles.z);
                 player3.transform.rotation = newRotation;
                 DontDestroy.guardarRotacionPlayer3 = player3.transform.rotation;
-                Debug.Log("3");
+   
             }
         }
         if (CambiarPlayer.TurnoPlayer4)
@@ -72,14 +66,14 @@ public class BotonSiguiente : MonoBehaviour
                 Quaternion newRotation = Quaternion.Euler(player4.transform.eulerAngles.x, player4.transform.eulerAngles.y -180f, player4.transform.eulerAngles.z);
                 player4.transform.rotation = newRotation;
                 DontDestroy.guardarRotacionPlayer4 = player4.transform.rotation;
-                Debug.Log("4");
+
             }
         }
         
     }
 
     public void SiguientePlayer(){
-        Debug.Log("Boton Siguiente");
+
         siguientePlayer = true;
         LetreroNoMinijuego.SetActive(false);
 

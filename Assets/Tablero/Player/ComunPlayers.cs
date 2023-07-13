@@ -89,15 +89,6 @@ public class ComunPlayers : MonoBehaviour
             guardarRotacionAlanteplayer3 = player3.transform.rotation;
             guardarRotacionAlanteplayer4 = player4.transform.rotation;
         }
-        /*
-        if(ElegirPosiciones.ElegirTurnoTerminado && espaldas)
-        {
-            player1.transform.rotation = guardarRotacionAlanteplayer1;
-            player2.transform.rotation = guardarRotacionAlanteplayer2;
-            player3.transform.rotation = guardarRotacionAlanteplayer3;
-            player4.transform.rotation = guardarRotacionAlanteplayer4;
-        }
-        */
 
         if(primeraRonda && siguiente){
 
@@ -127,8 +118,6 @@ public class ComunPlayers : MonoBehaviour
 
     public List<Transform> GetWaypointsRecorrer()
     {
-
-
         List<Transform> recorrer = new List<Transform>();
         
         if (NumDado.resultado_dado_obtenido)

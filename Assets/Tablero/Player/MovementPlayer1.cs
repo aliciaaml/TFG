@@ -112,7 +112,7 @@ public class MovementPlayer1 : MonoBehaviour
         }
 
         else if (CambiarPlayer.TurnoPlayer1 && panelPierdeTurno.activeSelf == false && panelPierdeTurnoIA.activeSelf == false) {
-            Debug.Log("nooo entresss1");
+
             if (ElegirPosiciones.turno_terminado == false) {
 
                 virtualCamera.Follow = transform;
@@ -226,7 +226,6 @@ public class MovementPlayer1 : MonoBehaviour
                                 
                                 if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                 {
-                                    Debug.Log("IA");
                                     transform.Rotate(Vector3.up, -180f);
                                     ComunPlayers.espaldas = true;
                                 }
@@ -284,7 +283,6 @@ public class MovementPlayer1 : MonoBehaviour
                                         ComunPlayers.una_por_turno = true;
                                         if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                         {
-                                            Debug.Log("IA");
                                             transform.Rotate(Vector3.up, -180f);
                                             ComunPlayers.espaldas = true;
                                         }
@@ -308,7 +306,6 @@ public class MovementPlayer1 : MonoBehaviour
 
                                         if (ComunPlayers.espaldas == false) //Si está mirando a camara
                                         {
-                                            Debug.Log("IA");
                                             transform.Rotate(Vector3.up, -180f);
                                             ComunPlayers.espaldas = true;
                                         }
@@ -333,7 +330,7 @@ public class MovementPlayer1 : MonoBehaviour
                         if(CasillaMinCoco.casilla_minijuego == "CASILLA_FINAL"){
                             if (ComunPlayers.espaldas == false) //Si está mirando a camara
                             {
-                                Debug.Log("IA");
+                                
                                 transform.Rotate(Vector3.up, -180f);
                                 ComunPlayers.espaldas = true;
                             }

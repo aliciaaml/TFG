@@ -22,9 +22,7 @@ public class BotonMinijuego : MonoBehaviour
         LoadTablero.salirMinijuego = false;  
         ComunPlayers.no_detect_casilla_minijuego = true;    
         if(CambiarPlayer.TurnoPlayer1){
-            Debug.Log("minijuego por la cara");
-            //Quaternion newRotation = Quaternion.Euler(player1.transform.eulerAngles.x, player1.transform.eulerAngles.y -180f, player1.transform.eulerAngles.z);
-            //player1.transform.rotation = newRotation;
+           
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
                 player1.transform.Rotate(Vector3.up, -180f);
@@ -35,7 +33,7 @@ public class BotonMinijuego : MonoBehaviour
             CambiarPlayer.TurnoPlayer1 = false;
         }
         if(CambiarPlayer.TurnoPlayer2){
-            Debug.Log("minijuego por la cara");
+            
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
                 player2.transform.Rotate(Vector3.up, -180f);
@@ -47,7 +45,7 @@ public class BotonMinijuego : MonoBehaviour
         }
 
         if(CambiarPlayer.TurnoPlayer3){
-            Debug.Log("minijuego por la cara");
+            
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
                 player3.transform.Rotate(Vector3.up, -180f);
@@ -59,7 +57,7 @@ public class BotonMinijuego : MonoBehaviour
         }
 
         if(CambiarPlayer.TurnoPlayer4){
-            Debug.Log("minijuego por la cara");
+           
             if (ComunPlayers.espaldas == false) //Si está mirando a camara
             {
                 player4.transform.Rotate(Vector3.up, -180f);
@@ -73,7 +71,7 @@ public class BotonMinijuego : MonoBehaviour
         LetreroMinijuego.SetActive(false);
         botonMinijuego.SetActive(false);
 
-        //ScriptBotonSiguiente.SiguientePlayer();
+        
 
         if(CasillaMinCoco.casilla_minijuego == "juego_pesca"){
 

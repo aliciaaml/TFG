@@ -40,6 +40,7 @@ public class Replay : MonoBehaviour
         ComunPlayers.pierdeTurnoplayer4 = false;
         ComunPlayers.una_por_turno = true;
         ComunPlayers.espaldas = true;
+        ComunPlayers.guardaRotacionuna = true;
 
 
         MovementPlayer1.una_vez = true;
@@ -137,6 +138,12 @@ public class Replay : MonoBehaviour
         LoadTablero.salirMinijuego = false;
 
         LoadCharacter.una_al_salirMinijuego = false;
+        LoadCharacter.posInitPlayer1 =   LoadCharacter.posInitPlayer1;
+        LoadCharacter.posInitPlayer2 =   LoadCharacter.posInitPlayer2;
+        LoadCharacter.posInitPlayer3 =   LoadCharacter.posInitPlayer3;
+        LoadCharacter.posInitPlayer4 =   LoadCharacter.posInitPlayer4;
+
+
         BotonSiguiente.siguientePlayer = false;
         ColliderEnable.collider_casilla = false;
         Rota90.una = true;
